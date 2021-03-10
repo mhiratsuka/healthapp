@@ -26,7 +26,6 @@ export const UseJournal = (): {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors, isValid, isDirty },
   } = useForm<journalType>({
     mode: 'onChange',
