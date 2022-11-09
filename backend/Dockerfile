@@ -2,6 +2,9 @@ FROM ruby:3.0
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /healthapp
 WORKDIR /healthapp
+RUN git clone https://github.com/vishnubob/wait-for-it.git /tmp/wait-for-it \
+  && cp /tmp/wait-for-it/wait-for-it.sh /usr/local/bin/ \
+  && rm -rf /tmp/wait-for-it
 COPY Gemfile /healthapp/Gemfile
 COPY Gemfile.lock /healthapp/Gemfile.lock
 RUN bundle install
