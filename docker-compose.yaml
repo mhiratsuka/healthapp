@@ -16,6 +16,7 @@ services:
       /bin/sh -c "rm -f /healthapp/tmp/pids/server.pid &&
       bundle exec rails db:create &&
       bundle exec rails db:migrate &&
+      bundle exec rails db:seed &&
       bundle exec rails s -p 3000 -b '0.0.0.0'"
     image: rails:dev
     volumes:
