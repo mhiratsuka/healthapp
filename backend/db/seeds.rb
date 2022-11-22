@@ -2,7 +2,7 @@ Dir[File.expand_path('./db/seeds/development' << '/*.rb')].each do |file|
   require file
 end
 # table_names = %w(
-#   genders
+#   sexes
 # )
 
 # table_names.each do |table_name|
