@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_20_130016) do
+ActiveRecord::Schema.define(version: 2022_11_22_134757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pet_sexes", force: :cascade do |t|
+    t.bigint "sex_id", null: false
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_pet_sexes_on_pet_id"
+    t.index ["sex_id"], name: "index_pet_sexes_on_sex_id"
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "kind"
+    t.date "birthday"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
+  create_table "sexes", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -23,4 +48,7 @@ ActiveRecord::Schema.define(version: 2022_11_20_130016) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "pet_sexes", "pets"
+  add_foreign_key "pet_sexes", "sexes"
+  add_foreign_key "pets", "users"
 end

@@ -4,19 +4,15 @@ if Sex.count == 0
     [
       {
         name: "male",
-        code: 0,
       },
       {
         name: "female",
-        code: 1,
       },
       {
         name: "neutered male",
-        code: 2,
       },
       {
         name: "spayed female",
-        code: 3,
       }
     ]
   )
