@@ -3,4 +3,5 @@ class Pet < ApplicationRecord
     dependent: :destroy
   has_one :sex,
     through: :pet_sex
+  belongs_to :user
 end
