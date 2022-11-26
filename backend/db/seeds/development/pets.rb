@@ -14,6 +14,12 @@ if Pet.count == 0
         birthday: "2020-02-09",
         user_id: 2,
       },
+      {
+        name: "Peter",
+        kind: "dog",
+        birthday: "2020-06-01",
+        user_id: 1,
+      },
     ]
   )
 else
