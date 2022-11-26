@@ -1,0 +1,51 @@
+class PetsController < ApplicationController
+  # GET /users/:user_id/pets
+  def index
+    pets = load_pets(params[:user_id])
+    render json: { status: 'SUCCESS', message: 'Loaded pets', data: pets }
+  end
+
+  # GET /pets/:id
+  def show
+    pet = load_pet(params[:id])
+    render json: { status: 'SUCCESS', message: 'Loaded pet', data: pet }
+  end
+
+  # PATCH/PUT /pets/:id
+  def update
+    pet = load_pet(params[:id])
+    if pet.update(pet_params)
+      render json: {
+        status: 'SUCCESS',
+        message: 'Updated the pet',
+        data: pet
+      }
+    else
+      render json: {
+        status: 'ERROR',
+        message: 'Not updated the pet',
+        data: pet.errors
+      }
+    end
+  end
+
+  # DELETE /pets/:id
+  def destroy
+    pet = load_pet(params[:id])
+    pet.destroy
+    render json: { status: 'SUCCESS', message: 'Deleted the pet', data: pet }
+  end
+
+  private
+    def load_pets(user_id)
+      Pet.where(user_id: user_id)
+    end
+
+    def load_pet(id)
+      Pet.find(id)
+    end
+
+    def pet_params
+      params.require(:pet).permit(:name, :kind, :birthday)
+    end
+end
