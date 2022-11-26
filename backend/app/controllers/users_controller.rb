@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     render json: { status: 'SUCCESS', message: 'Loaded users', data: users }
   end
 
-  # GET /users/1
+  # GET /users/:id
   def show
     user = load_user(params[:id])
     render json: { status: 'SUCCESS', message: 'Loaded user', data: user }
   end
 
-  # User /users
+  # Create /users
   def create
     user = User.new(user_params)
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
+  # PATCH/PUT /users/:id
   def update
     user = load_user(params[:id])
     if user.update(user_params)
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
+  # DELETE /users/:id
   def destroy
     user = load_user(params[:id])
     user.destroy
