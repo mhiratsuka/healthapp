@@ -11,6 +11,25 @@ class PetsController < ApplicationController
     render json: { status: 'SUCCESS', message: 'Loaded pet', data: pet }
   end
 
+  # Create /users/:user_id/pets
+  def create
+    pet = Pet.new(pet_params)
+
+    if pet.save
+      render json: {
+        status: 'New pet created',
+        message: 'Created the pet',
+        data: pet
+      }
+    else
+      render json: {
+        status: 'pet is not creted',
+        message: 'Not created the pet',
+        data: pet.errors
+      }
+    end
+  end
+
   # PATCH/PUT /pets/:id
   def update
     pet = load_pet(params[:id])
@@ -46,6 +65,6 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :kind, :birthday)
+      params.permit(:name, :kind, :birthday, :user_id)
     end
 end
