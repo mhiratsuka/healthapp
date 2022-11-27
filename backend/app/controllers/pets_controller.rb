@@ -14,6 +14,7 @@ class PetsController < ApplicationController
   # Create /users/:user_id/pets
   def create
     pet = Pet.new(pet_params)
+    pet.user_id = params[:user_id]
 
     if pet.save
       render json: {
@@ -65,6 +66,6 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.permit(:name, :kind, :birthday, :user_id)
+      params.require(:pet).permit(:name, :kind, :birthday)
     end
 end
