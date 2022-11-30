@@ -15,6 +15,7 @@ class PetsController < ApplicationController
   def create
     pet = Pet.new(pet_params)
     pet.user_id = params[:user_id]
+    pet.sex_id = params[:sex_id]
 
     if pet.save
       render json: {
@@ -34,6 +35,8 @@ class PetsController < ApplicationController
   # PATCH/PUT /pets/:id
   def update
     pet = load_pet(params[:id])
+    pet.sex_id = params[:sex_id] if params[:sex_id]
+
     if pet.update(pet_params)
       render json: {
         status: 'SUCCESS',
