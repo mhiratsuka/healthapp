@@ -2,7 +2,6 @@ tables = %w(
   users
   sexes
   pets
-  pet_sexes
 )
 
 tables.each do |table|
