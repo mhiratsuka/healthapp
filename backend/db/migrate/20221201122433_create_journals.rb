@@ -7,6 +7,8 @@ class CreateJournals < ActiveRecord::Migration[6.1]
       t.text :note
       t.string :category
 
+      t.references :pet, null: false, foreign_key: true
+
       t.timestamps
     end
   end

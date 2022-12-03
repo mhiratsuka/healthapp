@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_134555) do
+ActiveRecord::Schema.define(version: 2022_12_01_122433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "journals", force: :cascade do |t|
+    t.string "title"
+    t.date "from_date"
+    t.date "to_date"
+    t.text "note"
+    t.string "category"
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_journals_on_pet_id"
+  end
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
@@ -41,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_11_22_134555) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "journals", "pets"
   add_foreign_key "pets", "sexes"
   add_foreign_key "pets", "users"
 end

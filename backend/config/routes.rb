@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :users do
       resources :pets, only: [:index, :create]
     end
-    resources :pets, only: [:show, :update, :destroy]
+    resources :pets, only: [:show, :update, :destroy] do
+      resources :journals
+    end
   end
 end
