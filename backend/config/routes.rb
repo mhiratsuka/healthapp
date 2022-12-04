@@ -5,7 +5,8 @@ Rails.application.routes.draw do
       resources :pets, only: [:index, :create]
     end
     resources :pets, only: [:show, :update, :destroy] do
-      resources :journals
+      resources :journals, only: [:index, :create]
     end
+    resources :journals, only: [:show, :update, :destroy]
   end
 end
