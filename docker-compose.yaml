@@ -30,13 +30,13 @@ services:
       - db
   frontend:
     build:
-      context: ./frontend/
+      context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend:/usr/src/app
-    command: sh -c "cd app && yarn start"
+      - ./frontend:/work
+    command: sh -c "cd app && yarn dev --host"
     ports:
-      - "3000:3000"
+      - "3000:5173"
 volumes:
   postgres-data:
     driver: local
