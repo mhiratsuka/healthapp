@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
-import { Top } from './pages/Top'
-import { Login } from './pages/Login'
-import { Journal } from './pages/Journal'
-import { JournalDetail } from './pages/JournalDetail'
+import { Top } from '@/pages/Top'
+import { Login } from '@/pages/Login'
+import { Journal } from '@/pages/Journal'
+import { JournalDetail } from '@/pages/JournalDetail'
 
 
 export const routes = (
