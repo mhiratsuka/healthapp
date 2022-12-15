@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .tsx,.ts src/",
-    "lintfix": "eslint --fix-dry-run .tsx,.ts src/"
+    "lintfix": "eslint --fix --ext .tsx,.ts src/"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
