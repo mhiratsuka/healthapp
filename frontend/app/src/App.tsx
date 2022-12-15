@@ -1,7 +1,10 @@
+import { FC } from 'react'
 import { routes } from '@/routes'
 
-export default function App() {
+const App: FC = () => {
   return (
     <>{routes}</>
   )
 }
+
+export default App
