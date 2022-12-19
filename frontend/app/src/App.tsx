@@ -1,9 +1,13 @@
 import { FC } from 'react'
 import { routes } from '@/routes'
+import { themes } from '@/material/theme'
+import { ThemeProvider } from '@mui/material'
 
 const App: FC = () => {
   return (
-    <>{routes}</>
+    <ThemeProvider theme={themes}>
+      {routes}
+    </ThemeProvider>
   )
 }
 
