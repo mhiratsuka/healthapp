@@ -5,7 +5,9 @@ import { Layout } from '@/components/Layout'
 export const Journal: FC = () => {
   return (
   <Layout title={'journal'}>
-    <Box>Journal page</Box>
+    <Box display='flex' flexDirection='column' width='100%'>
+      Journal page
+    </Box>
   </Layout>
   )
 }
