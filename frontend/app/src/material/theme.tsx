@@ -1,7 +1,7 @@
-import { createTheme } from '@mui/material'
+import { createTheme, ThemeOptions } from '@mui/material'
+import { typographyTheme } from './components/Typography'
 
-
-export const themes = createTheme({
+const baseTheme: ThemeOptions = {
   palette: {
     primary: {
       main: '#006DCF',
@@ -19,5 +19,9 @@ export const themes = createTheme({
       main: '#0CA998',
     },
     contrastThreshold: 4.5
-  },
-})
+  }
+}
+
+const themeOptions = [typographyTheme]
+
+export const themes = createTheme(baseTheme, ...themeOptions)
