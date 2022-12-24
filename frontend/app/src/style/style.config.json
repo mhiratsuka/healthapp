@@ -1,0 +1,33 @@
+{
+  "source": ["token.json"],
+  "platforms": {
+    "scss": {
+      "buildPath": "scss/",
+      "transformGroup": "scss",
+      "files": [
+        {
+          "destination": "tokens.scss",
+          "format": "scss/map-deep",
+          "mapName": "css-tokens",
+          "options": {
+            "outputReferences": true
+          }
+        }
+      ]
+    },
+    "ts": {
+      "buildPath": "ts/",
+      "transformGroup": "js",
+      "files": [
+        {
+          "format": "javascript/es6",
+          "destination": "tokens.ts"
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "tokens.d.ts"
+        }
+      ]
+    }
+  }
+}
