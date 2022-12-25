@@ -1,0 +1,19 @@
+
+/**
+ * Do not edit directly
+ * Generated on Sun, 25 Dec 2022 13:58:34 GMT
+ */
+
+$success: #0CA998 !default;
+$info: #00A0FF !default;
+$warning: #FF8F48 !default;
+$secondary: #9B61A3 !default;
+$primary: #006DCF !default;
+
+$css-tokens: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'warning': $warning,
+  'info': $info,
+  'success': $success
+);

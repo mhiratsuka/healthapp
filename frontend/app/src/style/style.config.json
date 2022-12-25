@@ -1,8 +1,8 @@
 {
-  "source": ["token.json"],
+  "source": ["./src/style/output.json"],
   "platforms": {
     "scss": {
-      "buildPath": "scss/",
+      "buildPath": "./src/style/scss/",
       "transformGroup": "scss",
       "files": [
         {
@@ -16,7 +16,7 @@
       ]
     },
     "ts": {
-      "buildPath": "ts/",
+      "buildPath": "./src/style/ts/",
       "transformGroup": "js",
       "files": [
         {
