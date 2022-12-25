@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .tsx,.ts src/",
-    "lintfix": "eslint --fix --ext .tsx,.ts src/"
+    "lintfix": "eslint --fix --ext .tsx,.ts src/",
+    "tokengen": "token-transformer ./src/style/tokens.json ./src/style/output.json",
+    "tokenbuild": "style-dictionary build --config ./src/style/style.config.json"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -36,6 +38,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.1",
     "style-dictionary": "^3.7.1",
+    "token-transformer": "^0.0.28",
     "typescript": "*",
     "vite": "^4.0.0",
     "vite-tsconfig-paths": "^4.0.2"
