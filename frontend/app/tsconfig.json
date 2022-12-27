@@ -22,5 +22,6 @@
     },
   },
   "include": ["src"],
+  "files": ["./src/style/ts/tokens.d.ts"], // MEMO: tokens.tsのせいかここに書かないとエラーが出てしまう
   "references": [{ "path": "./tsconfig.node.json" }]
 }
