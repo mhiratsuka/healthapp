@@ -1,6 +1,6 @@
+import { Box, SxProps } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
-import { Box, SxProps } from '@mui/material'
 
 export const Layout: FC<{ title: string; children?: ReactNode; mainSxProps?: SxProps }> = ({ title, children, mainSxProps }) => {
   return (
