@@ -4,8 +4,13 @@ import { FC } from 'react'
 import { Layout } from '@/components/Layout'
 import { Primary } from '@/style/ts/tokens'
 
+import { UseJournal } from './hooks'
 
 export const Journal: FC = () => {
+  const { pets } = UseJournal()
+
+  console.log(`pets ${pets}`)
+
   return (
   <Layout title={'journal'}>
     <Box display='flex' flexDirection='column' width='100%'>
