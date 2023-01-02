@@ -9,8 +9,11 @@ export const UseJournal = () => {
   useEffect(() => {
 
     axios.get('http://localhost:8000/api/users/1/pets')
-      .then(response => setPets(response.data))
-      .catch(error => console.log(error))
+      .then((res) => {
+        console.log(res)
+        setPets(res.data)
+      })
+      .catch((e) => console.log(e))
   }, [])
 
     return {
