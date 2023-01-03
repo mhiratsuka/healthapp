@@ -11,7 +11,7 @@ export const UseJournal = () => {
     axios.get('http://localhost:8000/api/users/1/pets')
       .then((res) => {
         console.log(res)
-        setPets(res.data)
+        setPets(res.data.data)
       })
       .catch((e) => console.log(e))
   }, [])
