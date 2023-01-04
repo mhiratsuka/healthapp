@@ -4,20 +4,20 @@ import { useState, useEffect } from 'react'
 
 
 export const UseJournal = () => {
-  const [pets, setPets] = useState([])
+  const [journals, setJournals] = useState([])
 
   useEffect(() => {
 
-    axios.get('http://localhost:8000/api/users/1/pets')
+    axios.get('http://localhost:8000/api/pets/1/journals')
       .then((res) => {
         console.log(res)
-        setPets(res.data.data)
+        setJournals(res.data.data)
       })
       .catch((e) => console.log(e))
   }, [])
 
     return {
-      pets
+      journals
     }
 
 }
