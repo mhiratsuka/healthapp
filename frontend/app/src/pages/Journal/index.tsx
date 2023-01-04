@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,7 +14,7 @@ import { Primary } from '@/style/ts/tokens'
 import { UseJournal } from './hooks'
 
 export const Journal: FC = () => {
-  const { pets } = UseJournal()
+  const { journals } = UseJournal()
 
 
   return (
@@ -27,26 +27,23 @@ export const Journal: FC = () => {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Kind</TableCell>
-              <TableCell>Birthday</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {pets.map(({ name, kind, birthday }, idx) => (
+            {journals.map(({ title, from_date, to_date}, idx) => (
               <TableRow
                 key={idx}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ '&:last-child tds, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {name}
+                  {title}
                 </TableCell>
-                <TableCell align="right">{kind}</TableCell>
-                <TableCell align="right">{birthday}</TableCell>
+                <TableCell align="right">{from_date}~{to_date}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Button>Test</Button>
     </Box>
   </Layout>
   )
