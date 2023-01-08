@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import Link from '@mui/material/Link'
 import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
@@ -7,10 +8,10 @@ export const Top: FC = () => {
   return (
   <Layout title={'top'}>
     <nav>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>healthapp</div>
-        <div>login</div>
-      </Box>
+      <Link href="/">
+        <img src='/healthapp-icon.png' width='35px' />
+      </Link>
+      <div>Log in</div>
     </nav>
     <Box>Top page</Box>
   </Layout>
