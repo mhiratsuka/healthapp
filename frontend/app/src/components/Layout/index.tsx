@@ -1,17 +1,24 @@
-import { Box, SxProps } from '@mui/material'
+import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
-export const Layout: FC<{ title: string; children?: ReactNode; mainSxProps?: SxProps }> = ({ title, children, mainSxProps }) => {
+export const Layout: FC<{ title: string; children?: ReactNode }> = ({
+  title,
+  children,
+}) => {
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
+        <meta charSet='utf-8' />
         <title>{title}</title>
       </Helmet>
-      <Box component='main' height='100vh' sx={mainSxProps}>
+      <Box component='main' sx={{ ...style }}>
         {children}
       </Box>
     </>
   )
+}
+
+const style = {
+  height: '100vh',
 }

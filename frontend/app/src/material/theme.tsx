@@ -19,8 +19,8 @@ const baseTheme: ThemeOptions = {
     success: {
       main: '#0CA998',
     },
-    contrastThreshold: 4.5
-  }
+    contrastThreshold: 4.5,
+  },
 }
 
 const themeOptions = [typographyTheme]

@@ -5,8 +5,8 @@ import { Layout } from '@/components/Layout'
 
 export const Login: FC = () => {
   return (
-  <Layout title={'login'}>
-    <Box>Login page</Box>
-  </Layout>
+    <Layout title={'login'}>
+      <Box>Login page</Box>
+    </Layout>
   )
 }

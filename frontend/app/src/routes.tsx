@@ -5,7 +5,6 @@ import { JournalDetail } from '@/pages/JournalDetail'
 import { Login } from '@/pages/Login'
 import { Top } from '@/pages/Top'
 
-
 export const routes = (
   <Routes>
     <Route index element={<Top />} />

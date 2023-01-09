@@ -14,4 +14,3 @@ createRoot(container).render(
     </BrowserRouter>
   </Suspense>
 )
-

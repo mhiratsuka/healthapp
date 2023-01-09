@@ -7,7 +7,9 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .tsx,.ts src/",
+    "prettier": "prettier --check  './src/**/*.{ts,tsx}'",
+    "prettierfix": "prettier --write './src/**/*.{ts,tsx}'",
+    "lint": "eslint --ext=tsx,ts src",
     "lintfix": "eslint --fix --ext .tsx,.ts src/",
     "tokengen": "token-transformer ./src/style/tokens.json ./src/style/output.json",
     "tokenbuild": "style-dictionary build --config ./src/style/style.config.json"
