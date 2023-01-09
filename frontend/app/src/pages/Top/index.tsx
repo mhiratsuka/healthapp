@@ -9,7 +9,7 @@ export const Top: FC = () => {
   <Layout title={'top'}>
     <nav>
       <Link href="/">
-        <img src='/healthapp-icon.png' width='35px' />
+        <img src='/icon.svg' width='35px' />
       </Link>
       <div>Log in</div>
     </nav>
