@@ -1,10 +1,13 @@
 
 /**
  * Do not edit directly
- * Generated on Sun, 25 Dec 2022 13:58:34 GMT
+ * Generated on Tue, 10 Jan 2023 12:35:49 GMT
  */
 
+$serif: serif !default;
+$eb-garamond: EB Garamond !default;
 $success: #0CA998 !default;
+$libre-baskerville: Libre Baskerville !default;
 $info: #00A0FF !default;
 $warning: #FF8F48 !default;
 $secondary: #9B61A3 !default;
@@ -15,5 +18,8 @@ $css-tokens: (
   'secondary': $secondary,
   'warning': $warning,
   'info': $info,
-  'success': $success
+  'Libre Baskerville': $libre-baskerville,
+  'success': $success,
+  'EB Garamond': $eb-garamond,
+  'Serif': $serif
 );
