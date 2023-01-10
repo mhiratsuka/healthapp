@@ -15,8 +15,20 @@
     "value": "#00A0FF",
     "type": "color"
   },
+  "Libre Baskerville": {
+    "value": "Libre Baskerville",
+    "type": "fontFamilies"
+  },
   "success": {
     "value": "#0CA998",
     "type": "color"
+  },
+  "EB Garamond": {
+    "value": "EB Garamond",
+    "type": "fontFamilies"
+  },
+  "Serif": {
+    "value": "serif",
+    "type": "fontFamilies"
   }
 }

@@ -2,6 +2,8 @@ import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
+import { EbGaramond, LibreBaskerville, Serif } from '@/style/ts/tokens'
+
 export const Layout: FC<{ title: string; children?: ReactNode }> = ({
   title,
   children,
@@ -21,4 +23,5 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
 
 const style = {
   height: '100vh',
+  fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
 }
