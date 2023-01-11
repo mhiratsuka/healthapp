@@ -1,18 +1,18 @@
 import { Box } from '@mui/material'
-import Link from '@mui/material/Link'
 import { styled } from '@mui/material/styles'
 import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
+import { LinkTag } from '@/components/LinkTag'
 
 export const Top: FC = () => {
   return (
     <Layout title={'top'}>
       <Nav>
-        <Link href='/'>
+        <LinkTag link='/'>
           <img src='/icon.svg' width='35px' />
-        </Link>
-        <Link href='/login'>Log in</Link>
+        </LinkTag>
+        <LinkTag link='/login'>Log in</LinkTag>
       </Nav>
       <Box>Top page</Box>
     </Layout>
