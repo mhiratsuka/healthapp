@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { FC } from 'react'
 
@@ -14,7 +14,32 @@ export const Top: FC = () => {
         </LinkTag>
         <LinkTag link='/login'>Log in</LinkTag>
       </Nav>
-      <Box>Top page</Box>
+      <Box
+        sx={{
+          display: 'flex',
+        }}
+      >
+        <Box>
+          <Typography variant='h1'>Monitor Your pet health</Typography>
+          <Button>Start healthapp</Button>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+          }}
+        >
+          <Box
+            component='img'
+            src='/top-pet.jpg'
+            alt='top pet image'
+            sx={{
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          ></Box>
+        </Box>
+      </Box>
+      <Box></Box>
     </Layout>
   )
 }
