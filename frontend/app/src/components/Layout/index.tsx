@@ -24,4 +24,5 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
 const style = {
   height: '100vh',
   fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
+  margin: '1rem',
 }
