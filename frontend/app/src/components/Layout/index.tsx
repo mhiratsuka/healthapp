@@ -4,10 +4,13 @@ import { Helmet } from 'react-helmet'
 
 import { EbGaramond, LibreBaskerville, Serif } from '@/style/ts/tokens'
 
+import { useLayout } from './hook'
+
 export const Layout: FC<{ title: string; children?: ReactNode }> = ({
   title,
   children,
 }) => {
+  const { year } = useLayout()
   return (
     <>
       <Helmet>
@@ -16,6 +19,9 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
       </Helmet>
       <Box component='main' sx={{ ...style }}>
         {children}
+        <Box component='footer' sx={{ textAlign: 'center' }}>
+          © {year} healthapp
+        </Box>
       </Box>
     </>
   )
@@ -24,5 +30,5 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
 const style = {
   height: '100vh',
   fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
-  margin: '1rem',
+  margin: '2rem',
 }
