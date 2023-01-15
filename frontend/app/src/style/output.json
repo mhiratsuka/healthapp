@@ -1,27 +1,32 @@
 {
   "primary": {
     "value": "#006DCF",
-    "type": "color"
+    "type": "color",
+    "description": "Blue based color"
   },
   "secondary": {
     "value": "#9B61A3",
-    "type": "color"
+    "type": "color",
+    "description": "Purple based color"
   },
   "warning": {
     "value": "#FF8F48",
-    "type": "color"
+    "type": "color",
+    "description": "Orange based color"
   },
   "info": {
     "value": "#00A0FF",
-    "type": "color"
+    "type": "color",
+    "description": "Sky blue based color"
   },
   "Libre Baskerville": {
     "value": "Libre Baskerville",
     "type": "fontFamilies"
   },
   "success": {
-    "value": "#0CA998",
-    "type": "color"
+    "value": "#6ACE8C",
+    "type": "color",
+    "description": "Light green based color"
   },
   "EB Garamond": {
     "value": "EB Garamond",
@@ -30,5 +35,10 @@
   "Serif": {
     "value": "serif",
     "type": "fontFamilies"
+  },
+  "main": {
+    "value": "#0CA998",
+    "type": "color",
+    "description": "This is the main color in this app."
   }
 }

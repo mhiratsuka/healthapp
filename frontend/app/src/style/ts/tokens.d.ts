@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Jan 2023 12:35:49 GMT
+ * Generated on Sun, 15 Jan 2023 12:07:14 GMT
  */
 
 export const Primary : string;
@@ -11,3 +11,4 @@ export const LibreBaskerville : string;
 export const Success : string;
 export const EbGaramond : string;
 export const Serif : string;
+export const Main : string;
