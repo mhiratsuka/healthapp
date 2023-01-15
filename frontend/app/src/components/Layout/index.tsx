@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { EbGaramond, LibreBaskerville, Serif } from '@/style/ts/tokens'
+import { EbGaramond, LibreBaskerville, Serif, Success } from '@/style/ts/tokens'
 
 import { useLayout } from './hook'
 
@@ -19,8 +19,19 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
       </Helmet>
       <Box component='main' sx={{ ...style }}>
         {children}
-        <Box component='footer' sx={{ textAlign: 'center' }}>
-          © {year} healthapp
+        <Box
+          component='footer'
+          sx={{
+            textAlign: 'center',
+            color: Success,
+            padding: '1rem',
+            fontSize: '1rem',
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+          }}
+        >
+          © {year} moniPetHealth
         </Box>
       </Box>
     </>
