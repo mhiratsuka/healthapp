@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { FC, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { EbGaramond, LibreBaskerville, Serif, Success } from '@/style/ts/tokens'
+import { EbGaramond, LibreBaskerville, Serif, Main } from '@/style/ts/tokens'
 
 import { useLayout } from './hook'
 
@@ -23,12 +23,12 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
           component='footer'
           sx={{
             textAlign: 'center',
-            color: Success,
+            color: Main,
             padding: '1rem',
             fontSize: '1rem',
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
+            position: { md: 'absolute' },
+            bottom: { md: 0 },
+            width: { md: '100%' },
           }}
         >
           © {year} moniPetHealth
