@@ -1,25 +1,45 @@
 import { createTheme, ThemeOptions } from '@mui/material'
 
+import { Primary, Secondary, Warning, Info, Success } from '@/style/ts/tokens'
+
 import { typographyTheme } from './components/Typography'
 
 const baseTheme: ThemeOptions = {
   palette: {
     primary: {
-      main: '#006DCF',
+      main: Primary,
     },
     secondary: {
-      main: '#9B61A3',
+      main: Secondary,
     },
     warning: {
-      main: '#FF8F48',
+      main: Warning,
     },
     info: {
-      main: '#00A0FF',
+      main: Info,
     },
     success: {
-      main: '#0CA998',
+      main: Success,
     },
     contrastThreshold: 4.5,
+  },
+  breakpoints: {
+    values: {
+      xs: 375,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          fontSize: '62.5%',
+        },
+      },
+    },
   },
 }
 
