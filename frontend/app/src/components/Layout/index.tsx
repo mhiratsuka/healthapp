@@ -1,5 +1,6 @@
-import { Box } from '@mui/material'
-import { FC, ReactNode } from 'react'
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
+import { FC, ElementType, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 
 import { EbGaramond, LibreBaskerville, Serif, Main } from '@/style/ts/tokens'
@@ -17,29 +18,27 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
         <meta charSet='utf-8' />
         <title>{title}</title>
       </Helmet>
-      <Box component='main' sx={{ ...style }}>
+      <MainContainer component='main'>
         {children}
-        <Box
-          component='footer'
-          sx={{
-            textAlign: 'center',
-            color: Main,
-            padding: '1rem',
-            fontSize: '1rem',
-            position: { md: 'absolute' },
-            bottom: { md: 0 },
-            width: { md: '100%' },
-          }}
-        >
-          © {year} moniPetHealth
-        </Box>
-      </Box>
+        <Footer component='footer'>© {year} moniPetHealth</Footer>
+      </MainContainer>
     </>
   )
 }
 
-const style = {
-  height: '100vh',
+const MainContainer = styled(Box)<{ component: ElementType }>(() => ({
   fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
   margin: '2rem',
-}
+}))
+
+const Footer = styled(Box)<{ component: ElementType }>(({ theme }) => ({
+  textAlign: 'center',
+  color: Main,
+  padding: '1rem',
+  fontSize: '1rem',
+  [theme.breakpoints.up('md')]: {
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+  },
+}))
