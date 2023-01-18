@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow'
 import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
+import { SideMenu } from '@/components/SideMenu'
 import { Primary } from '@/style/ts/tokens'
 
 import { UseJournal } from './hooks'
@@ -18,6 +19,7 @@ export const Journal: FC = () => {
 
   return (
     <Layout title={'journal'}>
+      <SideMenu />
       <Box display='flex' flexDirection='column' width='100%'>
         <Typography variant='h1' gutterBottom color={Primary}>
           Journal page
