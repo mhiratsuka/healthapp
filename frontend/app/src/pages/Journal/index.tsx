@@ -15,40 +15,51 @@ import { Primary } from '@/style/ts/tokens'
 import { UseJournal } from './hooks'
 
 export const Journal: FC = () => {
+  const drawerWidth = 240
   const { journals } = UseJournal()
 
   return (
     <Layout title={'journal'}>
-      <SideMenu />
-      <Box display='flex' flexDirection='column' width='100%'>
-        <Typography variant='h1' gutterBottom color={Primary}>
-          Journal page
-        </Typography>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-            <TableHead>
-              <TableRow>
-                <TableCell>Title</TableCell>
-                <TableCell>Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {journals.map(({ title, from_date, to_date }, idx) => (
-                <TableRow
-                  key={idx}
-                  sx={{ '&:last-child tds, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component='th' scope='row'>
-                    {title}
-                  </TableCell>
-                  <TableCell align='right'>
-                    {from_date}~{to_date}
-                  </TableCell>
+      <Box sx={{ display: { lg: 'flex' } }}>
+        <SideMenu drawerWidth={drawerWidth} />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1,
+            p: 3,
+            width: { lg: `calc(100% - ${drawerWidth}px)` },
+          }}
+        >
+          <Typography variant='h1' gutterBottom color={Primary}>
+            Journal page
+          </Typography>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Title</TableCell>
+                  <TableCell>Date</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {journals.map(({ title, from_date, to_date }, idx) => (
+                  <TableRow
+                    key={idx}
+                    sx={{ '&:last-child tds, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component='th' scope='row'>
+                      {title}
+                    </TableCell>
+                    <TableCell align='right'>
+                      {from_date}~{to_date}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
       </Box>
     </Layout>
   )

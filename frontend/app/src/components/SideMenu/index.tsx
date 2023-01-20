@@ -2,6 +2,7 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import MenuIcon from '@mui/icons-material/Menu'
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart'
 import SettingsIcon from '@mui/icons-material/Settings'
+import { Box } from '@mui/material'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -12,22 +13,24 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Toolbar from '@mui/material/Toolbar'
 import { FC, useState } from 'react'
-const drawerWidth = 240
 
-export const SideMenu: FC = () => {
+import { useSideMenu } from './hook'
+
+export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { isLargeScreen } = useSideMenu()
 
   const handleMenuToggle = (): void => {
     setMenuOpen(!menuOpen)
   }
 
   const drawer = (
-    <div>
+    <>
       <Toolbar />
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component='a' href='/journal'>
             <ListItemIcon>
               <MonitorHeartIcon />
             </ListItemIcon>
@@ -35,7 +38,8 @@ export const SideMenu: FC = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component='a' href='/journal'>
+            {/* TODO: Fixed later */}
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
@@ -46,7 +50,8 @@ export const SideMenu: FC = () => {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component='a' href='/journal'>
+            {/* TODO: Fixed later */}
             <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>
@@ -54,26 +59,29 @@ export const SideMenu: FC = () => {
           </ListItemButton>
         </ListItem>
       </List>
-    </div>
+    </>
   )
 
   return (
-    <>
+    <Box
+      component='nav'
+      aria-label='menu'
+      width={isLargeScreen ? `${drawerWidth}px` : 'inherit'}
+    >
       <IconButton
         color='inherit'
         aria-label='open drawer'
         edge='start'
         onClick={handleMenuToggle}
-        // sx={{ mr: 2, display: { sm: 'none' } }}
       >
         <MenuIcon />
       </IconButton>
       <Drawer
-        variant='temporary'
+        variant={isLargeScreen ? 'permanent' : 'temporary'}
         open={menuOpen}
         onClose={handleMenuToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           '.MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
@@ -81,33 +89,6 @@ export const SideMenu: FC = () => {
       >
         {drawer}
       </Drawer>
-      {/* <Drawer
-        variant='permanent'
-        sx={{
-          display: { xs: 'none', sm: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-        open
-      >
-        {drawer}
-      </Drawer> */}
-    </>
+    </Box>
   )
 }
-
-// const MainContainer = styled(Box)<{ component: ElementType }>(() => ({
-//   fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
-//   margin: '2rem',
-// }))
-
-// const Footer = styled(Box)<{ component: ElementType }>(({ theme }) => ({
-//   textAlign: 'center',
-//   color: Main,
-//   padding: '1rem',
-//   fontSize: '1rem',
-//   [theme.breakpoints.up('md')]: {
-//     position: 'fixed',
-//     bottom: 0,
-//     width: '100%',
-//   },
-// }))

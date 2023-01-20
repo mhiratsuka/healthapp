@@ -1,7 +1,9 @@
+import { useMediaQuery } from '@mui/material'
+import { Theme } from '@mui/material/styles'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-export const UseJournal = () => {
+export const UseJournal = (): { journals: any; isLargeScreen: boolean } => {
   const [journals, setJournals] = useState([])
 
   useEffect(() => {
@@ -16,5 +18,6 @@ export const UseJournal = () => {
 
   return {
     journals,
+    isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
   }
 }

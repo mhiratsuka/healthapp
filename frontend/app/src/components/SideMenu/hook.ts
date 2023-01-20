@@ -1,8 +1,8 @@
 import { useMediaQuery } from '@mui/material'
 import { Theme } from '@mui/material/styles'
 
-export const useSideMenu = (): { isTablet: boolean } => {
+export const useSideMenu = (): { isLargeScreen: boolean } => {
   return {
-    isTablet: useMediaQuery((theme: Theme) => theme.breakpoints.down('md')),
+    isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
   }
 }
