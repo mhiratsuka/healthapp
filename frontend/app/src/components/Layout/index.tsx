@@ -26,9 +26,12 @@ export const Layout: FC<{ title: string; children?: ReactNode }> = ({
   )
 }
 
-const MainContainer = styled(Box)<{ component: ElementType }>(() => ({
+const MainContainer = styled(Box)<{ component: ElementType }>(({ theme }) => ({
   fontFamily: `${LibreBaskerville}, ${EbGaramond}, ${Serif}`,
   margin: '2rem',
+  [theme.breakpoints.down('md')]: {
+    margin: '0',
+  },
 }))
 
 const Footer = styled(Box)<{ component: ElementType }>(({ theme }) => ({
