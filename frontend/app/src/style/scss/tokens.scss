@@ -1,9 +1,23 @@
 
 /**
  * Do not edit directly
- * Generated on Sun, 15 Jan 2023 12:07:14 GMT
+ * Generated on Sun, 22 Jan 2023 13:22:25 GMT
  */
 
+$ptag: [object Object] !default;
+$heading6: [object Object] !default;
+$heading5: [object Object] !default;
+$heading4: [object Object] !default;
+$heading3: [object Object] !default;
+$heading2: [object Object] !default;
+$p: 1rem !default;
+$h6: 1.5rem !default;
+$h5: 2rem !default;
+$h4: 2.5rem !default;
+$h3: 3rem !default;
+$h2: 3.5rem !default;
+$headings1: [object Object] !default;
+$h1: 4rem !default;
 $main: #0CA998 !default;
 $serif: serif !default;
 $eb-garamond: EB Garamond !default;
@@ -23,5 +37,19 @@ $css-tokens: (
   'success': $success,
   'EB Garamond': $eb-garamond,
   'Serif': $serif,
-  'main': $main
+  'main': $main,
+  'H1': $h1,
+  'Headings1': $headings1,
+  'H2': $h2,
+  'H3': $h3,
+  'H4': $h4,
+  'H5': $h5,
+  'H6': $h6,
+  'P': $p,
+  'Heading2': $heading2,
+  'Heading3': $heading3,
+  'Heading4': $heading4,
+  'Heading5': $heading5,
+  'Heading6': $heading6,
+  'Ptag': $ptag
 );
