@@ -45,9 +45,9 @@
     "value": "4rem",
     "type": "fontSizes"
   },
-  "Headings1": {
+  "Heading1": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "4rem"
     },
     "type": "typography"
@@ -78,42 +78,42 @@
   },
   "Heading2": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "3.5rem"
     },
     "type": "typography"
   },
   "Heading3": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "3rem"
     },
     "type": "typography"
   },
   "Heading4": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "2.5rem"
     },
     "type": "typography"
   },
   "Heading5": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "2rem"
     },
     "type": "typography"
   },
   "Heading6": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "1.5rem"
     },
     "type": "typography"
   },
-  "Ptag": {
+  "Body1": {
     "value": {
-      "fontFamily": "Libre Baskerville",
+      "fontFamily": "\"Libre Baskerville\", \"EB Garamond\", serif",
       "fontSize": "1rem"
     },
     "type": "typography"
