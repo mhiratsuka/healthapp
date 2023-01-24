@@ -1,10 +1,22 @@
-import { useMediaQuery } from '@mui/material'
-import { Theme } from '@mui/material/styles'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-export const UseJournal = (): { journals: any; isLargeScreen: boolean } => {
+export const UseJournal = (): {
+  journals: any
+  recordModalOpen: boolean
+  handleRecordModalOpen: () => void
+  handleRecordModalClose: () => void
+} => {
   const [journals, setJournals] = useState([])
+  const [recordModalOpen, setRecordModalOpen] = useState(false)
+
+  const handleRecordModalOpen = (): void => {
+    setRecordModalOpen(true)
+  }
+
+  const handleRecordModalClose = (): void => {
+    setRecordModalOpen(false)
+  }
 
   useEffect(() => {
     axios
@@ -18,6 +30,8 @@ export const UseJournal = (): { journals: any; isLargeScreen: boolean } => {
 
   return {
     journals,
-    isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
+    recordModalOpen,
+    handleRecordModalOpen,
+    handleRecordModalClose,
   }
 }
