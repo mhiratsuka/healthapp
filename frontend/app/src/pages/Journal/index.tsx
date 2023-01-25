@@ -1,3 +1,4 @@
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
@@ -49,6 +50,7 @@ export const Journal: FC = () => {
               variant='contained'
               size='large'
               onClick={handleRecordModalOpen}
+              color='success'
             >
               + Add new record
             </Button>
@@ -57,49 +59,61 @@ export const Journal: FC = () => {
             <DialogTitle>New Record</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                To subscribe to this website, please enter your email address
-                here. We will send updates occasionally.
+                Please enter your new record.
               </DialogContentText>
               <TextField
                 autoFocus
                 margin='dense'
                 id='title'
                 label='Title'
+                defaultValue='Title'
                 type='text'
                 fullWidth
-                variant='standard'
               />
-              <TextField
-                autoFocus
-                margin='dense'
-                id='from when'
-                // label='From When'
-                type='datetime-local'
-                fullWidth
-                variant='standard'
-              />
-              <TextField
-                autoFocus
-                margin='dense'
-                id='to when'
-                // label='To When'
-                type='datetime-local'
-                fullWidth
-                variant='standard'
-              />
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TextField
+                  autoFocus
+                  margin='dense'
+                  id='from when'
+                  type='datetime-local'
+                  label='From when'
+                  defaultValue='2023-01-01T10:10'
+                />
+                <ArrowForwardIosIcon />
+                <TextField
+                  autoFocus
+                  margin='dense'
+                  id='to when'
+                  type='datetime-local'
+                  label='To when'
+                  defaultValue='2023-01-01T10:10'
+                />
+              </Box>
               <TextField
                 autoFocus
                 margin='dense'
                 id='category'
                 label='Category'
+                defaultValue='Category'
                 type='text'
                 fullWidth
-                variant='standard'
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleRecordModalClose}>Cancel</Button>
-              <Button onClick={handleRecordModalClose}>Save</Button>
+              <Button
+                onClick={handleRecordModalClose}
+                variant='outlined'
+                color='success'
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleRecordModalClose}
+                variant='contained'
+                color='success'
+              >
+                Save
+              </Button>
             </DialogActions>
           </Dialog>
           <TableContainer component={Paper}>
