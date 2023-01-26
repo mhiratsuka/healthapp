@@ -66,18 +66,23 @@ export const Journal: FC = () => {
                 margin='dense'
                 id='title'
                 label='Title'
-                defaultValue='Title'
                 type='text'
                 fullWidth
               />
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                }}
+              >
                 <TextField
                   autoFocus
                   margin='dense'
                   id='from when'
                   type='datetime-local'
                   label='From when'
-                  defaultValue='2023-01-01T10:10'
+                  fullWidth
                 />
                 <ArrowForwardIosIcon />
                 <TextField
@@ -86,7 +91,7 @@ export const Journal: FC = () => {
                   id='to when'
                   type='datetime-local'
                   label='To when'
-                  defaultValue='2023-01-01T10:10'
+                  fullWidth
                 />
               </Box>
               <TextField
@@ -94,7 +99,6 @@ export const Journal: FC = () => {
                 margin='dense'
                 id='category'
                 label='Category'
-                defaultValue='Category'
                 type='text'
                 fullWidth
               />
