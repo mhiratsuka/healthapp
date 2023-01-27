@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
+import FormControl from '@mui/material/FormControl'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
@@ -55,71 +56,75 @@ export const Journal: FC = () => {
               + Add new record
             </Button>
           </Stack>
-          <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>
-            <DialogTitle>New Record</DialogTitle>
-            <DialogContent>
-              <DialogContentText>
-                Please enter your new record.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin='dense'
-                id='title'
-                label='Title'
-                type='text'
-                fullWidth
-              />
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                }}
-              >
+          <FormControl>
+            <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>
+              <DialogTitle>New Record</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  Please enter your new record.
+                </DialogContentText>
                 <TextField
                   autoFocus
                   margin='dense'
-                  id='from when'
-                  type='datetime-local'
-                  label='From when'
+                  id='title'
+                  label='Title'
+                  type='text'
                   fullWidth
                 />
-                <ArrowForwardIosIcon />
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <TextField
+                    autoFocus
+                    margin='dense'
+                    id='from when'
+                    type='datetime-local'
+                    label='From when'
+                    fullWidth
+                    defaultValue='2023-01-01T10:10'
+                  />
+                  <ArrowForwardIosIcon />
+                  <TextField
+                    autoFocus
+                    margin='dense'
+                    id='to when'
+                    type='datetime-local'
+                    label='To when'
+                    fullWidth
+                    defaultValue='2023-01-01T11:00'
+                  />
+                </Box>
                 <TextField
                   autoFocus
                   margin='dense'
-                  id='to when'
-                  type='datetime-local'
-                  label='To when'
+                  id='category'
+                  label='Category'
+                  type='text'
                   fullWidth
                 />
-              </Box>
-              <TextField
-                autoFocus
-                margin='dense'
-                id='category'
-                label='Category'
-                type='text'
-                fullWidth
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button
-                onClick={handleRecordModalClose}
-                variant='outlined'
-                color='success'
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={handleRecordModalClose}
-                variant='contained'
-                color='success'
-              >
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={handleRecordModalClose}
+                  variant='outlined'
+                  color='success'
+                >
+                  Cancel
+                </Button>
+                <Button
+                  onClick={handleRecordModalClose}
+                  variant='contained'
+                  color='success'
+                >
+                  Save
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </FormControl>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>
