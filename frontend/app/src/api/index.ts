@@ -23,6 +23,34 @@ export const getData = async (URL: string): Promise<void> => {
   }
 }
 
+export const postRequest = async (URL: string, data: any): Promise<void> => {
+  // TODO: fix type
+  try {
+    const response: AxiosResponse = await client.post(`/${URL}`, data)
+
+    console.log('show response.')
+    console.log(response)
+  } catch (error) {
+    console.log('show error')
+    console.log(error)
+    throw error
+  }
+}
+
+export const patchRequest = async (URL: string, data: any): Promise<void> => {
+  // TODO: fix type
+  try {
+    const response: AxiosResponse = await client.patch(`/${URL}`, data)
+
+    console.log('show response.')
+    console.log(response)
+  } catch (error) {
+    console.log('show error')
+    console.log(error)
+    throw error
+  }
+}
+
 export const deleteRequest = async (URL: string): Promise<void> => {
   try {
     const response: AxiosResponse = await client.delete(`/${URL}`)
