@@ -9,6 +9,7 @@ export const UseJournal = (): {
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
+  const [journal, setJournal] = useState()
 
   const handleRecordModalOpen = (): void => {
     setRecordModalOpen(true)
