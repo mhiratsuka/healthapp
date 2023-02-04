@@ -1,36 +1,34 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
+import axios, { AxiosResponse, AxiosError } from 'axios'
 
-const client: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
-  headers: { 'Content-Type': 'application/json' },
-  responseType: 'json',
-  timeout: 5000,
-})
+const baseURL = 'http://localhost:3000'
+const endpointUrl = (path: string): string => {
+  return `${baseURL}/${path}`
+}
 
-interface apiType {
+interface basicApiType {
   path: string
   error?: (err: AxiosError) => void
 }
-async function getRequest<T>(arg: getRequestApiType<T>): Promise<void> {
-  const headers = arg.accessToken
-    ? { Authorization: `Bearer ${arg.accessToken}` }
-    : {}
-  await axios
-    .get<T>(endpointUrl(arg.system, arg.path), {
-      headers,
-      params: arg.params || {},
-      paramsSerializer: (params) =>
-        qs.stringify(params, { arrayFormat: 'repeat' }),
-    })
+
+interface getRequestApiType<T> extends basicApiType {
+  callback?: (data: T) => void
+  params?: Record<string, unknown>
+}
+
+export const getRequest = (
+  arg: getRequestApiType
+): Promise<void> => {
+  async axios
+    .get<T>(endpointUrl(arg.path))
     .then(({ data }) => arg.callback?.(data))
     .catch(arg.error)
 }
 
 export const getData = async (arg: apiType): Promise<void> => {
-  await client
-    .get(arg.path)
-    .then(({ data }) => arg.callback?.(data))
-    .catch(arg.error)
+  // await client
+  //   .get(arg.path)
+  //   .then(({ data }) => arg.callback?.(data))
+  //   .catch(arg.error)
 
   try {
     const response: AxiosResponse = await client.get(arg.path)
