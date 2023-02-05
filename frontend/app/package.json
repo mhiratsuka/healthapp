@@ -15,9 +15,10 @@
     "tokenbuild": "style-dictionary build --config ./src/style/style.config.json"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.0",
+    "@mui/joy": "^5.0.0-alpha.68",
     "@mui/material": "^5.10.17",
     "axios": "^1.2.2",
     "react": "^18.2.0",
