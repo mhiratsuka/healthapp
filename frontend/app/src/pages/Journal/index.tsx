@@ -1,5 +1,5 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import { RadioGroup, FormControlLabel, Radio } from '@mui/material'
+import { RadioGroup, FormControlLabel, Radio, Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
@@ -164,17 +164,22 @@ export const Journal: FC = () => {
               </TableHead>
               <TableBody>
                 {journals.map(({ title, from_date, to_date }, idx) => (
-                  <TableRow
-                    key={idx}
-                    sx={{ '&:last-child tds, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell component='th' scope='row'>
-                      {title}
-                    </TableCell>
-                    <TableCell align='right'>
-                      {from_date}~{to_date}
-                    </TableCell>
-                  </TableRow>
+                  <Link href={`/journaldetail/1`} key={idx}>
+                    <TableRow
+                      sx={{
+                        '&:last-child tds, &:last-child th': { border: 0 },
+                      }}
+                      component={Link}
+                      href={`/journaldetail/1`}
+                    >
+                      <TableCell component='th' scope='row'>
+                        {title}
+                      </TableCell>
+                      <TableCell align='right'>
+                        {from_date}~{to_date}
+                      </TableCell>
+                    </TableRow>
+                  </Link>
                 ))}
               </TableBody>
             </Table>
