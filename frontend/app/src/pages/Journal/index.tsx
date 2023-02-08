@@ -163,8 +163,8 @@ export const Journal: FC = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {journals.map(({ title, from_date, to_date }, idx) => (
-                  <Link href={`/journaldetail/1`} key={idx}>
+                {journals.map(({ title, from_date, to_date, id }, idx) => (
+                  <Link href={`/journaldetail/${id}`} key={idx}>
                     <TableRow
                       sx={{
                         '&:last-child tds, &:last-child th': { border: 0 },
