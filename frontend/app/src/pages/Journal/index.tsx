@@ -135,6 +135,14 @@ export const Journal: FC = () => {
                     label='Not bad'
                   />
                 </RadioGroup>
+                <TextField
+                  autoFocus
+                  margin='dense'
+                  id='note'
+                  label='Note'
+                  type='text'
+                  fullWidth
+                />
               </DialogContent>
               <DialogActions>
                 <Button
