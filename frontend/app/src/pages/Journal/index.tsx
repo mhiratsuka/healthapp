@@ -1,5 +1,5 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import { RadioGroup, FormControlLabel, Radio, Link } from '@mui/material'
+import { Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
@@ -8,7 +8,6 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import FormControl from '@mui/material/FormControl'
-import FormLabel from '@mui/material/FormLabel'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
@@ -108,8 +107,8 @@ export const Journal: FC = () => {
                   type='text'
                   fullWidth
                 />
-                <FormLabel>Health Checks</FormLabel>
-                <RadioGroup
+                {/* <FormLabel>Health Checks</FormLabel> */}
+                {/* <RadioGroup
                   aria-labelledby='demo-radio-buttons-group-label'
                   defaultValue='verygood'
                   name='radio-buttons-group'
@@ -134,7 +133,7 @@ export const Journal: FC = () => {
                     control={<Radio />}
                     label='Not bad'
                   />
-                </RadioGroup>
+                </RadioGroup> */}
                 <TextField
                   autoFocus
                   margin='dense'
