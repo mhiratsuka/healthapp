@@ -140,6 +140,8 @@ export const Journal: FC = () => {
                   id='note'
                   label='Note'
                   type='text'
+                  multiline
+                  minRows={2}
                   fullWidth
                 />
               </DialogContent>
