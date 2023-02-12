@@ -57,7 +57,7 @@ export const Journal: FC = () => {
               + Add new record
             </Button>
           </Stack>
-          <FormControl>
+          <FormControl onSubmit={onSubmit}>
             <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>
               <DialogTitle>New Record</DialogTitle>
               <DialogContent>
