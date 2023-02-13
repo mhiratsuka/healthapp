@@ -11,11 +11,13 @@ import TextField from '@mui/material/TextField'
 import { FC } from 'react'
 
 export const JournalForm: FC<{
+  isOpen: boolean
+  onClose: () => void
   onSubmit: () => void
-}> = ({ onSubmit }) => {
+}> = ({ onSubmit, isOpen, onClose }) => {
   return (
     <FormControl onSubmit={onSubmit}>
-      <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>
+      <Dialog open={isOpen} onClose={onClose}>
         <DialogTitle>New Record</DialogTitle>
         <DialogContent>
           <DialogContentText>Please enter your new record.</DialogContentText>
@@ -101,18 +103,10 @@ export const JournalForm: FC<{
           />
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={handleRecordModalClose}
-            variant='outlined'
-            color='success'
-          >
+          <Button onClick={onClose} variant='outlined' color='success'>
             Cancel
           </Button>
-          <Button
-            onClick={handleRecordModalClose}
-            variant='contained'
-            color='success'
-          >
+          <Button onClick={onSubmit} variant='contained' color='success'>
             Save
           </Button>
         </DialogActions>

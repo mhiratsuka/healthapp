@@ -1,13 +1,6 @@
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
-import FormControl from '@mui/material/FormControl'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
@@ -16,7 +9,6 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { FC } from 'react'
 
@@ -25,14 +17,17 @@ import { SideMenu } from '@/components/SideMenu'
 import { Primary } from '@/style/ts/tokens'
 
 import { UseJournal } from './hooks'
+import { JournalForm } from './JournalForm'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
   const {
     journals,
-    recordModalOpen,
-    handleRecordModalOpen,
-    handleRecordModalClose,
+    registeringJournalForm,
+    // recordModalOpen,
+    // handleRecordModalOpen,
+    // handleRecordModalClose,
+    // onSubmit,
   } = UseJournal()
 
   return (
@@ -51,13 +46,18 @@ export const Journal: FC = () => {
             <Button
               variant='contained'
               size='large'
-              onClick={handleRecordModalOpen}
+              onClick={registeringJournalForm.onOpen}
               color='success'
             >
               + Add new record
             </Button>
           </Stack>
-          <FormControl onSubmit={onSubmit}>
+          <JournalForm
+            isOpen={registeringJournalForm.isOpen}
+            onClose={registeringJournalForm.onClose}
+            onSubmit={registeringJournalForm.onSubmit}
+          />
+          {/* <FormControl onSubmit={onSubmit}>
             <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>
               <DialogTitle>New Record</DialogTitle>
               <DialogContent>
@@ -108,7 +108,7 @@ export const Journal: FC = () => {
                   fullWidth
                 />
                 {/* <FormLabel>Health Checks</FormLabel> */}
-                {/* <RadioGroup
+          {/* <RadioGroup
                   aria-labelledby='demo-radio-buttons-group-label'
                   defaultValue='verygood'
                   name='radio-buttons-group'
@@ -134,7 +134,7 @@ export const Journal: FC = () => {
                     label='Not bad'
                   />
                 </RadioGroup> */}
-                <TextField
+          {/* <TextField
                   autoFocus
                   margin='dense'
                   id='note'
@@ -162,7 +162,7 @@ export const Journal: FC = () => {
                 </Button>
               </DialogActions>
             </Dialog>
-          </FormControl>
+          </FormControl> */}
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>

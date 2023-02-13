@@ -3,9 +3,16 @@ import { useState, useEffect } from 'react'
 
 export const UseJournal = (): {
   journals: any
-  recordModalOpen: boolean
-  handleRecordModalOpen: () => void
-  handleRecordModalClose: () => void
+  // recordModalOpen: boolean
+  // handleRecordModalOpen: () => void
+  // handleRecordModalClose: () => void
+  registeringJournalForm: {
+    isOpen: boolean
+    // value:
+    onSubmit: () => void
+    onOpen: () => void
+    onClose: () => void
+  }
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
@@ -17,6 +24,11 @@ export const UseJournal = (): {
 
   const handleRecordModalClose = (): void => {
     setRecordModalOpen(false)
+  }
+
+  const handleRegisteredJournal = (): void => {
+    alert('Submit')
+    handleRecordModalClose()
   }
 
   useEffect(() => {
@@ -31,8 +43,15 @@ export const UseJournal = (): {
 
   return {
     journals,
-    recordModalOpen,
-    handleRecordModalOpen,
-    handleRecordModalClose,
+    registeringJournalForm: {
+      isOpen: recordModalOpen,
+      // value:
+      onSubmit: () => handleRegisteredJournal(),
+      onOpen: () => handleRecordModalOpen(),
+      onClose: () => handleRecordModalClose(),
+    },
+    // recordModalOpen,
+    // handleRecordModalOpen,
+    // handleRecordModalClose,
   }
 }
