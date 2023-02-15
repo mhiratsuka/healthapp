@@ -1,14 +1,9 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-
 export const UseJournal = (): {
   journals: any
-  // recordModalOpen: boolean
-  // handleRecordModalOpen: () => void
-  // handleRecordModalClose: () => void
   registeringJournalForm: {
     isOpen: boolean
-    // value:
     onSubmit: () => void
     onOpen: () => void
     onClose: () => void
@@ -16,7 +11,6 @@ export const UseJournal = (): {
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
-  const [journal, setJournal] = useState()
 
   const handleRecordModalOpen = (): void => {
     setRecordModalOpen(true)
@@ -45,13 +39,9 @@ export const UseJournal = (): {
     journals,
     registeringJournalForm: {
       isOpen: recordModalOpen,
-      // value:
       onSubmit: () => handleRegisteredJournal(),
       onOpen: () => handleRecordModalOpen(),
       onClose: () => handleRecordModalClose(),
     },
-    // recordModalOpen,
-    // handleRecordModalOpen,
-    // handleRecordModalClose,
   }
 }
