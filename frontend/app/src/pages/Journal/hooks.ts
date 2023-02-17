@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+
+import { journalType } from './model'
+
 export const UseJournal = (): {
-  journals: any
+  journals: journalType[]
   registeringJournalForm: {
     isOpen: boolean
     onSubmit: () => void
