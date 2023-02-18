@@ -1,8 +1,9 @@
 export interface journalType {
   id?: number
   title: string
-  from_when: Date
-  to_when: Date
+  from_date: Date
+  to_date: Date
   category: string
   note: string
+  pet_id: number
 }
