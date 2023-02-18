@@ -5,5 +5,5 @@ export interface journalType {
   to_date: Date
   category: string
   note: string
-  pet_id: number
+  pet_id?: number
 }
