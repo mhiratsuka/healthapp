@@ -9,12 +9,18 @@ import DialogTitle from '@mui/material/DialogTitle'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import { FC } from 'react'
+import { UseFormRegister } from 'react-hook-form'
+
+import { REQUIRED_MESSAGE } from '@/domain/error'
+
+import { journalType } from './model'
 
 export const JournalForm: FC<{
   isOpen: boolean
+  register: UseFormRegister<journalType>
   onClose: () => void
   onSubmit: () => void
-}> = ({ onSubmit, isOpen, onClose }) => {
+}> = ({ isOpen, register, onClose, onSubmit }) => {
   return (
     <FormControl onSubmit={onSubmit}>
       <Dialog open={isOpen} onClose={onClose}>
@@ -28,6 +34,8 @@ export const JournalForm: FC<{
             label='Title'
             type='text'
             fullWidth
+            required
+            {...register('title', { required: REQUIRED_MESSAGE })}
           />
           <Box
             sx={{
@@ -44,6 +52,8 @@ export const JournalForm: FC<{
               label='From when'
               fullWidth
               defaultValue='2023-01-01T10:10'
+              required
+              {...register('from_date', { required: REQUIRED_MESSAGE })}
             />
             <ArrowForwardIosIcon />
             <TextField
@@ -54,6 +64,8 @@ export const JournalForm: FC<{
               label='To when'
               fullWidth
               defaultValue='2023-01-01T11:00'
+              required
+              {...register('to_date', { required: REQUIRED_MESSAGE })}
             />
           </Box>
           <TextField
@@ -63,6 +75,8 @@ export const JournalForm: FC<{
             label='Category'
             type='text'
             fullWidth
+            required
+            {...register('category', { required: REQUIRED_MESSAGE })}
           />
           {/* <FormLabel>Health Checks</FormLabel> */}
           {/* <RadioGroup
@@ -100,6 +114,8 @@ export const JournalForm: FC<{
             multiline
             minRows={2}
             fullWidth
+            required
+            {...register('note', { required: REQUIRED_MESSAGE })}
           />
         </DialogContent>
         <DialogActions>

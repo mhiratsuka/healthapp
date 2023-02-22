@@ -21,14 +21,7 @@ import { JournalForm } from './JournalForm'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
-  const {
-    journals,
-    registeringJournalForm,
-    // recordModalOpen,
-    // handleRecordModalOpen,
-    // handleRecordModalClose,
-    // onSubmit,
-  } = UseJournal()
+  const { journals, registeringJournalForm } = UseJournal()
 
   return (
     <Layout title={'journal'}>
@@ -54,6 +47,7 @@ export const Journal: FC = () => {
           </Stack>
           <JournalForm
             isOpen={registeringJournalForm.isOpen}
+            register={registeringJournalForm.register}
             onClose={registeringJournalForm.onClose}
             onSubmit={registeringJournalForm.onSubmit}
           />
