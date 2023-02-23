@@ -50,6 +50,8 @@ export const Journal: FC = () => {
             register={registeringJournalForm.register}
             onClose={registeringJournalForm.onClose}
             onSubmit={registeringJournalForm.onSubmit}
+            disableCancelButton={registeringJournalForm.disableCancelButton}
+            disableSubmitButton={registeringJournalForm.disableSubmitButton}
           />
           {/* <FormControl onSubmit={onSubmit}>
             <Dialog open={recordModalOpen} onClose={handleRecordModalClose}>

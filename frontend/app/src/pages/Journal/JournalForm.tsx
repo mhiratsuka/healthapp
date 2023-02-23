@@ -20,7 +20,16 @@ export const JournalForm: FC<{
   register: UseFormRegister<journalType>
   onClose: () => void
   onSubmit: () => void
-}> = ({ isOpen, register, onClose, onSubmit }) => {
+  disableSubmitButton: boolean
+  disableCancelButton: boolean
+}> = ({
+  isOpen,
+  register,
+  onClose,
+  onSubmit,
+  disableSubmitButton,
+  disableCancelButton,
+}) => {
   return (
     <FormControl onSubmit={onSubmit}>
       <Dialog open={isOpen} onClose={onClose}>
@@ -119,10 +128,20 @@ export const JournalForm: FC<{
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose} variant='outlined' color='success'>
+          <Button
+            onClick={onClose}
+            variant='outlined'
+            color='success'
+            disabled={disableCancelButton}
+          >
             Cancel
           </Button>
-          <Button onClick={onSubmit} variant='contained' color='success'>
+          <Button
+            onClick={onSubmit}
+            variant='contained'
+            color='success'
+            disabled={disableSubmitButton}
+          >
             Save
           </Button>
         </DialogActions>

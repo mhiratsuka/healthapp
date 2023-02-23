@@ -12,12 +12,20 @@ export const UseJournal = (): {
     onSubmit: () => void
     onOpen: () => void
     onClose: () => void
+    disableCancelButton: boolean
+    disableSubmitButton: boolean
   }
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
 
-  const { register, handleSubmit, reset, watch } = useForm<journalType>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors, isValid, isDirty },
+  } = useForm<journalType>({
     mode: 'onChange',
   })
 
@@ -78,6 +86,8 @@ export const UseJournal = (): {
       onSubmit: () => handleRegisteredJournal(),
       onClose: () => handleRecordModalClose(),
       onOpen: () => handleRecordModalOpen(),
+      disableCancelButton: !isDirty || !isValid,
+      disableSubmitButton: !isDirty || !isValid,
     },
   }
 }
