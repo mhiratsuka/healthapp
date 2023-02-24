@@ -26,6 +26,7 @@ export const JournalForm: FC<{
 }> = ({
   isOpen,
   register,
+  errors,
   onClose,
   onSubmit,
   disableSubmitButton,
@@ -46,6 +47,8 @@ export const JournalForm: FC<{
             fullWidth
             required
             {...register('title', { required: REQUIRED_MESSAGE })}
+            error={'title' in errors}
+            helperText={errors.title?.message}
           />
           <Box
             sx={{
@@ -64,6 +67,8 @@ export const JournalForm: FC<{
               defaultValue='2023-01-01T10:10'
               required
               {...register('from_date', { required: REQUIRED_MESSAGE })}
+              error={'from_date' in errors}
+              helperText={errors.from_date?.message}
             />
             <ArrowForwardIosIcon />
             <TextField
@@ -76,6 +81,8 @@ export const JournalForm: FC<{
               defaultValue='2023-01-01T11:00'
               required
               {...register('to_date', { required: REQUIRED_MESSAGE })}
+              error={'to_date' in errors}
+              helperText={errors.to_date?.message}
             />
           </Box>
           <TextField
@@ -87,6 +94,8 @@ export const JournalForm: FC<{
             fullWidth
             required
             {...register('category', { required: REQUIRED_MESSAGE })}
+            error={'category' in errors}
+            helperText={errors.category?.message}
           />
           {/* <FormLabel>Health Checks</FormLabel> */}
           {/* <RadioGroup
@@ -126,6 +135,8 @@ export const JournalForm: FC<{
             fullWidth
             required
             {...register('note', { required: REQUIRED_MESSAGE })}
+            error={'note' in errors}
+            helperText={errors.note?.message}
           />
         </DialogContent>
         <DialogActions>
