@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useForm, UseFormRegister } from 'react-hook-form'
+import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { journalType } from './model'
 
@@ -9,6 +9,7 @@ export const UseJournal = (): {
   registeringJournalForm: {
     isOpen: boolean
     register: UseFormRegister<journalType>
+    errors: FieldErrors<journalType>
     onSubmit: () => void
     onOpen: () => void
     onClose: () => void
@@ -83,6 +84,7 @@ export const UseJournal = (): {
     registeringJournalForm: {
       isOpen: recordModalOpen,
       register,
+      errors,
       onSubmit: () => handleRegisteredJournal(),
       onClose: () => handleRecordModalClose(),
       onOpen: () => handleRecordModalOpen(),

@@ -48,6 +48,7 @@ export const Journal: FC = () => {
           <JournalForm
             isOpen={registeringJournalForm.isOpen}
             register={registeringJournalForm.register}
+            errors={registeringJournalForm.errors}
             onClose={registeringJournalForm.onClose}
             onSubmit={registeringJournalForm.onSubmit}
             disableCancelButton={registeringJournalForm.disableCancelButton}

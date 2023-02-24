@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import { FC } from 'react'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { REQUIRED_MESSAGE } from '@/domain/error'
 
@@ -18,6 +18,7 @@ import { journalType } from './model'
 export const JournalForm: FC<{
   isOpen: boolean
   register: UseFormRegister<journalType>
+  errors: FieldErrors<journalType>
   onClose: () => void
   onSubmit: () => void
   disableSubmitButton: boolean
