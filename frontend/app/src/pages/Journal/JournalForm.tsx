@@ -65,6 +65,9 @@ export const JournalForm: FC<{
               label='From when'
               fullWidth
               defaultValue='2023-01-01T10:10'
+              InputLabelProps={{
+                shrink: true,
+              }}
               required
               {...register('from_date', { required: REQUIRED_MESSAGE })}
               error={'from_date' in errors}
@@ -79,6 +82,9 @@ export const JournalForm: FC<{
               label='To when'
               fullWidth
               defaultValue='2023-01-01T11:00'
+              InputLabelProps={{
+                shrink: true,
+              }}
               required
               {...register('to_date', { required: REQUIRED_MESSAGE })}
               error={'to_date' in errors}
