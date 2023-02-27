@@ -1,6 +1,6 @@
-import { Link } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
@@ -165,27 +165,22 @@ export const Journal: FC = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Title</TableCell>
-                  <TableCell>Date</TableCell>
+                  <TableCell align='right'>Date</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {journals.map(({ title, from_date, to_date, id }, idx) => (
-                  <Link href={`/journaldetail/${id}`} key={idx}>
-                    <TableRow
-                      sx={{
-                        '&:last-child tds, &:last-child th': { border: 0 },
-                      }}
-                      component={Link}
-                      href={`/journaldetail/1`}
-                    >
-                      <TableCell component='th' scope='row'>
-                        {title}
-                      </TableCell>
-                      <TableCell align='right'>
-                        {from_date}~{to_date}
-                      </TableCell>
-                    </TableRow>
-                  </Link>
+                  <TableRow
+                    sx={{
+                      '&:last-child tds, &:last-child th': { border: 0 },
+                    }}
+                    key={idx}
+                  >
+                    <TableCell component='th' scope='row'>
+                      <Link href={`/journaldetail/${id}`}>{title}</Link>
+                    </TableCell>
+                    <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
+                  </TableRow>
                 ))}
               </TableBody>
             </Table>
