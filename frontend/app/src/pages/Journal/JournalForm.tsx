@@ -64,7 +64,6 @@ export const JournalForm: FC<{
               type='datetime-local'
               label='From when'
               fullWidth
-              defaultValue='2023-01-01T10:10'
               InputLabelProps={{
                 shrink: true,
               }}
@@ -81,7 +80,6 @@ export const JournalForm: FC<{
               type='datetime-local'
               label='To when'
               fullWidth
-              defaultValue='2023-01-01T11:00'
               InputLabelProps={{
                 shrink: true,
               }}
