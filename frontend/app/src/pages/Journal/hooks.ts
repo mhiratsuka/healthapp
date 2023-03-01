@@ -38,7 +38,15 @@ export const UseJournal = (): {
 
   const handleRecordModalClose = (): void => {
     setRecordModalOpen(false)
-    reset({})
+    reset({
+      id: '',
+      title: '',
+      from_date: '',
+      to_date: '',
+      category: '',
+      note: '',
+      pet_id: '',
+    })
   }
 
   const handleRegisteredJournal = (): void => {
