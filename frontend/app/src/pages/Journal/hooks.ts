@@ -31,6 +31,7 @@ export const UseJournal = (): {
   })
 
   console.log(watch())
+  // const onSubmit: SubmitHandler<journalType> = (data) => console.log(data)
 
   const handleRecordModalOpen = (): void => {
     setRecordModalOpen(true)
@@ -39,31 +40,25 @@ export const UseJournal = (): {
   const handleRecordModalClose = (): void => {
     setRecordModalOpen(false)
     reset({
-      id: '',
       title: '',
       from_date: '',
       to_date: '',
       category: '',
       note: '',
-      pet_id: '',
     })
   }
 
   const handleRegisteredJournal = (): void => {
     alert('Submit')
-    handleSubmit(
-      ({
-        id,
-        title,
-        from_date,
-        to_date,
-        category,
-        note,
-        pet_id,
-      }: journalType) => {
-        alert('test')
-      }
-    )
+    handleSubmit(async (data) => console.log(data))
+
+    reset({
+      title: '',
+      from_date: '',
+      to_date: '',
+      category: '',
+      note: '',
+    })
     // handleSubmit(({title, from_date, to_date, note, category, pet_id}: journalType ) => {
     //   axios
     //   .post('http://localhost:8000/api/pets/1/journals')
@@ -93,7 +88,19 @@ export const UseJournal = (): {
       isOpen: recordModalOpen,
       register,
       errors,
-      onSubmit: () => handleRegisteredJournal(),
+      onSubmit: handleSubmit(async (data: journalType) => {
+        await console.log(data)
+
+        setRecordModalOpen(false)
+
+        reset({
+          title: '',
+          from_date: '',
+          to_date: '',
+          category: '',
+          note: '',
+        })
+      }),
       onClose: () => handleRecordModalClose(),
       onOpen: () => handleRecordModalOpen(),
       disableCancelButton: !isDirty || !isValid,
