@@ -1,6 +1,6 @@
-export const currentTime = (): Date => {
-  const now = new Date()
-  console.log(now)
+import dayjs from 'dayjs'
 
-  return now
+export const currentTime = (): string => {
+  const now = dayjs()
+  return now.format('YYYY-MM-DDThh:mm')
 }
