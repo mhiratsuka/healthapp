@@ -12,6 +12,7 @@ import { FC } from 'react'
 import { UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { REQUIRED_MESSAGE } from '@/domain/error'
+import { currentTime } from '@/domain/time'
 
 import { journalType } from './model'
 
@@ -68,6 +69,7 @@ export const JournalForm: FC<{
                 shrink: true,
               }}
               required
+              defaultValue={currentTime()}
               {...register('from_date', { required: REQUIRED_MESSAGE })}
               error={'from_date' in errors}
               helperText={errors.from_date?.message}
@@ -83,6 +85,7 @@ export const JournalForm: FC<{
               InputLabelProps={{
                 shrink: true,
               }}
+              defaultValue={currentTime()}
               required
               {...register('to_date', { required: REQUIRED_MESSAGE })}
               error={'to_date' in errors}
