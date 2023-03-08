@@ -12,7 +12,7 @@ export const UseJournal = (): {
     isOpen: boolean
     register: UseFormRegister<journalType>
     errors: FieldErrors<journalType>
-    onSubmit: () => void
+    onSubmit: () => Promise<void>
     onOpen: () => void
     onClose: () => void
     disableCancelButton: boolean
@@ -31,8 +31,6 @@ export const UseJournal = (): {
   } = useForm<journalType>({
     mode: 'onChange',
   })
-
-  console.log(watch())
 
   const handleRecordModalOpen = (): void => {
     setRecordModalOpen(true)
@@ -54,11 +52,10 @@ export const UseJournal = (): {
     axios
       .get('http://localhost:8000/api/pets/1/journals')
       .then((res) => {
-        console.log(res)
         setJournals(res.data.data)
       })
       .catch((e) => console.log(e))
-  }, [])
+  }, [journals])
 
   return {
     journals,
@@ -67,9 +64,19 @@ export const UseJournal = (): {
       register,
       errors,
       onSubmit: handleSubmit((data: journalType) => {
-        console.log(data)
-
-        handleRecordModalClose()
+        // TODO: pet_id
+        axios
+          .post('http://localhost:8000/api/pets/1/journals', {
+            ...data,
+            pet_id: 2,
+          })
+          .then((res) => {
+            console.log(res)
+            handleRecordModalClose()
+          })
+          .catch((e) => {
+            console.log(e)
+          })
       }),
       onClose: () => handleRecordModalClose(),
       onOpen: () => handleRecordModalOpen(),
