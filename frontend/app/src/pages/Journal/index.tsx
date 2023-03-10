@@ -177,7 +177,7 @@ export const Journal: FC = () => {
                     key={idx}
                   >
                     <TableCell component='th' scope='row'>
-                      <Link href={`/journaldetail/${id}`}>{title}</Link>
+                      <Link href={`/journal/${id}`}>{title}</Link>
                     </TableCell>
                     <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
                   </TableRow>
