@@ -7,3 +7,12 @@ export interface journalType {
   note: string
   pet_id?: number
 }
+
+export interface petType {
+  id: number
+  name: string
+  kind: string
+  birthday: Date
+  user_id: number
+  sex_id: number
+}
