@@ -4,15 +4,16 @@ import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { currentTime } from '@/domain/time'
 
-import { journalType } from './model'
+import { journalType, petType } from './model'
 
 export const UseJournal = (): {
+  pets: petType[]
   journals: journalType[]
   registeringJournalForm: {
     isOpen: boolean
     register: UseFormRegister<journalType>
     errors: FieldErrors<journalType>
-    onSubmit: () => Promise<void>
+    onSubmit: () => void
     onOpen: () => void
     onClose: () => void
     disableCancelButton: boolean
@@ -21,6 +22,7 @@ export const UseJournal = (): {
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
+  const [pets, setPets] = useState([])
 
   const {
     register,
@@ -49,6 +51,15 @@ export const UseJournal = (): {
 
   useEffect(() => {
     axios
+      .get('http://localhost:8000/api/users/1/pets')
+      .then((res) => {
+        setPets(res.data.data)
+      })
+      .catch((e) => console.log(e))
+  }, [pets])
+
+  useEffect(() => {
+    axios
       .get('http://localhost:8000/api/pets/1/journals')
       .then((res) => {
         setJournals(res.data.data)
@@ -57,6 +68,7 @@ export const UseJournal = (): {
   }, [journals])
 
   return {
+    pets,
     journals,
     registeringJournalForm: {
       isOpen: recordModalOpen,
@@ -64,6 +76,7 @@ export const UseJournal = (): {
       errors,
       onSubmit: handleSubmit((data: journalType) => {
         // TODO: pet_id
+        // error fix
         axios
           .post('http://localhost:8000/api/pets/1/journals', {
             ...data,
