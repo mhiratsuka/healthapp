@@ -19,10 +19,16 @@ export const UseJournal = (): {
     disableCancelButton: boolean
     disableSubmitButton: boolean
   }
+  petSelection: {
+    value?: { id: number; name: string }
+    onChange: (option: { id: number; name: string }) => void
+    options: Array<{ id: number; name: string }>
+  }
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
   const [pets, setPets] = useState([])
+  const [selectPet, setSelectPet] = useState<{id: number; name: string}>()
 
   const {
     register,
@@ -95,5 +101,10 @@ export const UseJournal = (): {
       disableCancelButton: !isDirty || !isValid,
       disableSubmitButton: !isDirty || !isValid,
     },
+    petSelection: {
+      value: selectPet
+      onChange: setSelectPet,
+      options: pets
+    }
   }
 }
