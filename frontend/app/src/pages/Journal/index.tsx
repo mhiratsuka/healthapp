@@ -18,6 +18,7 @@ import { Primary } from '@/style/ts/tokens'
 
 import { UseJournal } from './hooks'
 import { JournalForm } from './JournalForm'
+import { PetSelect } from './PetSelect'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
@@ -35,6 +36,7 @@ export const Journal: FC = () => {
           <Typography variant='h1' gutterBottom color={Primary}>
             Record page
           </Typography>
+          <PetSelect />
           <Stack direction='row' justifyContent='flex-end'>
             <Button
               variant='contained'
