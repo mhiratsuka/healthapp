@@ -28,7 +28,7 @@ export const UseJournal = (): {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
   const [pets, setPets] = useState([])
-  const [selectPet, setSelectPet] = useState<{id: number; name: string}>()
+  const [selectPet, setSelectPet] = useState<{ id: number; name: string }>()
 
   const {
     register,
@@ -102,9 +102,9 @@ export const UseJournal = (): {
       disableSubmitButton: !isDirty || !isValid,
     },
     petSelection: {
-      value: selectPet
+      value: selectPet,
       onChange: setSelectPet,
-      options: pets
-    }
+      options: pets,
+    },
   }
 }
