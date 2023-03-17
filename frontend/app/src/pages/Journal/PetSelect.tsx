@@ -1,25 +1,24 @@
 import MenuItem from '@mui/material/MenuItem'
-import Select, { SelectChangeEvent } from '@mui/material/Select'
+import Select from '@mui/material/Select'
 import React, { FC } from 'react'
 
-export const PetSelect: FC = () => {
-  const [age, setAge] = React.useState('')
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value)
-  }
-
+export const PetSelect: FC<{
+  value: { id: number; name: string }
+  onChange: (option: { id: number; name: string } | null) => void
+  options: Array<{ id: number; name: string }>
+}> = ({ value, onChange, options }) => {
   return (
     <Select
       labelId='demo-simple-select-label'
       id='demo-simple-select'
-      value={age}
-      label='Age'
-      onChange={handleChange}
+      defaultValue={value.id}
+      onChange={(_, value) => onChange(value)}
     >
-      <MenuItem value={10}>Ten</MenuItem>
-      <MenuItem value={20}>Twenty</MenuItem>
-      <MenuItem value={30}>Thirty</MenuItem>
+      {options.map(({ id, name }, idx) => (
+        <MenuItem value={id} key={idx}>
+          {name}
+        </MenuItem>
+      ))}
     </Select>
   )
 }
