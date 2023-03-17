@@ -7,17 +7,17 @@ services:
     environment:
       POSTGRES_PASSWORD: 'password'
     ports:
-      - "5432:5432"
+      - '5432:5432'
   backend:
     build:
       context: ./backend/
       dockerfile: Dockerfile
     command: >
-      /bin/sh -c "rm -f /healthapp/tmp/pids/server.pid &&
+      /bin/sh -c 'rm -f /healthapp/tmp/pids/server.pid &&
       bundle exec rails db:create &&
       bundle exec rails db:migrate &&
       bundle exec rails db:seed &&
-      bundle exec rails s -p 3000 -b '0.0.0.0'"
+      bundle exec rails s -p 3000 -b "0.0.0.0"'
     image: rails:dev
     volumes:
       - ./backend:/healthapp
@@ -25,7 +25,7 @@ services:
     environment:
       RAILS_ENV: development
     ports:
-      - 8000:3000
+      - '8000:3000'
     depends_on:
       - db
   frontend:
@@ -34,9 +34,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/work
-    command: sh -c "cd app && yarn install && yarn dev"
+    command: sh -c 'cd app && yarn install && yarn dev'
     ports:
-      - "3000:5173"
+      - '3030:5173'
 volumes:
   postgres-data:
     driver: local
