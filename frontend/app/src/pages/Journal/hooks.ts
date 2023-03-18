@@ -8,6 +8,7 @@ import { journalType, petType } from './model'
 
 export const UseJournal = (): {
   pets: petType[]
+  selectPet: { id: number; name: string }
   journals: journalType[]
   registeringJournalForm: {
     isOpen: boolean
@@ -60,9 +61,16 @@ export const UseJournal = (): {
       .get('http://localhost:8000/api/users/1/pets')
       .then((res) => {
         setPets(res.data.data)
+        // console.log(res.data.data[0])
+        setSelectPet(
+          selectPet ?? {
+            id: res.data.data[0].id,
+            name: res.data.data[0].name,
+          }
+        )
       })
       .catch((e) => console.log(e))
-  }, [pets])
+  }, [pets, selectPet])
 
   useEffect(() => {
     axios
