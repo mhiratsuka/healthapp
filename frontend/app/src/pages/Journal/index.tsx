@@ -22,7 +22,7 @@ import { PetSelect } from './PetSelect'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
-  const { journals, registeringJournalForm } = UseJournal()
+  const { journals, registeringJournalForm, petSelection } = UseJournal()
 
   return (
     <Layout title={'journal'}>
@@ -36,7 +36,13 @@ export const Journal: FC = () => {
           <Typography variant='h1' gutterBottom color={Primary}>
             Record page
           </Typography>
-          <PetSelect />
+          {petSelection.value !== undefined && (
+            <PetSelect
+              value={petSelection.value}
+              onChange={petSelection.onChange}
+              options={petSelection.options}
+            />
+          )}
           <Stack direction='row' justifyContent='flex-end'>
             <Button
               variant='contained'
