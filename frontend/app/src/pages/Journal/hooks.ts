@@ -8,7 +8,6 @@ import { journalType, petType } from './model'
 
 export const UseJournal = (): {
   pets: petType[]
-  selectPet: { id: number; name: string }
   journals: journalType[]
   registeringJournalForm: {
     isOpen: boolean
