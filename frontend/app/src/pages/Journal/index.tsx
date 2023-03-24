@@ -177,19 +177,23 @@ export const Journal: FC = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {journals.map(({ title, from_date, to_date, id }, idx) => (
-                  <TableRow
-                    sx={{
-                      '&:last-child tds, &:last-child th': { border: 0 },
-                    }}
-                    key={idx}
-                  >
-                    <TableCell component='th' scope='row'>
-                      <Link href={`/journal/${id}`}>{title}</Link>
-                    </TableCell>
-                    <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
-                  </TableRow>
-                ))}
+                {journals.length === 0 ? (
+                  <div>no data</div>
+                ) : (
+                  journals.map(({ title, from_date, to_date, id }, idx) => (
+                    <TableRow
+                      sx={{
+                        '&:last-child tds, &:last-child th': { border: 0 },
+                      }}
+                      key={idx}
+                    >
+                      <TableCell component='th' scope='row'>
+                        <Link href={`/journal/${id}`}>{title}</Link>
+                      </TableCell>
+                      <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </TableContainer>
