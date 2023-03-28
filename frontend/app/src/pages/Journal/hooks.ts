@@ -61,25 +61,28 @@ export const UseJournal = (): {
       .then((res) => {
         setPets(res.data.data)
         // console.log(res.data.data[0])
-        setSelectPet(
-          selectPet ?? {
-            id: res.data.data[0].id,
-            name: res.data.data[0].name,
-          }
-        )
+        // setSelectPet(
+        //   selectPet ?? {
+        //     id: res.data.data[0].id,
+        //     name: res.data.data[0].name,
+        //   }
+        // )
+        console.log(res.data.data)
       })
       .catch((e) => console.log(e))
-  }, [pets, selectPet])
+    // }, [pets, selectPet])
+  }, [pets])
 
   useEffect(() => {
-    selectPet !== undefined &&
-      axios
-        .get(`http://localhost:8000/api/pets/${selectPet.id}/journals`)
-        .then((res) => {
-          setJournals(res.data.data)
-        })
-        .catch((e) => console.log(e))
-  }, [selectPet, journals])
+    // selectPet !== undefined &&
+    axios
+      // .get(`http://localhost:8000/api/pets/${selectPet.id}/journals`)
+      .get(`http://localhost:8000/api/pets/1/journals`)
+      .then((res) => {
+        setJournals(res.data.data)
+      })
+      .catch((e) => console.log(e))
+  })
 
   return {
     pets,
@@ -89,12 +92,13 @@ export const UseJournal = (): {
       register,
       errors,
       onSubmit: handleSubmit((data: journalType) => {
-        // TODO: pet_id
         // error fix
         axios
-          .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
+          // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
+          .post(`http://localhost:8000/api/pets/1/journals`, {
             ...data,
-            pet_id: selectPet.id,
+            // pet_id: selectPet.id,
+            pet_id: 1,
           })
           .then((res) => {
             console.log(res)
