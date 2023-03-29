@@ -67,7 +67,6 @@ export const UseJournal = (): {
         //     name: res.data.data[0].name,
         //   }
         // )
-        console.log(res.data.data)
       })
       .catch((e) => console.log(e))
     // }, [pets, selectPet])

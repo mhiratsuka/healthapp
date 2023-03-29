@@ -62,6 +62,7 @@ export const Journal: FC = () => {
             disableCancelButton={registeringJournalForm.disableCancelButton}
             disableSubmitButton={registeringJournalForm.disableSubmitButton}
           />
+          {/* TODO: change grid */}
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>
