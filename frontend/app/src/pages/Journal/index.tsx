@@ -1,5 +1,7 @@
+import EditIcon from '@mui/icons-material/Edit'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Table from '@mui/material/Table'
@@ -85,6 +87,11 @@ export const Journal: FC = () => {
                         {title}
                       </TableCell>
                       <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
+                      <TableCell align='right'>
+                        <IconButton color='success' aria-label='edit journal'>
+                          <EditIcon />
+                        </IconButton>
+                      </TableCell>
                     </TableRow>
                   ))
                 )}
