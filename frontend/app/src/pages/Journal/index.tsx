@@ -88,7 +88,11 @@ export const Journal: FC = () => {
                       </TableCell>
                       <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
                       <TableCell align='right'>
-                        <IconButton color='success' aria-label='edit journal'>
+                        <IconButton
+                          color='success'
+                          aria-label='edit journal'
+                          onClick={registeringJournalForm.onOpen}
+                        >
                           <EditIcon />
                         </IconButton>
                       </TableCell>
