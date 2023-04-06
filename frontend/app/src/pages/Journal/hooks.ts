@@ -45,7 +45,7 @@ export const UseJournal = (): {
 
   const handleRecordModalClose = (): void => {
     setRecordModalOpen(false)
-    // TODO: Fixed reset and types of from_date and to_date
+    // FIXME: Fixed reset and types of from_date and to_date
     reset({
       title: '',
       from_date: currentTime(),
