@@ -1,4 +1,5 @@
 import EditIcon from '@mui/icons-material/Edit'
+import { Tooltip } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
@@ -11,6 +12,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
+import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid'
 import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
@@ -23,6 +25,44 @@ import { JournalForm } from './JournalForm'
 export const Journal: FC = () => {
   const drawerWidth = 240
   const { journals, registeringJournalForm, petSelection } = UseJournal()
+  const columns = [
+    {
+      field: 'title',
+      headerName: 'Title',
+      width: 300,
+    },
+    {
+      field: 'date',
+      headerName: 'Date',
+      width: 300,
+      valueGetter: ({ row: { from_date, to_date } }) =>
+        `${from_date} ~ ${to_date}`,
+    },
+    {
+      field: 'actions',
+      type: 'actions',
+      getActions: ({
+        row: { id, title, from_date, to_date, category, note },
+      }) => [
+        <Tooltip title='edit'>
+          <GridActionsCellItem
+            icon={<EditIcon />}
+            label='edit'
+            onClick={() =>
+              registeringJournalForm.onOpen({
+                id,
+                title,
+                from_date,
+                to_date,
+                category,
+                note,
+              })
+            }
+          />
+        </Tooltip>,
+      ],
+    },
+  ]
 
   return (
     <Layout title={'journal'}>
@@ -64,6 +104,14 @@ export const Journal: FC = () => {
             disableSubmitButton={registeringJournalForm.disableSubmitButton}
           />
           {/* TODO: change grid */}
+          <Box>
+            <DataGrid
+              getRowHeight={() => 'auto'}
+              autoHeight
+              rows={journals}
+              columns={columns}
+            />
+          </Box>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>
