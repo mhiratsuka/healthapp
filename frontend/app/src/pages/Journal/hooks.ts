@@ -14,10 +14,11 @@ export const UseJournal = (): {
     register: UseFormRegister<journalType>
     errors: FieldErrors<journalType>
     onSubmit: () => void
-    onOpen: () => void
+    onOpen: (value?: journalType) => void
     onClose: () => void
     disableCancelButton: boolean
     disableSubmitButton: boolean
+    value: journalType
   }
   petSelection: {
     value?: { id: number; name: string }
@@ -34,6 +35,7 @@ export const UseJournal = (): {
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: { errors, isValid, isDirty },
   } = useForm<journalType>({
     mode: 'onChange',
@@ -108,9 +110,13 @@ export const UseJournal = (): {
           })
       }),
       onClose: () => handleRecordModalClose(),
-      onOpen: () => handleRecordModalOpen(),
+      onOpen: (value?: journalType) => {
+        handleRecordModalOpen()
+        reset(value ?? {})
+      },
       disableCancelButton: !isDirty || !isValid,
       disableSubmitButton: !isDirty || !isValid,
+      value: getValues(),
     },
     petSelection: {
       value: selectPet,
