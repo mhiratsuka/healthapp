@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { currentTime } from '@/domain/time'
@@ -55,22 +55,22 @@ export const UseJournal = (): {
     })
   }
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:8000/api/users/1/pets')
-      .then((res) => {
-        setPets(res.data.data)
-        // console.log(res.data.data[0])
-        // setSelectPet(
-        //   selectPet ?? {
-        //     id: res.data.data[0].id,
-        //     name: res.data.data[0].name,
-        //   }
-        // )
-      })
-      .catch((e) => console.log(e))
-    // }, [pets, selectPet])
-  }, [pets])
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:8000/api/users/1/pets')
+  //     .then((res) => {
+  //       setPets(res.data.data)
+  //       // console.log(res.data.data[0])
+  //       // setSelectPet(
+  //       //   selectPet ?? {
+  //       //     id: res.data.data[0].id,
+  //       //     name: res.data.data[0].name,
+  //       //   }
+  //       // )
+  //     })
+  //     .catch((e) => console.log(e))
+  //   // }, [pets, selectPet])
+  // }, [pets])
 
   useEffect(() => {
     // selectPet !== undefined &&
@@ -81,7 +81,7 @@ export const UseJournal = (): {
         setJournals(res.data.data)
       })
       .catch((e) => console.log(e))
-  })
+  }, [])
 
   return {
     pets,
