@@ -72,7 +72,7 @@ export const UseJournal = (): {
       })
       .catch((e) => console.log(e))
     // }, [pets, selectPet])
-  }, [pets])
+  }, [])
 
   useEffect(() => {
     // selectPet !== undefined &&
