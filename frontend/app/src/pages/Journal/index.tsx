@@ -3,14 +3,7 @@ import { Tooltip } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
-import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import { DataGrid, GridActionsCellItem } from '@mui/x-data-grid'
 import { FC } from 'react'
@@ -120,7 +113,7 @@ export const Journal: FC = () => {
               columns={columns}
             />
           </Box>
-          <TableContainer component={Paper}>
+          {/* <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
               <TableHead>
                 <TableRow>
@@ -157,7 +150,7 @@ export const Journal: FC = () => {
                 )}
               </TableBody>
             </Table>
-          </TableContainer>
+          </TableContainer> */}
         </Box>
       </Box>
     </Layout>
