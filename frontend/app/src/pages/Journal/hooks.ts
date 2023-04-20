@@ -13,7 +13,7 @@ export const UseJournal = (): {
     isOpen: boolean
     register: UseFormRegister<journalType>
     errors: FieldErrors<journalType>
-    onSubmit: () => void
+    onSubmit?: () => void
     onOpen: (value?: journalType) => void
     onClose: () => void
     disableCancelButton: boolean
@@ -57,6 +57,39 @@ export const UseJournal = (): {
     })
   }
 
+  const updateData = (data: journalType): void => {
+    alert('update')
+    axios
+      .patch(`http://localhost:8000/api/journals/${data.id}`, {
+        ...data,
+      })
+      .then((res) => {
+        console.log(res)
+        handleRecordModalClose()
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
+  const postData = (data: journalType): void => {
+    alert('post')
+    axios
+      // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
+      .post(`http://localhost:8000/api/pets/1/journals`, {
+        ...data,
+        // pet_id: selectPet.id,
+        pet_id: 1,
+      })
+      .then((res) => {
+        console.log(res)
+        handleRecordModalClose()
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
   useEffect(() => {
     axios
       .get('http://localhost:8000/api/users/1/pets')
@@ -93,21 +126,11 @@ export const UseJournal = (): {
       register,
       errors,
       onSubmit: handleSubmit((data: journalType) => {
-        // error fix
-        axios
-          // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
-          .post(`http://localhost:8000/api/pets/1/journals`, {
-            ...data,
-            // pet_id: selectPet.id,
-            pet_id: 1,
-          })
-          .then((res) => {
-            console.log(res)
-            handleRecordModalClose()
-          })
-          .catch((e) => {
-            console.log(e)
-          })
+        if (data.id === undefined) {
+          postData(data)
+        } else {
+          updateData(data)
+        }
       }),
       onClose: () => handleRecordModalClose(),
       onOpen: (value?: journalType) => {
