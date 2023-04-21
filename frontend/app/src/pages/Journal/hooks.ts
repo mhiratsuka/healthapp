@@ -116,7 +116,7 @@ export const UseJournal = (): {
         setJournals(res.data.data)
       })
       .catch((e) => console.log(e))
-  }, [])
+  }, [journals])
 
   return {
     pets,
