@@ -58,7 +58,6 @@ export const UseJournal = (): {
   }
 
   const updateData = (data: journalType): void => {
-    alert('update')
     axios
       .patch(`http://localhost:8000/api/journals/${data.id}`, {
         ...data,
