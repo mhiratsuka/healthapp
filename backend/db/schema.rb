@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2022_12_01_122433) do
 
   create_table "journals", force: :cascade do |t|
     t.string "title"
-    t.date "from_date"
-    t.date "to_date"
+    t.datetime "from_date"
+    t.datetime "to_date"
     t.text "note"
     t.string "category"
     t.bigint "pet_id", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_12_01_122433) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "kind"
-    t.date "birthday"
+    t.datetime "birthday"
     t.bigint "user_id", null: false
     t.bigint "sex_id", null: false
     t.datetime "created_at", precision: 6, null: false
