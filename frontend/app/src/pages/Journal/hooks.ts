@@ -65,9 +65,8 @@ export const UseJournal = (): {
       .then((res) => {
         console.log(res)
         handleRecordModalClose()
-        const newJournal = [...journals]
-        newJournal[data.id] = data
-        setJournals(newJournal)
+        journals[data.id] = data
+        setJournals(journals)
       })
       .catch((e) => {
         console.log(e)
