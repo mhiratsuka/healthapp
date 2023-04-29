@@ -10,6 +10,7 @@ import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
 import { SideMenu } from '@/components/SideMenu'
+import { formatTime } from '@/domain/time'
 import { Primary } from '@/style/ts/tokens'
 
 import { UseJournal } from './hooks'
@@ -29,7 +30,7 @@ export const Journal: FC = () => {
       headerName: 'Date',
       width: 300,
       valueGetter: ({ row: { from_date, to_date } }) =>
-        `${from_date} ~ ${to_date}`,
+        `${formatTime(from_date)} ~ ${formatTime(to_date)}`,
     },
     {
       field: 'actions',
