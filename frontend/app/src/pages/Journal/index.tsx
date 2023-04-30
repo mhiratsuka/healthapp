@@ -105,7 +105,6 @@ export const Journal: FC = () => {
             disableCancelButton={registeringJournalForm.disableCancelButton}
             disableSubmitButton={registeringJournalForm.disableSubmitButton}
           />
-          {/* TODO: change grid */}
           <Box>
             <DataGrid
               getRowHeight={() => 'auto'}
@@ -114,44 +113,6 @@ export const Journal: FC = () => {
               columns={columns}
             />
           </Box>
-          {/* <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Title</TableCell>
-                  <TableCell align='right'>Date</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {journals.length === 0 ? (
-                  <div>no data</div>
-                ) : (
-                  journals.map(({ title, from_date, to_date, id }, idx) => (
-                    <TableRow
-                      sx={{
-                        '&:last-child tds, &:last-child th': { border: 0 },
-                      }}
-                      key={idx}
-                    >
-                      <TableCell component='th' scope='row'>
-                        {title}
-                      </TableCell>
-                      <TableCell align='right'>{`${from_date} ~${to_date}`}</TableCell>
-                      <TableCell align='right'>
-                        <IconButton
-                          color='success'
-                          aria-label='edit journal'
-                          onClick={registeringJournalForm.onOpen}
-                        >
-                          <EditIcon />
-                        </IconButton>
-                      </TableCell>
-                    </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
-          </TableContainer> */}
         </Box>
       </Box>
     </Layout>
