@@ -41,11 +41,7 @@ export const Journal: FC = () => {
         <Tooltip title='edit'>
           <GridActionsCellItem
             icon={
-              <IconButton
-                color='success'
-                aria-label='edit journal'
-                onClick={registeringJournalForm.onOpen}
-              >
+              <IconButton color='success' aria-label='edit journal'>
                 <EditIcon />
               </IconButton>
             }
