@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
-import { currentTime } from '@/domain/time'
+import { currentTime, formatTime } from '@/domain/time'
 
 import { journalType, petType } from './model'
 
@@ -36,6 +36,7 @@ export const UseJournal = (): {
     handleSubmit,
     reset,
     getValues,
+    setValue,
     formState: { errors, isValid, isDirty },
   } = useForm<journalType>({
     mode: 'onChange',
@@ -137,6 +138,8 @@ export const UseJournal = (): {
       onOpen: (value?: journalType) => {
         handleRecordModalOpen()
         reset(value ?? {})
+        setValue('from_date', formatTime(getValues('from_date')))
+        setValue('to_date', formatTime(getValues('to_date')))
       },
       disableCancelButton: !isDirty || !isValid,
       disableSubmitButton: !isDirty || !isValid,
