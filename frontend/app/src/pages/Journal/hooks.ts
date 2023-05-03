@@ -137,7 +137,10 @@ export const UseJournal = (): {
       onClose: () => handleRecordModalClose(),
       onOpen: (value?: journalType) => {
         handleRecordModalOpen()
-        reset(value ?? {})
+        if (value.id !== undefined) {
+          reset(value ?? {})
+        }
+
         setValue('from_date', formatTime(getValues('from_date')))
         setValue('to_date', formatTime(getValues('to_date')))
       },
