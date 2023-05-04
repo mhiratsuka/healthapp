@@ -68,6 +68,7 @@ export const UseJournal = (): {
         handleRecordModalClose()
         journals[data.id] = data
         setJournals(journals)
+        console.log(journals)
       })
       .catch((e) => {
         console.log(e)
@@ -75,7 +76,6 @@ export const UseJournal = (): {
   }
 
   const postData = (data: journalType): void => {
-    alert('post')
     axios
       // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
       .post(`http://localhost:8000/api/pets/1/journals`, {
