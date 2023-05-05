@@ -66,9 +66,22 @@ export const UseJournal = (): {
       .then((res) => {
         console.log(res)
         handleRecordModalClose()
-        journals[data.id] = data
-        setJournals(journals)
-        console.log(journals)
+        const updateJournal = journals.map((obj) => {
+          if (obj.id === data.id) {
+            return {
+              ...obj,
+              title: data.title,
+              from_date: data.from_date,
+              to_date: data.to_date,
+              category: data.category,
+              note: data.note,
+            }
+          }
+
+          return obj
+        })
+
+        setJournals(updateJournal)
       })
       .catch((e) => {
         console.log(e)
@@ -85,7 +98,11 @@ export const UseJournal = (): {
       })
       .then((res) => {
         console.log(res)
+        console.log(data)
         handleRecordModalClose()
+        const test = [...journals, data]
+        console.log(test)
+        console.log(journals)
       })
       .catch((e) => {
         console.log(e)
