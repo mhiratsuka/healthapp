@@ -1,3 +1,4 @@
+import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import { Tooltip } from '@mui/material'
 import Box from '@mui/material/Box'
@@ -55,6 +56,27 @@ export const Journal: FC = () => {
                 category,
                 note,
               })
+            }
+          />
+        </Tooltip>,
+        <Tooltip title='delete'>
+          <GridActionsCellItem
+            icon={
+              <IconButton color='success' aria-label='delete journal'>
+                <DeleteIcon />
+              </IconButton>
+            }
+            label='delete'
+            onClick={
+              () => alert('delete')
+              // registeringJournalForm.onDelete({
+              //   id,
+              //   title,
+              //   from_date,
+              //   to_date,
+              //   category,
+              //   note,
+              // })
             }
           />
         </Tooltip>,
