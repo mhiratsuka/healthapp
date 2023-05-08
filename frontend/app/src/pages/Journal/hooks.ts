@@ -25,7 +25,9 @@ export const UseJournal = (): {
     onChange: (option: { id: number; name: string }) => void
     options: Array<{ id: number; name: string }>
   }
-  confirmDialog: {}
+  confirmDialog: {
+    isOpen: boolean
+  }
 } => {
   const [journals, setJournals] = useState([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
