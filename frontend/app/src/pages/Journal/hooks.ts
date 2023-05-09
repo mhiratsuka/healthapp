@@ -27,6 +27,7 @@ export const UseJournal = (): {
   }
   confirmDialog: {
     isOpen: boolean
+    value?: journalType
   }
 } => {
   const [journals, setJournals] = useState([])
