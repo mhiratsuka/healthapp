@@ -4,7 +4,7 @@ import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { currentTime, formatTime } from '@/domain/time'
 
-import { journalType, petType } from './model'
+import { journalType, journalType, petType } from './model'
 
 export const UseJournal = (): {
   pets: petType[]
@@ -28,6 +28,7 @@ export const UseJournal = (): {
   confirmDialog: {
     isOpen: boolean
     value?: journalType
+    onOpen: (value: journalType) => void
   }
 } => {
   const [journals, setJournals] = useState([])
