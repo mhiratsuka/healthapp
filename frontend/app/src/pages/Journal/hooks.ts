@@ -29,6 +29,7 @@ export const UseJournal = (): {
     isOpen: boolean
     value?: journalType
     onOpen: (value: journalType) => void
+    onSubmit: () => void
   }
 } => {
   const [journals, setJournals] = useState([])
