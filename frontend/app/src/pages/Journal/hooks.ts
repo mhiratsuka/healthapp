@@ -30,6 +30,7 @@ export const UseJournal = (): {
     value?: journalType
     onOpen: (value: journalType) => void
     onSubmit: () => void
+    onClose: () => void
   }
 } => {
   const [journals, setJournals] = useState([])
