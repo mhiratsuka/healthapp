@@ -37,6 +37,7 @@ export const UseJournal = (): {
   const [recordModalOpen, setRecordModalOpen] = useState(false)
   const [pets, setPets] = useState([])
   const [selectPet, setSelectPet] = useState<{ id: number; name: string }>()
+  const [confirmDialog, setConfirmDialog] = useState<journalType>()
 
   const {
     register,
