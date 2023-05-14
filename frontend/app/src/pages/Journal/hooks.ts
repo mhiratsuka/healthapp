@@ -178,5 +178,6 @@ export const UseJournal = (): {
       onChange: setSelectPet,
       options: pets,
     },
+    confirmDialog: {},
   }
 }
