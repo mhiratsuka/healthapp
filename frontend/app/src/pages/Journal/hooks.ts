@@ -185,6 +185,7 @@ export const UseJournal = (): {
       onSubmit: () => {
         alert('confirmDialog onSubmit')
       },
+      onClose: () => setConfirmDialogValue(undefined),
     },
   }
 }
