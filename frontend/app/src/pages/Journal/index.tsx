@@ -136,3 +136,12 @@ export const Journal: FC = () => {
     </Layout>
   )
 }
+
+const confirmDialog: FC<{
+  title: string
+  content: string
+  onSubmit: () => void
+  onClose: () => void
+}> = ({ title, content, onSubmit, onClose }) => {
+  return alert('test')
+}
