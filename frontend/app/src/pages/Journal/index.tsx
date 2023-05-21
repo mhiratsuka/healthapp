@@ -19,7 +19,8 @@ import { JournalForm } from './JournalForm'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
-  const { journals, registeringJournalForm, petSelection } = UseJournal()
+  const { journals, registeringJournalForm, petSelection, confirmDialog } =
+    UseJournal()
   const columns = [
     {
       field: 'title',
