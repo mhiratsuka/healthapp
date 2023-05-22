@@ -68,16 +68,15 @@ export const Journal: FC = () => {
               </IconButton>
             }
             label='delete'
-            onClick={
-              () => alert('delete')
-              // registeringJournalForm.onDelete({
-              //   id,
-              //   title,
-              //   from_date,
-              //   to_date,
-              //   category,
-              //   note,
-              // })
+            onClick={() =>
+              confirmDialog.onOpen({
+                id,
+                title,
+                from_date,
+                to_date,
+                category,
+                note,
+              })
             }
           />
         </Tooltip>,
@@ -134,6 +133,14 @@ export const Journal: FC = () => {
           </Box>
         </Box>
       </Box>
+      {confirmDialog.isOpen && (
+        <ConfirmDaialog
+          title={}
+          content={}
+          onSubmit={confirmDialog.onSubmit}
+          onClose={confirmDialog.onClose}
+        />
+      )}
     </Layout>
   )
 }
