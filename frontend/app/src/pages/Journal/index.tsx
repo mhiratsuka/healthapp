@@ -3,6 +3,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import { Tooltip } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
 import IconButton from '@mui/material/IconButton'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
@@ -134,9 +135,9 @@ export const Journal: FC = () => {
         </Box>
       </Box>
       {confirmDialog.isOpen && (
-        <ConfirmDaialog
-          title={}
-          content={}
+        <ConfirmDialog
+          title={'test title'}
+          content={'test content'}
           onSubmit={confirmDialog.onSubmit}
           onClose={confirmDialog.onClose}
         />
@@ -145,11 +146,15 @@ export const Journal: FC = () => {
   )
 }
 
-const confirmDialog: FC<{
+const ConfirmDialog: FC<{
   title: string
   content: string
   onSubmit: () => void
   onClose: () => void
 }> = ({ title, content, onSubmit, onClose }) => {
-  return alert('test')
+  return (
+    <Dialog open onClose={onClose}>
+      test
+    </Dialog>
+  )
 }
