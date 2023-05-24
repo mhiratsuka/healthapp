@@ -1,9 +1,8 @@
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
-import { Tooltip } from '@mui/material'
+import { Dialog, DialogTitle, Tooltip } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Dialog from '@mui/material/Dialog'
 import IconButton from '@mui/material/IconButton'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
@@ -154,7 +153,7 @@ const ConfirmDialog: FC<{
 }> = ({ title, content, onSubmit, onClose }) => {
   return (
     <Dialog open onClose={onClose}>
-      test
+      <DialogTitle>{title}</DialogTitle>
     </Dialog>
   )
 }
