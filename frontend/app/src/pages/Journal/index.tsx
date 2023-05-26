@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogContent,
   DialogTitle,
+  Divider,
   Tooltip,
 } from '@mui/material'
 import Box from '@mui/material/Box'
@@ -161,6 +162,7 @@ const ConfirmDialog: FC<{
     <Dialog open onClose={onClose}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>{content}</DialogContent>
+      <Divider />
     </Dialog>
   )
 }
