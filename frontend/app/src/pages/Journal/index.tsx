@@ -2,6 +2,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import {
   Dialog,
+  DialogActions,
   DialogContent,
   DialogContent,
   DialogTitle,
@@ -163,6 +164,7 @@ const ConfirmDialog: FC<{
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>{content}</DialogContent>
       <Divider />
+      <DialogActions></DialogActions>
     </Dialog>
   )
 }
