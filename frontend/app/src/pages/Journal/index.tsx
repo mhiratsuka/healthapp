@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContent,
   DialogTitle,
   Divider,
   Tooltip,
@@ -164,7 +163,11 @@ const ConfirmDialog: FC<{
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>{content}</DialogContent>
       <Divider />
-      <DialogActions></DialogActions>
+      <DialogActions>
+        <Button variant='outlined' color='success'>
+          Cancel
+        </Button>
+      </DialogActions>
     </Dialog>
   )
 }
