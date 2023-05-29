@@ -167,6 +167,9 @@ const ConfirmDialog: FC<{
         <Button variant='outlined' color='success'>
           Cancel
         </Button>
+        <Button variant='contained' color='success'>
+          Ok
+        </Button>
       </DialogActions>
     </Dialog>
   )
