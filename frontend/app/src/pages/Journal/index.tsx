@@ -142,7 +142,7 @@ export const Journal: FC = () => {
       </Box>
       {confirmDialog.isOpen && (
         <ConfirmDialog
-          title={'test title'}
+          title={'Delete Record'}
           content={'test content'}
           onSubmit={confirmDialog.onSubmit}
           onClose={confirmDialog.onClose}
