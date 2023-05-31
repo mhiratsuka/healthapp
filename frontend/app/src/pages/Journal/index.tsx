@@ -142,8 +142,10 @@ export const Journal: FC = () => {
       </Box>
       {confirmDialog.isOpen && (
         <ConfirmDialog
-          title={'Delete Record'}
-          content={'test content'}
+          title={'Delete Confirmation'}
+          content={
+            'Do you really want to delete this records? This process cannot be undone.'
+          }
           onSubmit={confirmDialog.onSubmit}
           onClose={confirmDialog.onClose}
         />
