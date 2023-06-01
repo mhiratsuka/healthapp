@@ -170,7 +170,7 @@ const ConfirmDialog: FC<{
           Cancel
         </Button>
         <Button variant='contained' color='success'>
-          Ok
+          Delete
         </Button>
       </DialogActions>
     </Dialog>
