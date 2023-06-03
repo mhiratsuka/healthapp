@@ -98,7 +98,7 @@ export const UseJournal = (): {
 
   const deleteData = (data: journalType): void => {
     axios
-      .post(`http://localhost:8000/api/journals/${data.id}`, {})
+      .delete(`http://localhost:8000/api/journals/${data.id}`, {})
       .then((res) => {
         console.log(res)
       })
@@ -109,7 +109,8 @@ export const UseJournal = (): {
 
   const postData = (data: journalType): void => {
     axios
-      .delete(`http://localhost:8000/api/pets/1/journals /journals/:id`, {
+      // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
+      .post(`http://localhost:8000/api/pets/1/journals`, {
         ...data,
         // pet_id: selectPet.id,
         pet_id: 1,
