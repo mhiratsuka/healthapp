@@ -98,7 +98,7 @@ export const UseJournal = (): {
 
   const deleteData = (data: journalType): void => {
     axios
-      .delete(`http://localhost:8000/api/journals/${data.id}`, {})
+      .delete(`http://localhost:8000/api/journals/${data.id}`)
       .then((res) => {
         console.log(res)
       })
