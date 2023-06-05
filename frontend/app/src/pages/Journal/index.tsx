@@ -79,10 +79,6 @@ export const Journal: FC = () => {
               confirmDialog.onOpen({
                 id,
                 title,
-                from_date,
-                to_date,
-                category,
-                note,
               })
             }
           />
@@ -166,7 +162,7 @@ const ConfirmDialog: FC<{
       <DialogContent>{content}</DialogContent>
       <Divider />
       <DialogActions>
-        <Button variant='outlined' color='success'>
+        <Button variant='outlined' color='success' onClose={onClose}>
           Cancel
         </Button>
         <Button variant='contained' color='success'>
