@@ -28,7 +28,7 @@ export const UseJournal = (): {
   confirmDialog: {
     isOpen: boolean
     value?: journalType
-    onOpen: (value: journalType) => void
+    onOpen: (id: number, title: string) => void
     onSubmit: () => void
     onClose: () => void
   }
@@ -101,9 +101,11 @@ export const UseJournal = (): {
       .delete(`http://localhost:8000/api/journals/${data.id}`)
       .then((res) => {
         console.log(res)
+        setConfirmDialogValue(undefined)
       })
       .catch((e) => {
         console.log(e)
+        setConfirmDialogValue(undefined)
       })
   }
 
@@ -192,7 +194,11 @@ export const UseJournal = (): {
     confirmDialog: {
       value: confirmDialogValue,
       isOpen: confirmDialogValue !== undefined,
-      onOpen: setConfirmDialogValue,
+      onOpen: (id: number, title: string) => {
+        console.log(id)
+        console.log(title)
+        console.log(confirmDialogValue)
+      },
       onSubmit: () => {
         alert('confirmDialog onSubmit')
       },
