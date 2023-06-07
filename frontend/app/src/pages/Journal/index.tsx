@@ -78,7 +78,6 @@ export const Journal: FC = () => {
             onClick={() =>
               confirmDialog.onOpen({
                 id,
-                title,
               })
             }
           />
@@ -140,7 +139,7 @@ export const Journal: FC = () => {
         <ConfirmDialog
           title={'Delete Confirmation'}
           content={
-            'Do you really want to delete this records? This process cannot be undone.'
+            'Do you really want to delete this record? This process cannot be undone.'
           }
           onSubmit={confirmDialog.onSubmit}
           onClose={confirmDialog.onClose}
