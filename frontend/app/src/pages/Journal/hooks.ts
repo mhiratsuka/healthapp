@@ -37,7 +37,9 @@ export const UseJournal = (): {
   const [recordModalOpen, setRecordModalOpen] = useState(false)
   const [pets, setPets] = useState([])
   const [selectPet, setSelectPet] = useState<{ id: number; name: string }>()
-  const [confirmDialogValue, setConfirmDialogValue] = useState<journalType>()
+  const [confirmDialogValue, setConfirmDialogValue] = useState<
+    number | undefined
+  >(undefined)
 
   const {
     register,
@@ -194,10 +196,9 @@ export const UseJournal = (): {
     confirmDialog: {
       value: confirmDialogValue,
       isOpen: confirmDialogValue !== undefined,
-      onOpen: (id: number, title: string) => {
+      onOpen: (id: number) => {
         console.log(id)
-        console.log(title)
-        console.log(confirmDialogValue)
+        setConfirmDialogValue(id)
       },
       onSubmit: () => {
         alert('confirmDialog onSubmit')
