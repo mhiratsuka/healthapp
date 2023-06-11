@@ -27,7 +27,7 @@ export const UseJournal = (): {
   }
   confirmDialog: {
     isOpen: boolean
-    value?: journalType
+    value?: number
     onOpen: (id: number, title: string) => void
     onSubmit: () => void
     onClose: () => void
@@ -194,7 +194,6 @@ export const UseJournal = (): {
       options: pets,
     },
     confirmDialog: {
-      value: confirmDialogValue,
       isOpen: confirmDialogValue !== undefined,
       onOpen: (id: number) => {
         console.log(id)
