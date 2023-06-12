@@ -75,11 +75,7 @@ export const Journal: FC = () => {
               </IconButton>
             }
             label='delete'
-            onClick={() =>
-              confirmDialog.onOpen({
-                id,
-              })
-            }
+            onClick={() => confirmDialog.onOpen(id)}
           />
         </Tooltip>,
       ],
@@ -161,10 +157,10 @@ const ConfirmDialog: FC<{
       <DialogContent>{content}</DialogContent>
       <Divider />
       <DialogActions>
-        <Button variant='outlined' color='success' onClose={onClose}>
+        <Button variant='outlined' color='success' onClick={onClose}>
           Cancel
         </Button>
-        <Button variant='contained' color='success'>
+        <Button variant='contained' color='success' onClick={onSubmit}>
           Delete
         </Button>
       </DialogActions>
