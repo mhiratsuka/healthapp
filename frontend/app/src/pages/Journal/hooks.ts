@@ -196,7 +196,6 @@ export const UseJournal = (): {
     confirmDialog: {
       isOpen: confirmDialogValue !== undefined,
       onOpen: (id: number) => {
-        console.log(id)
         setConfirmDialogValue(id)
       },
       onSubmit: () => {
