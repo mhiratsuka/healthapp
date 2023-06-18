@@ -113,10 +113,8 @@ export const UseJournal = (): {
 
   const postData = (data: journalType): void => {
     axios
-      // .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
       .post(`http://localhost:8000/api/pets/1/journals`, {
         ...data,
-        // pet_id: selectPet.id,
         pet_id: 1,
       })
       .then((res) => {
@@ -137,16 +135,8 @@ export const UseJournal = (): {
       .get('http://localhost:8000/api/users/1/pets')
       .then((res) => {
         setPets(res.data.data)
-        // console.log(res.data.data[0])
-        // setSelectPet(
-        //   selectPet ?? {
-        //     id: res.data.data[0].id,
-        //     name: res.data.data[0].name,
-        //   }
-        // )
       })
       .catch((e) => console.log(e))
-    // }, [pets, selectPet])
   }, [])
 
   useEffect(() => {
@@ -199,7 +189,6 @@ export const UseJournal = (): {
         setConfirmDialogValue(id)
       },
       onSubmit: () => {
-        alert('confirmDialog onSubmit')
         deleteData()
       },
       onClose: () => setConfirmDialogValue(undefined),
