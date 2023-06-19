@@ -33,7 +33,7 @@ export const UseJournal = (): {
     onClose: () => void
   }
 } => {
-  const [journals, setJournals] = useState([])
+  const [journals, setJournals] = useState<journalType[]>([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
   const [pets, setPets] = useState([])
   const [selectPet, setSelectPet] = useState<{ id: number; name: string }>()
@@ -121,9 +121,18 @@ export const UseJournal = (): {
         console.log(res)
         console.log(data)
         handleRecordModalClose()
+        console.log(journals)
         const test = [...journals, data]
         console.log(test)
-        console.log(journals)
+
+        // setJournals([...journals, data])
+        axios
+          // .get(`http://localhost:8000/api/pets/${selectPet.id}/journals`)
+          .get(`http://localhost:8000/api/pets/1/journals`)
+          .then((res) => {
+            setJournals(res.data.data)
+          })
+          .catch((e) => console.log(e))
       })
       .catch((e) => {
         console.log(e)
