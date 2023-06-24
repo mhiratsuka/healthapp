@@ -68,6 +68,15 @@ export const UseJournal = (): {
     })
   }
 
+  const getData = (data: journalType): void => {
+    axios
+      .get(`http://localhost:8000/api/pets/1/journals`)
+      .then((res) => {
+        setJournals(res.data.data)
+      })
+      .catch((e) => console.log(e))
+  }
+
   const updateData = (data: journalType): void => {
     axios
       .patch(`http://localhost:8000/api/journals/${data.id}`, {
