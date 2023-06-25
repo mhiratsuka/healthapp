@@ -68,7 +68,7 @@ export const UseJournal = (): {
     })
   }
 
-  const getData = (data: journalType): void => {
+  const getData = (): void => {
     axios
       .get(`http://localhost:8000/api/pets/1/journals`)
       .then((res) => {
@@ -134,14 +134,7 @@ export const UseJournal = (): {
         const test = [...journals, data]
         console.log(test)
 
-        // setJournals([...journals, data])
-        axios
-          // .get(`http://localhost:8000/api/pets/${selectPet.id}/journals`)
-          .get(`http://localhost:8000/api/pets/1/journals`)
-          .then((res) => {
-            setJournals(res.data.data)
-          })
-          .catch((e) => console.log(e))
+        getData()
       })
       .catch((e) => {
         console.log(e)
