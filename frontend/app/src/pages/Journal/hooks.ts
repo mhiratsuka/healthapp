@@ -127,13 +127,7 @@ export const UseJournal = (): {
         pet_id: 1,
       })
       .then((res) => {
-        console.log(res)
-        console.log(data)
         handleRecordModalClose()
-        console.log(journals)
-        const test = [...journals, data]
-        console.log(test)
-
         getJournalData()
       })
       .catch((e) => {
@@ -151,14 +145,6 @@ export const UseJournal = (): {
   }, [])
 
   useEffect(() => {
-    // // selectPet !== undefined &&
-    // axios
-    //   // .get(`http://localhost:8000/api/pets/${selectPet.id}/journals`)
-    //   .get(`http://localhost:8000/api/pets/1/journals`)
-    //   .then((res) => {
-    //     setJournals(res.data.data)
-    //   })
-    //   .catch((e) => console.log(e))
     getJournalData()
   }, [])
 
