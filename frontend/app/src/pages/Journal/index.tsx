@@ -23,6 +23,7 @@ import { Primary } from '@/style/ts/tokens'
 
 import { UseJournal } from './hooks'
 import { JournalForm } from './JournalForm'
+import { PetSelect } from './PetSelect'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
@@ -95,13 +96,13 @@ export const Journal: FC = () => {
             Record page
           </Typography>
           {/* TODO: fix later */}
-          {/* {petSelection.value !== undefined && (
+          {/* {petSelection.value !== undefined && ( */}
             <PetSelect
               value={petSelection.value}
               onChange={petSelection.onChange}
               options={petSelection.options}
             />
-          )} */}
+          // )}
           <Stack direction='row' justifyContent='flex-end'>
             <Button
               variant='contained'
