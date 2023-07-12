@@ -4,7 +4,7 @@ import { useForm, UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { currentTime, formatTime } from '@/domain/time'
 
-import { journalType, journalType, petType } from './model'
+import { journalType, petType } from './model'
 
 export const UseJournal = (): {
   pets: petType[]
