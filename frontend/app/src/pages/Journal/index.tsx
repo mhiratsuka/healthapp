@@ -96,13 +96,13 @@ export const Journal: FC = () => {
             Record page
           </Typography>
           {/* TODO: fix later */}
-          {/* {petSelection.value !== undefined && ( */}
+          {petSelection.value !== undefined && (
             <PetSelect
               value={petSelection.value}
               onChange={petSelection.onChange}
               options={petSelection.options}
             />
-          // )}
+          )}
           <Stack direction='row' justifyContent='flex-end'>
             <Button
               variant='contained'
