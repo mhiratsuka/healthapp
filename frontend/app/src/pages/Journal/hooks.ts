@@ -77,6 +77,16 @@ export const UseJournal = (): {
       .catch((e) => console.log(e))
   }
 
+  const getPetData = (): void => {
+    axios
+      .get(`http://localhost:8000/api/users/1/pets`)
+      .then((res) => {
+        setPets(res.data.data)
+        console.log(pets)
+      })
+      .catch((e) => console.log(e))
+  }
+
   const updateData = (data: journalType): void => {
     axios
       .patch(`http://localhost:8000/api/journals/${data.id}`, {
@@ -126,7 +136,7 @@ export const UseJournal = (): {
         ...data,
         pet_id: 1,
       })
-      .then((res) => {
+      .then(() => {
         handleRecordModalClose()
         getJournalData()
       })
