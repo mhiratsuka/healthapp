@@ -150,6 +150,9 @@ export const UseJournal = (): {
       .get('http://localhost:8000/api/users/1/pets')
       .then((res) => {
         setPets(res.data.data)
+        if (selectPet === undefined) {
+          setSelectPet({ id: res.data.data[0].id, name: res.data.data[0].name })
+        }
       })
       .catch((e) => console.log(e))
   }, [])
