@@ -68,9 +68,9 @@ export const UseJournal = (): {
     })
   }
 
-  const getJournalData = (): void => {
+  const getJournalData = (id: number): void => {
     axios
-      .get(`http://localhost:8000/api/pets/1/journals`)
+      .get(`http://localhost:8000/api/pets/${id}/journals`)
       .then((res) => {
         setJournals(res.data.data)
       })
@@ -79,12 +79,13 @@ export const UseJournal = (): {
 
   const getPetData = (): void => {
     axios
-      .get('http://localhost:8000/api/users/1/pets')
+      .get(`http://localhost:8000/api/users/1/pets`)
       .then((res) => {
         setPets(res.data.data)
         if (selectPet === undefined) {
           setSelectPet({ id: res.data.data[0].id, name: res.data.data[0].name })
         }
+        getJournalData(res.data.data[0].id)
       })
       .catch((e) => console.log(e))
   }
@@ -149,10 +150,6 @@ export const UseJournal = (): {
 
   useEffect(() => {
     getPetData()
-  }, [])
-
-  useEffect(() => {
-    getJournalData()
   }, [])
 
   return {
