@@ -90,7 +90,7 @@ export const UseJournal = (): {
       .catch((e) => console.log(e))
   }
 
-  const updateData = (data: journalType): void => {
+  const updateJournalData = (data: journalType): void => {
     axios
       .patch(`http://localhost:8000/api/journals/${data.id}`, {
         ...data,
@@ -163,7 +163,7 @@ export const UseJournal = (): {
         if (data.id === undefined) {
           postData(data)
         } else {
-          updateData(data)
+          updateJournalData(data)
         }
       }),
       onClose: () => handleRecordModalClose(),
