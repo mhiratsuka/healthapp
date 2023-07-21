@@ -120,7 +120,7 @@ export const UseJournal = (): {
       })
   }
 
-  const deleteData = (): void => {
+  const deleteJournalData = (): void => {
     axios
       .delete(`http://localhost:8000/api/journals/${confirmDialogValue}`)
       .then((res) => {
@@ -191,7 +191,7 @@ export const UseJournal = (): {
         setConfirmDialogValue(id)
       },
       onSubmit: () => {
-        deleteData()
+        deleteJournalData()
       },
       onClose: () => setConfirmDialogValue(undefined),
     },
