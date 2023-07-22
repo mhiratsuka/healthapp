@@ -133,7 +133,7 @@ export const UseJournal = (): {
       })
   }
 
-  const postData = (data: journalType): void => {
+  const postJournalData = (data: journalType): void => {
     axios
       .post(`http://localhost:8000/api/pets/1/journals`, {
         ...data,
@@ -161,7 +161,7 @@ export const UseJournal = (): {
       errors,
       onSubmit: handleSubmit((data: journalType) => {
         if (data.id === undefined) {
-          postData(data)
+          postJournalData(data)
         } else {
           updateJournalData(data)
         }
