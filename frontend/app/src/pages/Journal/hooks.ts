@@ -135,13 +135,13 @@ export const UseJournal = (): {
 
   const postJournalData = (data: journalType): void => {
     axios
-      .post(`http://localhost:8000/api/pets/1/journals`, {
+      .post(`http://localhost:8000/api/pets/${selectPet.id}/journals`, {
         ...data,
         pet_id: 1,
       })
       .then(() => {
         handleRecordModalClose()
-        getJournalData()
+        getJournalData(selectPet.id)
       })
       .catch((e) => {
         console.log(e)
