@@ -133,6 +133,10 @@ export const Journal: FC = () => {
               autoHeight
               rows={journals}
               columns={columns}
+              initialState={{
+                pagination: { paginationModel: { pageSize: 10 } },
+              }}
+              pageSizeOptions={[10, 20]}
             />
           </Box>
         </Box>
