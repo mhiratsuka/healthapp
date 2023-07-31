@@ -84,8 +84,10 @@ export const UseJournal = (): {
         setPets(res.data.data)
         if (selectPet === undefined) {
           setSelectPet({ id: res.data.data[0].id, name: res.data.data[0].name })
+          getJournalData(res.data.data[0].id)
+        } else {
+          getJournalData(selectPet.id)
         }
-        getJournalData(res.data.data[0].id)
       })
       .catch((e) => console.log(e))
   }
@@ -150,7 +152,7 @@ export const UseJournal = (): {
 
   useEffect(() => {
     getPetData()
-  }, [])
+  }, [selectPet])
 
   return {
     pets,
