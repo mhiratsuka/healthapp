@@ -10,6 +10,7 @@ export const PetSelect: FC<{
   const [pet, setPet] = useState(value ?? { id: value.id, name: value.name })
 
   useEffect(() => {
+    console.log(pet)
     setPet({ id: value?.id, name: value?.name })
   }, [value])
 
@@ -18,8 +19,16 @@ export const PetSelect: FC<{
       labelId='demo-simple-select-label'
       id='demo-simple-select'
       defaultValue={value.id}
-      onChange={(_, value) => onChange(value)}
+      onChange={({ target }, child) => {
+        onChange({
+          id: target?.value as number,
+          name: child?.props?.children,
+        })
+        setPet({ id: target?.value as number, name: child?.props?.children })
+        console.log(pet)
+      }}
       value={pet.id}
+      name={pet.name}
     >
       {options.map(({ id, name }, idx) => (
         <MenuItem value={id} key={idx}>
