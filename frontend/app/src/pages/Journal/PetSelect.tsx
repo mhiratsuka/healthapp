@@ -10,7 +10,6 @@ export const PetSelect: FC<{
   const [pet, setPet] = useState(value ?? { id: value.id, name: value.name })
 
   useEffect(() => {
-    console.log(pet)
     setPet({ id: value?.id, name: value?.name })
   }, [value])
 
