@@ -128,6 +128,7 @@ export const UseJournal = (): {
       .then((res) => {
         console.log(res)
         setConfirmDialogValue(undefined)
+        getJournalData(selectPet?.id as number)
       })
       .catch((e) => {
         console.log(e)
