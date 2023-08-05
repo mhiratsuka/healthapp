@@ -124,6 +124,7 @@ export const Journal: FC = () => {
             onSubmit={registeringJournalForm.onSubmit}
             disableCancelButton={registeringJournalForm.disableCancelButton}
             disableSubmitButton={registeringJournalForm.disableSubmitButton}
+            isEdit={registeringJournalForm.isEdit}
           />
           <Box>
             <DataGrid
