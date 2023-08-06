@@ -19,6 +19,7 @@ export const UseJournal = (): {
     disableCancelButton: boolean
     disableSubmitButton: boolean
     value: journalType
+    isEdit: boolean
   }
   petSelection: {
     value?: { id: number; name: string }
@@ -182,6 +183,7 @@ export const UseJournal = (): {
       disableCancelButton: !isDirty || !isValid,
       disableSubmitButton: !isDirty || !isValid,
       value: getValues(),
+      isEdit: getValues('id') !== undefined,
     },
     petSelection: {
       value: selectPet,
