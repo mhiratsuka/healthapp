@@ -24,6 +24,7 @@ export const JournalForm: FC<{
   onSubmit: () => void
   disableSubmitButton: boolean
   disableCancelButton: boolean
+  isEdit: boolean
 }> = ({
   isOpen,
   register,
@@ -32,13 +33,16 @@ export const JournalForm: FC<{
   onSubmit,
   disableSubmitButton,
   disableCancelButton,
+  isEdit,
 }) => {
   return (
     <FormControl onSubmit={onSubmit}>
       <Dialog open={isOpen} onClose={onClose}>
-        <DialogTitle>New Record</DialogTitle>
+        <DialogTitle>{isEdit ? 'Edit Record' : 'New Record'}</DialogTitle>
         <DialogContent>
-          <DialogContentText>Please enter your new record.</DialogContentText>
+          <DialogContentText>
+            Please {isEdit ? 'edit your' : 'enter your new'} record.
+          </DialogContentText>
           <TextField
             autoFocus
             margin='dense'
