@@ -19,7 +19,8 @@ export const Top: FC = () => {
       <MainContainer>
         <HeadingContainer>
           <Typography variant='h1'>Monitor Your pet health</Typography>
-          <Link href='/login'>
+          {/* FIXME add login */}
+          <Link href='/journal'>
             <Button variant='contained' color='success' size='large'>
               Start moniPetHealth
             </Button>
