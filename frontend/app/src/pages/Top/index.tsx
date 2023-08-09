@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles'
 import { FC, ElementType } from 'react'
 
 import { Layout } from '@/components/Layout'
-import { Main } from '@/style/ts/tokens'
 
 export const Top: FC = () => {
   return (
@@ -12,9 +11,10 @@ export const Top: FC = () => {
         <Link href='/'>
           <Box component='img' src='/icon.svg' sx={{ width: '35px' }} />
         </Link>
-        <Link href='/login' color={Main}>
+        {/* FIXME add login */}
+        {/* <Link href='/login' color={Main}>
           Log in
-        </Link>
+        </Link> */}
       </Nav>
       <MainContainer>
         <HeadingContainer>
