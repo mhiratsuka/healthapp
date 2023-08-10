@@ -1,4 +1,3 @@
-import LogoutIcon from '@mui/icons-material/Logout'
 import MenuIcon from '@mui/icons-material/Menu'
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -52,18 +51,18 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
           </ListItemButton>
         </ListItem>
       </List>
-      <Divider />
-      <List>
+      {/* <Divider /> */}
+      {/* <List>
         <ListItem disablePadding>
-          <ListItemButton component='a' href='/journal'>
-            {/* TODO: Fixed later */}
-            <ListItemIcon>
+          <ListItemButton component='a' href='/journal'> */}
+      {/* TODO: Fixed later */}
+      {/* <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>
             <ListItemText primary='Logout' />
           </ListItemButton>
         </ListItem>
-      </List>
+      </List> */}
     </>
   )
 
