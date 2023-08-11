@@ -27,7 +27,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
   const drawer = (
     <>
       <Toolbar>
-        <Link href='/journal'>
+        <Link href='/'>
           <Box component='img' src='/icon.svg' sx={{ width: '35px' }} />
         </Link>
       </Toolbar>
