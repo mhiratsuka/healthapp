@@ -1,3 +1,5 @@
+import ExpandLess from '@mui/icons-material/ExpandLess'
+import ExpandMore from '@mui/icons-material/ExpandMore'
 import MenuIcon from '@mui/icons-material/Menu'
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -18,7 +20,7 @@ import { useSideMenu } from './hook'
 
 export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const { isLargeScreen } = useSideMenu()
+  const { isLargeScreen, isOpen, onSettingClick } = useSideMenu()
 
   const handleMenuToggle = (): void => {
     setMenuOpen(!menuOpen)
@@ -48,6 +50,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary='Setting' />
+            {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
       </List>
