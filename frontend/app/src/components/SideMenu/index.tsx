@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart'
 import SettingsIcon from '@mui/icons-material/Settings'
 import Box from '@mui/material/Box'
+import Collapse from '@mui/material/Collapse'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -52,6 +53,14 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
             <ListItemText primary='Setting' />
             {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
+          <Collapse in={isOpen} timeout='auto' unmountOnExit>
+            <List component='div' disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon></ListItemIcon>
+                <ListItemText primary='Your pets' />
+              </ListItemButton>
+            </List>
+          </Collapse>
         </ListItem>
       </List>
       {/* <Divider /> */}
