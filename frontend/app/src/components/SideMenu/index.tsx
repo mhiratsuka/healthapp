@@ -50,7 +50,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary='Setting' />
+            <ListItemText primary='Setting' onClick={onSettingClick} />
             {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={isOpen} timeout='auto' unmountOnExit>
