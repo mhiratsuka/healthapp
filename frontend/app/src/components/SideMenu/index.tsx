@@ -44,24 +44,24 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
             <ListItemText primary='Record' />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton component='a' href='/journal'>
+        <ListItem disablePadding onClick={onSettingClick}>
+          <ListItemButton component='a'>
             {/* TODO: Fixed later */}
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
-            <ListItemText primary='Setting' onClick={onSettingClick} />
+            <ListItemText primary='Setting' />
             {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
-          <Collapse in={isOpen} timeout='auto' unmountOnExit>
-            <List component='div' disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon></ListItemIcon>
-                <ListItemText primary='Your pets' />
-              </ListItemButton>
-            </List>
-          </Collapse>
         </ListItem>
+        <Collapse in={isOpen} timeout='auto' unmountOnExit>
+          <List component='div' disablePadding>
+            <ListItemButton sx={{ pl: 4 }} href='/journal'>
+              <ListItemIcon></ListItemIcon>
+              <ListItemText primary='Your pets' />
+            </ListItemButton>
+          </List>
+        </Collapse>
       </List>
       {/* <Divider /> */}
       {/* <List>
