@@ -2,6 +2,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
 import MenuIcon from '@mui/icons-material/Menu'
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart'
+import PetsIcon from '@mui/icons-material/Pets'
 import SettingsIcon from '@mui/icons-material/Settings'
 import Box from '@mui/material/Box'
 import Collapse from '@mui/material/Collapse'
@@ -57,7 +58,9 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
         <Collapse in={isOpen} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
             <ListItemButton sx={{ pl: 4 }} href='/journal'>
-              <ListItemIcon></ListItemIcon>
+              <ListItemIcon>
+                <PetsIcon />
+              </ListItemIcon>
               <ListItemText primary='Your pets' />
             </ListItemButton>
           </List>
