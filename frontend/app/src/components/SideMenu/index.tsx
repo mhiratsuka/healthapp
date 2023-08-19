@@ -16,17 +16,18 @@ import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Toolbar from '@mui/material/Toolbar'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { useSideMenu } from './hook'
 
 export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const { isLargeScreen, isOpen, onSettingClick } = useSideMenu()
-
-  const handleMenuToggle = (): void => {
-    setMenuOpen(!menuOpen)
-  }
+  const {
+    isLargeScreen,
+    onMenuHandleToggle,
+    isMenuOpen,
+    isOpen,
+    onSettingClick,
+  } = useSideMenu()
 
   const drawer = (
     <>
@@ -91,14 +92,14 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
         color='inherit'
         aria-label='open menu'
         edge='start'
-        onClick={handleMenuToggle}
+        onClick={onMenuHandleToggle}
       >
         <MenuIcon />
       </IconButton>
       <Drawer
         variant={isLargeScreen ? 'permanent' : 'temporary'}
-        open={menuOpen}
-        onClose={handleMenuToggle}
+        open={isMenuOpen}
+        onClose={onMenuHandleToggle}
         ModalProps={{
           keepMounted: true,
         }}
