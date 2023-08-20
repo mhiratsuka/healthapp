@@ -4,10 +4,17 @@ import { useState } from 'react'
 
 export const useSideMenu = (): {
   isLargeScreen: boolean
-  isOpen: boolean
+  onMenuHandleToggle: () => void
+  isMenuOpen: boolean
+  isSettingOpen: boolean
   onSettingClick: () => void
 } => {
+  const [menuOpen, setMenuOpen] = useState(false)
   const [open, setOpen] = useState(false)
+
+  const handleMenuToggle = (): void => {
+    setMenuOpen(!menuOpen)
+  }
 
   const handleSettingClick = (): void => {
     setOpen(!open)
@@ -15,7 +22,9 @@ export const useSideMenu = (): {
 
   return {
     isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
-    isOpen: open,
+    onMenuHandleToggle: handleMenuToggle,
+    isMenuOpen: menuOpen,
+    isSettingOpen: open,
     onSettingClick: handleSettingClick,
   }
 }
