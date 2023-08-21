@@ -25,7 +25,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
     isLargeScreen,
     onMenuHandleToggle,
     isMenuOpen,
-    isOpen,
+    isSettingOpen,
     onSettingClick,
   } = useSideMenu()
 
@@ -53,10 +53,10 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary='Setting' />
-            {isOpen ? <ExpandLess /> : <ExpandMore />}
+            {isSettingOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
-        <Collapse in={isOpen} timeout='auto' unmountOnExit>
+        <Collapse in={isSettingOpen} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
             <ListItemButton sx={{ pl: 4 }} href='/journal'>
               <ListItemIcon>
