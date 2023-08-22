@@ -8,6 +8,7 @@ export const useSideMenu = (): {
   isMenuOpen: boolean
   isSettingOpen: boolean
   onSettingClick: () => void
+  selectedMenu: number
 } => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [open, setOpen] = useState(false)
