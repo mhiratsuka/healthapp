@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material'
 import { Theme } from '@mui/material/styles'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export const useSideMenu = (): {
   isLargeScreen: boolean
@@ -22,6 +22,11 @@ export const useSideMenu = (): {
     setOpen(!open)
   }
 
+  const handleMenuClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number
+  ): void => {}
+
   return {
     isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
     onMenuHandleToggle: handleMenuToggle,
@@ -29,5 +34,6 @@ export const useSideMenu = (): {
     isSettingOpen: open,
     onSettingClick: handleSettingClick,
     selectedMenu,
+    handleMenuClick,
   }
 }
