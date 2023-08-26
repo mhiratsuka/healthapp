@@ -25,7 +25,9 @@ export const useSideMenu = (): {
   const handleMenuClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index: number
-  ): void => {}
+  ): void => {
+    setSelectedMenu(index)
+  }
 
   return {
     isLargeScreen: useMediaQuery((theme: Theme) => theme.breakpoints.up('lg')),
