@@ -9,6 +9,10 @@ export const useSideMenu = (): {
   isSettingOpen: boolean
   onSettingClick: () => void
   selectedMenu: number
+  onMenuClick: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    index: number
+  ) => void
 } => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [open, setOpen] = useState(false)
@@ -23,7 +27,7 @@ export const useSideMenu = (): {
   }
 
   const handleMenuClick = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
     index: number
   ): void => {
     setSelectedMenu(index)
@@ -36,6 +40,11 @@ export const useSideMenu = (): {
     isSettingOpen: open,
     onSettingClick: handleSettingClick,
     selectedMenu,
-    handleMenuClick,
+    onMenuClick: (
+      event: React.MouseEvent<HTMLElement, MouseEvent>,
+      index: number
+    ) => {
+      handleMenuClick(event, index)
+    },
   }
 }
