@@ -28,6 +28,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
     isSettingOpen,
     onSettingClick,
     selectedMenu,
+    onMenuClick,
   } = useSideMenu()
 
   const drawer = (
