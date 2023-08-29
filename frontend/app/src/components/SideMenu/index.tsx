@@ -41,7 +41,11 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton component='a' href='/journal'>
+          <ListItemButton
+            component='a'
+            href='/journal'
+            selected={selectedMenu === 0}
+          >
             <ListItemIcon>
               <MonitorHeartIcon />
             </ListItemIcon>
