@@ -53,7 +53,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding onClick={onSettingClick}>
-          <ListItemButton component='a'>
+          <ListItemButton>
             {/* TODO: Fixed later */}
             <ListItemIcon>
               <SettingsIcon />
