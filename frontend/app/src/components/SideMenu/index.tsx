@@ -63,7 +63,11 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
         </ListItem>
         <Collapse in={isSettingOpen} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
-            <ListItemButton sx={{ pl: 4 }} href='/journal'>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              href='/journal'
+              selected={selectedMenu === 1}
+            >
               <ListItemIcon>
                 <PetsIcon />
               </ListItemIcon>
