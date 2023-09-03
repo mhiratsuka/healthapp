@@ -16,7 +16,7 @@ export const useSideMenu = (): {
 } => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [open, setOpen] = useState(false)
-  const [selectedMenu, setSelectedMenu] = useState(1)
+  const [selectedMenu, setSelectedMenu] = useState(0)
 
   const handleMenuToggle = (): void => {
     setMenuOpen(!menuOpen)
