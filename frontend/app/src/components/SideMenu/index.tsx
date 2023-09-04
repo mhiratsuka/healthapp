@@ -45,6 +45,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
             component='a'
             href='/journal'
             selected={selectedMenu === 0}
+            onClick={(event) => onMenuClick(event, 0)}
           >
             <ListItemIcon>
               <MonitorHeartIcon />
@@ -62,11 +63,11 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
           </ListItemButton>
         </ListItem>
         <Collapse in={isSettingOpen} timeout='auto' unmountOnExit>
-          <List component='div' disablePadding>
+          <List disablePadding>
             <ListItemButton
               sx={{ pl: 4 }}
-              href='/journal'
               selected={selectedMenu === 1}
+              onClick={(event) => onMenuClick(event, 1)}
             >
               <ListItemIcon>
                 <PetsIcon />
