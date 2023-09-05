@@ -1,3 +1,4 @@
+import { Pets } from '@mui/icons-material'
 import { Routes, Route } from 'react-router-dom'
 
 import { Error } from '@/pages/Error'
@@ -12,6 +13,7 @@ export const routes = (
     <Route path='/login' element={<Login />} />
     <Route path='/journal' element={<Journal />} />
     <Route path='/journal/:id' element={<JournalDetail />} />
+    <Route path='/pets' element={<Pets />} />
     <Route path='*' element={<Error />} />
   </Routes>
 )
