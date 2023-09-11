@@ -5,8 +5,7 @@ import { Journal } from '@/pages/Journal'
 import { JournalDetail } from '@/pages/JournalDetail'
 import { Login } from '@/pages/Login'
 import { Pets } from '@/pages/Pets'
-
-import { Top } from '@/pages/Top '
+import { Top } from '@/pages/Top'
 
 export const routes = (
   <Routes>
