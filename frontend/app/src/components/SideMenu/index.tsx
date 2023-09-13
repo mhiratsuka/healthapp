@@ -68,6 +68,8 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
               sx={{ pl: 4 }}
               selected={selectedMenu === 1}
               onClick={(event) => onMenuClick(event, 1)}
+              component='a'
+              href='/pets'
             >
               <ListItemIcon>
                 <PetsIcon />
