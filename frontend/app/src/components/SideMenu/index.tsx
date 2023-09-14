@@ -20,7 +20,10 @@ import { FC } from 'react'
 
 import { useSideMenu } from './hook'
 
-export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
+export const SideMenu: FC<{ drawerWidth: number; pageNum: number }> = ({
+  drawerWidth,
+  pageNum,
+}) => {
   const {
     isLargeScreen,
     onMenuHandleToggle,
@@ -44,7 +47,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
           <ListItemButton
             component='a'
             href='/journal'
-            selected={selectedMenu === 0}
+            selected={pageNum === 0}
             onClick={(event) => onMenuClick(event, 0)}
           >
             <ListItemIcon>
@@ -66,7 +69,7 @@ export const SideMenu: FC<{ drawerWidth: number }> = ({ drawerWidth }) => {
           <List disablePadding>
             <ListItemButton
               sx={{ pl: 4 }}
-              selected={selectedMenu === 1}
+              selected={pageNum === 1}
               onClick={(event) => onMenuClick(event, 1)}
               component='a'
               href='/pets'
