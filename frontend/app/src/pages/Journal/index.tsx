@@ -89,7 +89,7 @@ export const Journal: FC = () => {
   return (
     <Layout title={'journal'}>
       <Box sx={{ display: { lg: 'flex' } }}>
-        <SideMenu drawerWidth={drawerWidth} />
+        <SideMenu drawerWidth={drawerWidth} pageNum={0} />
         <Box
           sx={{
             width: { lg: `calc(100% - ${drawerWidth}px)` },
