@@ -11,7 +11,7 @@ export const Pets: FC = () => {
   return (
     <Layout title={'Pets'}>
       <Box sx={{ display: { lg: 'flex' } }}>
-        <SideMenu drawerWidth={drawerWidth} />
+        <SideMenu drawerWidth={drawerWidth} pageNum={1} />
         <Box
           sx={{
             width: { lg: `calc(100% - ${drawerWidth}px)` },
