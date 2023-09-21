@@ -30,7 +30,6 @@ export const SideMenu: FC<{ drawerWidth: number; pageNum: number }> = ({
     isMenuOpen,
     isSettingOpen,
     onSettingClick,
-    onMenuClick,
   } = useSideMenu()
 
   const drawer = (
@@ -47,7 +46,6 @@ export const SideMenu: FC<{ drawerWidth: number; pageNum: number }> = ({
             component='a'
             href='/journal'
             selected={pageNum === 0}
-            onClick={(event) => onMenuClick(event, 0)}
           >
             <ListItemIcon>
               <MonitorHeartIcon />
@@ -69,7 +67,6 @@ export const SideMenu: FC<{ drawerWidth: number; pageNum: number }> = ({
             <ListItemButton
               sx={{ pl: 4 }}
               selected={pageNum === 1}
-              onClick={(event) => onMenuClick(event, 1)}
               component='a'
               href='/pets'
             >
