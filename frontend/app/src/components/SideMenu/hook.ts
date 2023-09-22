@@ -2,7 +2,11 @@ import { useMediaQuery } from '@mui/material'
 import { Theme } from '@mui/material/styles'
 import { useState } from 'react'
 
-export const useSideMenu = (): {
+export const useSideMenu = ({
+  pageNum,
+}: {
+  pageNum: number
+}): {
   isLargeScreen: boolean
   onMenuHandleToggle: () => void
   isMenuOpen: boolean
@@ -10,7 +14,7 @@ export const useSideMenu = (): {
   onSettingClick: () => void
 } => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(pageNum > 0)
 
   const handleMenuToggle = (): void => {
     setMenuOpen(!menuOpen)
