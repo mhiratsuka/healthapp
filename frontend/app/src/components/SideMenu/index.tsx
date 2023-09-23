@@ -30,7 +30,7 @@ export const SideMenu: FC<{ drawerWidth: number; pageNum: number }> = ({
     isMenuOpen,
     isSettingOpen,
     onSettingClick,
-  } = useSideMenu()
+  } = useSideMenu({ pageNum })
 
   const drawer = (
     <>
