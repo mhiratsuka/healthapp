@@ -7,7 +7,6 @@ import { currentTime, formatTime } from '@/domain/time'
 import { journalType, petType } from './model'
 
 export const UseJournal = (): {
-  pets: petType[]
   journals: journalType[]
   registeringJournalForm: {
     isOpen: boolean
@@ -36,7 +35,7 @@ export const UseJournal = (): {
 } => {
   const [journals, setJournals] = useState<journalType[]>([])
   const [recordModalOpen, setRecordModalOpen] = useState(false)
-  const [pets, setPets] = useState([])
+  const [pets, setPets] = useState<petType[]>([])
   const [selectPet, setSelectPet] = useState<{ id: number; name: string }>()
   const [confirmDialogValue, setConfirmDialogValue] = useState<
     number | undefined
@@ -157,7 +156,6 @@ export const UseJournal = (): {
   }, [selectPet])
 
   return {
-    pets,
     journals,
     registeringJournalForm: {
       isOpen: recordModalOpen,
