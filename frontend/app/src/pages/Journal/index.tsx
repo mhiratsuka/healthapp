@@ -25,13 +25,8 @@ import { PetSelect } from './PetSelect'
 
 export const Journal: FC = () => {
   const drawerWidth = 240
-  const {
-    pets,
-    journals,
-    registeringJournalForm,
-    petSelection,
-    confirmDialog,
-  } = UseJournal()
+  const { journals, registeringJournalForm, petSelection, confirmDialog } =
+    UseJournal()
   const columns = [
     {
       field: 'title',
