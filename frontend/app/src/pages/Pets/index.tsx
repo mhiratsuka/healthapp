@@ -5,8 +5,12 @@ import { Layout } from '@/components/Layout'
 import { SideMenu } from '@/components/SideMenu'
 import { Primary } from '@/style/ts/tokens'
 
+import { usePets } from './hook'
+
 export const Pets: FC = () => {
   const drawerWidth = 240
+  const { pets } = usePets()
+  console.log(pets)
 
   return (
     <Layout title={'Pets'}>

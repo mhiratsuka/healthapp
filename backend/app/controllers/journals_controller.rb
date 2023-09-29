@@ -1,4 +1,5 @@
 class JournalsController < ApplicationController
+  # FIXME: Get data which is used for frontend
   # GET  /pets/:pet_id/journals
   def index
     journals = load_journals(params[:pet_id])
