@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   # GET /users/:user_id/pets
+  # FIXME: Get data which is used for frontend
   def index
     pets = load_pets(params[:user_id])
     render json: { status: 'SUCCESS', message: 'Loaded pets', data: pets }
