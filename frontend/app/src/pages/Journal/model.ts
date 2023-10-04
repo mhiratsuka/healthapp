@@ -15,4 +15,6 @@ export interface petType {
   birthday: Date
   user_id: number
   sex_id: number
+  created_at: Date
+  update_at: Date
 }
