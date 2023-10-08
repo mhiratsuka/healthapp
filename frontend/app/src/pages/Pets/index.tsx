@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, CardActionArea, CardMedia, Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 import { DataGrid } from '@mui/x-data-grid'
 import { FC } from 'react'
@@ -57,7 +57,17 @@ export const Pets: FC = () => {
           </Box>
           <Box>
             {pets.map(({ name }, idx) => (
-              <Card key={idx}>{name}</Card>
+              <Card key={idx}>
+                <CardActionArea>
+                  {' '}
+                  <CardMedia
+                    component='img'
+                    image='/icon.svg'
+                    alt='default pet img'
+                  />
+                </CardActionArea>
+                {name}
+              </Card>
             ))}
           </Box>
         </Box>
