@@ -8,3 +8,7 @@ export const currentTime = (): string => {
 export const formatTime = (time: string): string => {
   return dayjs(time).format('YYYY-MM-DD HH:mm')
 }
+
+export const birthdayFormat = (time: string): string => {
+  return dayjs(time).format('YYYY/MM/DD')
+}
