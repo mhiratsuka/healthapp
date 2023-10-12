@@ -1,8 +1,11 @@
+import CakeIcon from '@mui/icons-material/Cake'
 import {
   Box,
   CardActionArea,
   CardContent,
   CardMedia,
+  IconButton,
+  Tooltip,
   Typography,
 } from '@mui/material'
 import Card from '@mui/material/Card'
@@ -50,10 +53,19 @@ export const Pets: FC = () => {
                     />
                   </CardActionArea>
                   <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component='div' variant='h3'>
+                    <Typography component='div' variant='h4'>
                       {name}
                     </Typography>
-                    <Typography variant='body1' component='div'>
+                    <Typography
+                      variant='body1'
+                      component='div'
+                      sx={{ display: 'flex', alignItems: 'center' }}
+                    >
+                      <Tooltip title='pet birthday'>
+                        <IconButton>
+                          <CakeIcon />
+                        </IconButton>
+                      </Tooltip>
                       {birthdayFormat(birthday)}
                     </Typography>
                   </CardContent>
