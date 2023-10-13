@@ -1,4 +1,5 @@
 import CakeIcon from '@mui/icons-material/Cake'
+import PetsIcon from '@mui/icons-material/Pets'
 import {
   Box,
   CardActionArea,
@@ -35,7 +36,7 @@ export const Pets: FC = () => {
             Pets Setting
           </Typography>
           <Box>
-            {pets.map(({ name, birthday }, idx) => (
+            {pets.map(({ name, birthday, kind, sex_id }, idx) => (
               <Card
                 key={idx}
                 sx={{
@@ -67,6 +68,30 @@ export const Pets: FC = () => {
                         </IconButton>
                       </Tooltip>
                       {birthdayFormat(birthday)}
+                    </Typography>
+                    <Typography
+                      variant='body1'
+                      component='div'
+                      sx={{ display: 'flex', alignItems: 'center' }}
+                    >
+                      <Tooltip title='pet type'>
+                        <IconButton>
+                          <PetsIcon />
+                        </IconButton>
+                      </Tooltip>
+                      {kind}
+                    </Typography>
+                    <Typography
+                      variant='body1'
+                      component='div'
+                      sx={{ display: 'flex', alignItems: 'center' }}
+                    >
+                      <Tooltip title='pet sex'>
+                        <IconButton>
+                          <PetsIcon />
+                        </IconButton>
+                      </Tooltip>
+                      {sex_id}
                     </Typography>
                   </CardContent>
                 </Box>
