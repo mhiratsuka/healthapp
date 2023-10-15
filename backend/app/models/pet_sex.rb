@@ -1,0 +1,2 @@
+class PetSex < ApplicationRecord
+end
