@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_01_122433) do
+ActiveRecord::Schema.define(version: 2024_04_09_085454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2022_12_01_122433) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pet_id"], name: "index_journals_on_pet_id"
+  end
+
+  create_table "pet_sexes", force: :cascade do |t|
+    t.bigint "sex_id", null: false
+    t.bigint "pet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pet_id"], name: "index_pet_sexes_on_pet_id"
+    t.index ["sex_id"], name: "index_pet_sexes_on_sex_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -54,6 +63,8 @@ ActiveRecord::Schema.define(version: 2022_12_01_122433) do
   end
 
   add_foreign_key "journals", "pets"
+  add_foreign_key "pet_sexes", "pets"
+  add_foreign_key "pet_sexes", "sexes"
   add_foreign_key "pets", "sexes"
   add_foreign_key "pets", "users"
 end
