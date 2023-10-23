@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2024_04_09_085454) do
 
   create_table "sexes", force: :cascade do |t|
     t.string "name", null: false
+    t.string "code", null: false
+    t.string "alias", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
