@@ -3,6 +3,7 @@ tables = %w(
   sexes
   pets
   journals
+  petsexes
 )
 
 tables.each do |table|
