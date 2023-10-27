@@ -61,6 +61,7 @@ class PetsController < ApplicationController
   end
 
   private
+  # FIKXME: Add combining table
     def load_pets(user_id)
       Pet.where(user_id: user_id)
     end
