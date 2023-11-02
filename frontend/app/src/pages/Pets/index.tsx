@@ -2,7 +2,6 @@ import CakeIcon from '@mui/icons-material/Cake'
 import PetsIcon from '@mui/icons-material/Pets'
 import {
   Box,
-  CardActionArea,
   CardContent,
   CardMedia,
   IconButton,
@@ -36,26 +35,25 @@ export const Pets: FC = () => {
           <Typography variant='h1' gutterBottom color={Primary}>
             Pets Setting
           </Typography>
-          <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              columnGap: '30px',
+            }}
+          >
             {pets.map(({ name, birthday, kind, sex_id }, idx) => (
-              <Card
-                key={idx}
-                sx={{
-                  maxWidth: 500,
-                  margin: '0 auto',
-                  padding: '0.1em',
-                }}
-              >
+              <Card key={idx}>
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component='img'
-                      image='/icon.svg'
-                      alt='default pet img'
-                    />
-                  </CardActionArea>
-                  <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component='div' variant='h4'>
+                  <CardMedia
+                    component='img'
+                    image='/icon.svg'
+                    alt='default pet img'
+                    sx={{ width: 'auto', height: '200px' }}
+                  />
+                  <CardContent sx={{ flex: '1 0 auto', width: '60%' }}>
+                    <Typography component='div' variant='h5'>
                       {name}
                     </Typography>
                     <Typography
