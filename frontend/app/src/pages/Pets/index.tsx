@@ -1,4 +1,5 @@
 import CakeIcon from '@mui/icons-material/Cake'
+import EditIcon from '@mui/icons-material/Edit'
 import PetsIcon from '@mui/icons-material/Pets'
 import {
   Box,
@@ -92,6 +93,9 @@ export const Pets: FC = () => {
                       </Tooltip>
                       {sex_id}
                     </Typography>
+                    <Tooltip title='edit'>
+                      <EditIcon />
+                    </Tooltip>
                   </CardContent>
                 </Box>
               </Card>
