@@ -54,7 +54,7 @@ export const Pets: FC = () => {
                     alt='default pet img'
                     sx={{ width: 'auto', height: '200px' }}
                   />
-                  <CardContent sx={{ flex: '1 0 auto', width: '60%' }}>
+                  <CardContent sx={{ flex: '1 0 auto' }}>
                     <Typography component='div' variant='h5'>
                       {name}
                     </Typography>
@@ -94,12 +94,14 @@ export const Pets: FC = () => {
                       </Tooltip>
                       {sex_id}
                     </Typography>
-                    <Tooltip title='edit'>
-                      <EditIcon />
-                    </Tooltip>
-                    <Tooltip title='delete'>
-                      <DeleteIcon />
-                    </Tooltip>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                      <Tooltip title='edit'>
+                        <EditIcon />
+                      </Tooltip>
+                      <Tooltip title='delete'>
+                        <DeleteIcon />
+                      </Tooltip>
+                    </Box>
                   </CardContent>
                 </Box>
               </Card>
