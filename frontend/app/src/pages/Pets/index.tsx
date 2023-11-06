@@ -101,7 +101,9 @@ export const Pets: FC = () => {
                         </IconButton>
                       </Tooltip>
                       <Tooltip title='delete'>
-                        <DeleteIcon />
+                        <IconButton>
+                          <DeleteIcon />
+                        </IconButton>
                       </Tooltip>
                     </Box>
                   </CardContent>
