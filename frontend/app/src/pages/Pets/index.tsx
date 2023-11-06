@@ -96,7 +96,9 @@ export const Pets: FC = () => {
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Tooltip title='edit'>
-                        <EditIcon />
+                        <IconButton>
+                          <EditIcon />
+                        </IconButton>
                       </Tooltip>
                       <Tooltip title='delete'>
                         <DeleteIcon />
