@@ -96,7 +96,7 @@ export const Pets: FC = () => {
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Tooltip title='edit'>
-                        <IconButton>
+                        <IconButton color='success' aria-label='edit pet info'>
                           <EditIcon />
                         </IconButton>
                       </Tooltip>
