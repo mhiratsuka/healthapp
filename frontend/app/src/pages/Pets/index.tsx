@@ -101,7 +101,7 @@ export const Pets: FC = () => {
                         </IconButton>
                       </Tooltip>
                       <Tooltip title='delete'>
-                        <IconButton>
+                        <IconButton color='success' aria-label='edit pet info'>
                           <DeleteIcon />
                         </IconButton>
                       </Tooltip>
