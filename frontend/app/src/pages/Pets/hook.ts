@@ -5,8 +5,14 @@ import { petType } from './model'
 
 export const usePets = (): {
   pets: petType[]
+  confirmDialog: {
+    isOpen: boolean
+    onOpen: () => void
+    onClose: () => void
+  }
 } => {
   const [pets, setPets] = useState([])
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false)
 
   const getPetData = (): void => {
     axios
@@ -23,5 +29,16 @@ export const usePets = (): {
 
   return {
     pets,
+    confirmDialog: {
+      isOpen: isConfirmOpen,
+      onOpen: () => {
+        alert('open')
+        setIsConfirmOpen(true)
+      },
+      onClose: () => {
+        alert('close')
+        setIsConfirmOpen(false)
+      },
+    },
   }
 }
