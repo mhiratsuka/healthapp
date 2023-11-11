@@ -23,7 +23,7 @@ import { usePets } from './hook'
 
 export const Pets: FC = () => {
   const drawerWidth = 240
-  const { pets } = usePets()
+  const { pets, confirmDialog } = usePets()
 
   return (
     <Layout title={'Pets'}>
@@ -116,6 +116,15 @@ export const Pets: FC = () => {
           </Box>
         </Box>
       </Box>
+      {confirmDialog.isOpen && (
+        <ConfirmDialog
+          title={'Delete Confirmation'}
+          content={
+            'Do you really want to delete this pet? This process cannot be undone.'
+          }
+          onClose={confirmDialog.onClose}
+        />
+      )}
     </Layout>
   )
 }
