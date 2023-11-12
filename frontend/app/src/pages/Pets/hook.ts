@@ -32,11 +32,9 @@ export const usePets = (): {
     confirmDialog: {
       isOpen: isConfirmOpen,
       onOpen: () => {
-        alert('open')
         setIsConfirmOpen(true)
       },
       onClose: () => {
-        alert('close')
         setIsConfirmOpen(false)
       },
     },
