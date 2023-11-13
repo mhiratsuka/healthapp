@@ -4,8 +4,14 @@ import EditIcon from '@mui/icons-material/Edit'
 import PetsIcon from '@mui/icons-material/Pets'
 import {
   Box,
+  Button,
   CardContent,
   CardMedia,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Divider,
   IconButton,
   Tooltip,
   Typography,
@@ -104,6 +110,7 @@ export const Pets: FC = () => {
                         <IconButton
                           color='success'
                           aria-label='delete pet info'
+                          onClick={() => confirmDialog.onOpen()}
                         >
                           <DeleteIcon />
                         </IconButton>
@@ -126,5 +133,27 @@ export const Pets: FC = () => {
         />
       )}
     </Layout>
+  )
+}
+
+const ConfirmDialog: FC<{
+  title: string
+  content: string
+  onClose: () => void
+}> = ({ title, content, onClose }) => {
+  return (
+    <Dialog open onClose={onClose}>
+      <DialogTitle>{title}</DialogTitle>
+      <DialogContent>{content}</DialogContent>
+      <Divider />
+      <DialogActions>
+        <Button variant='outlined' color='success' onClick={onClose}>
+          Cancel
+        </Button>
+        <Button variant='contained' color='success' onClick={onClose}>
+          Delete
+        </Button>
+      </DialogActions>
+    </Dialog>
   )
 }
