@@ -56,7 +56,7 @@ export const Pets: FC = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
                   <CardMedia
                     component='img'
-                    image='/icon.svg'
+                    image='/photo-dog.svg'
                     alt='default pet img'
                     sx={{ width: 'auto', height: '200px' }}
                   />
