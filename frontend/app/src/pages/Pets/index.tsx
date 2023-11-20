@@ -51,7 +51,7 @@ export const Pets: FC = () => {
               columnGap: '30px',
             }}
           >
-            {pets.map(({ name, birthday, kind, sex_id }, idx) => (
+            {pets.map(({ id, name, birthday, kind, sex_id }, idx) => (
               <Card key={idx}>
                 <Box sx={{ display: 'flex', flexDirection: 'row' }}>
                   <CardMedia
@@ -110,7 +110,7 @@ export const Pets: FC = () => {
                         <IconButton
                           color='success'
                           aria-label='delete pet info'
-                          onClick={() => confirmDialog.onOpen()}
+                          onClick={() => confirmDialog.onOpen(id)}
                         >
                           <DeleteIcon />
                         </IconButton>
