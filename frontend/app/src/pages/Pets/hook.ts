@@ -7,12 +7,13 @@ export const usePets = (): {
   pets: petType[]
   confirmDialog: {
     isOpen: boolean
-    onOpen: () => void
+    onOpen: (id: number) => void
     onClose: () => void
   }
 } => {
-  const [pets, setPets] = useState([])
-  const [isConfirmOpen, setIsConfirmOpen] = useState(false)
+  const [pets, setPets] = useState<petType[]>([])
+  const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false)
+  const [petId, setPetId] = useState<number | null>(null)
 
   const getPetData = (): void => {
     axios
@@ -31,11 +32,13 @@ export const usePets = (): {
     pets,
     confirmDialog: {
       isOpen: isConfirmOpen,
-      onOpen: () => {
+      onOpen: (id: number) => {
         setIsConfirmOpen(true)
+        setPetId(id)
       },
       onClose: () => {
         setIsConfirmOpen(false)
+        setPetId(null)
       },
     },
   }
