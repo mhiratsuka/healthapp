@@ -24,6 +24,20 @@ export const usePets = (): {
       .catch((e) => console.log(e))
   }
 
+  const deletePetData = (): void => {
+    axios
+      .delete(`http://localhost:8000/api/pets${petId}`)
+      .then((res) => {
+        console.log(res)
+        setPetId(null)
+        getPetData()
+      })
+      .catch((e) => {
+        console.log(e)
+        setPetId(null)
+      })
+  }
+
   useEffect(() => {
     getPetData()
   }, [])
