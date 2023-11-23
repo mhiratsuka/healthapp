@@ -13,7 +13,7 @@ export const usePets = (): {
 } => {
   const [pets, setPets] = useState<petType[]>([])
   const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false)
-  const [petId, setPetId] = useState<number | null>(null)
+  const [petId, setPetId] = useState<number | undefined>(undefined)
 
   const getPetData = (): void => {
     axios
@@ -29,12 +29,12 @@ export const usePets = (): {
       .delete(`http://localhost:8000/api/pets${petId}`)
       .then((res) => {
         console.log(res)
-        setPetId(null)
+        setPetId(undefined)
         getPetData()
       })
       .catch((e) => {
         console.log(e)
-        setPetId(null)
+        setPetId(undefined)
       })
   }
 
@@ -52,7 +52,7 @@ export const usePets = (): {
       },
       onClose: () => {
         setIsConfirmOpen(false)
-        setPetId(null)
+        setPetId(undefined)
       },
     },
   }
