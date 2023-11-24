@@ -9,6 +9,7 @@ export const usePets = (): {
     isOpen: boolean
     onOpen: (id: number) => void
     onClose: () => void
+    onSubmit: () => void
   }
 } => {
   const [pets, setPets] = useState<petType[]>([])
@@ -53,6 +54,9 @@ export const usePets = (): {
       onClose: () => {
         setIsConfirmOpen(false)
         setPetId(undefined)
+      },
+      onSubmit: () => {
+        deletePetData()
       },
     },
   }
