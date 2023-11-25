@@ -130,6 +130,7 @@ export const Pets: FC = () => {
             'Do you really want to delete this pet? This process cannot be undone.'
           }
           onClose={confirmDialog.onClose}
+          onSubmit={confirmDialog.onSubmit}
         />
       )}
     </Layout>
@@ -140,6 +141,7 @@ const ConfirmDialog: FC<{
   title: string
   content: string
   onClose: () => void
+  onSubmit: () => void
 }> = ({ title, content, onClose }) => {
   return (
     <Dialog open onClose={onClose}>
