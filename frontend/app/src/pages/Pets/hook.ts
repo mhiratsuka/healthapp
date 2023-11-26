@@ -27,7 +27,7 @@ export const usePets = (): {
 
   const deletePetData = (): void => {
     axios
-      .delete(`http://localhost:8000/api/pets${petId}`)
+      .delete(`http://localhost:8000/api/pets/${petId}`)
       .then((res) => {
         console.log(res)
         setPetId(undefined)
