@@ -21,6 +21,7 @@ import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
 import { SideMenu } from '@/components/SideMenu'
+import { petSex } from '@/domain/petGender'
 import SvgGenderIcon from '@/domain/SvgGenderIcon'
 import { birthdayFormat } from '@/domain/time'
 import { Primary } from '@/style/ts/tokens'
@@ -98,7 +99,7 @@ export const Pets: FC = () => {
                           <SvgGenderIcon />
                         </IconButton>
                       </Tooltip>
-                      {sex_id}
+                      {petSex[sex_id]}
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Tooltip title='edit'>
