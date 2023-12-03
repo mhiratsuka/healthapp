@@ -21,7 +21,7 @@ import { FC } from 'react'
 
 import { Layout } from '@/components/Layout'
 import { SideMenu } from '@/components/SideMenu'
-import { petSex } from '@/domain/petGender'
+import { petSex } from '@/domain/petSex'
 import SvgGenderIcon from '@/domain/SvgGenderIcon'
 import { birthdayFormat } from '@/domain/time'
 import { Primary } from '@/style/ts/tokens'
