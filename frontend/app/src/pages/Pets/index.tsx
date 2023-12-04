@@ -44,6 +44,9 @@ export const Pets: FC = () => {
           <Typography variant='h1' gutterBottom color={Primary}>
             Pets Setting
           </Typography>
+          <Button variant='contained' size='large' color='success'>
+            + Add new pet
+          </Button>
           <Box
             sx={{
               display: 'flex',
