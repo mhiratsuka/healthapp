@@ -11,10 +11,16 @@ export const usePets = (): {
     onClose: () => void
     onSubmit: () => void
   }
+  addingPetForm: {
+    isOpen: boolean
+    onOpen: (value?: petType) => void
+    onClose: () => void
+  }
 } => {
   const [pets, setPets] = useState<petType[]>([])
   const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false)
   const [petId, setPetId] = useState<number | undefined>(undefined)
+  const [isAddFormOpen, setIsAddFormOpen] = useState<boolean>(false)
 
   const getPetData = (): void => {
     axios
@@ -57,6 +63,17 @@ export const usePets = (): {
       },
       onSubmit: () => {
         deletePetData()
+      },
+    },
+    addingPetForm: {
+      isOpen: isAddFormOpen,
+      onOpen: () => {
+        alert('open')
+        setIsAddFormOpen(true)
+      },
+      onClose: () => {
+        alert('close')
+        setIsAddFormOpen(false)
       },
     },
   }
