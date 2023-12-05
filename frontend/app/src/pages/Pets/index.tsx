@@ -13,6 +13,7 @@ import {
   DialogTitle,
   Divider,
   IconButton,
+  Stack,
   Tooltip,
   Typography,
 } from '@mui/material'
@@ -44,9 +45,15 @@ export const Pets: FC = () => {
           <Typography variant='h1' gutterBottom color={Primary}>
             Pets Setting
           </Typography>
-          <Button variant='contained' size='large' color='success'>
-            + Add new pet
-          </Button>
+          <Stack
+            direction='row'
+            justifyContent='flex-end'
+            sx={{ marginBottom: '30px' }}
+          >
+            <Button variant='contained' size='large' color='success'>
+              + Add new pet
+            </Button>
+          </Stack>
           <Box
             sx={{
               display: 'flex',
