@@ -31,7 +31,7 @@ import { usePets } from './hook'
 
 export const Pets: FC = () => {
   const drawerWidth = 240
-  const { pets, confirmDialog } = usePets()
+  const { pets, confirmDialog, addingPetForm } = usePets()
 
   return (
     <Layout title={'Pets'}>
@@ -50,7 +50,12 @@ export const Pets: FC = () => {
             justifyContent='flex-end'
             sx={{ marginBottom: '30px' }}
           >
-            <Button variant='contained' size='large' color='success'>
+            <Button
+              variant='contained'
+              size='large'
+              color='success'
+              onClick={addingPetForm.onOpen}
+            >
               + Add new pet
             </Button>
           </Stack>
