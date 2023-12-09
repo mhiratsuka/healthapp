@@ -13,7 +13,6 @@ export const usePets = (): {
   }
   addingPetForm: {
     isOpen: boolean
-    onOpen: (value?: petType) => void
     onClose: () => void
   }
 } => {
@@ -67,10 +66,6 @@ export const usePets = (): {
     },
     addingPetForm: {
       isOpen: isAddFormOpen,
-      onOpen: () => {
-        alert('open')
-        setIsAddFormOpen(true)
-      },
       onClose: () => {
         alert('close')
         setIsAddFormOpen(false)
