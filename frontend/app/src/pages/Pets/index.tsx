@@ -27,6 +27,7 @@ import SvgGenderIcon from '@/domain/SvgGenderIcon'
 import { birthdayFormat } from '@/domain/time'
 import { Primary } from '@/style/ts/tokens'
 
+import { AddPetForm } from './AddPetForm'
 import { usePets } from './hook'
 
 export const Pets: FC = () => {
@@ -139,6 +140,7 @@ export const Pets: FC = () => {
           </Box>
         </Box>
       </Box>
+      <AddPetForm />
       {confirmDialog.isOpen && (
         <ConfirmDialog
           title={'Delete Confirmation'}
