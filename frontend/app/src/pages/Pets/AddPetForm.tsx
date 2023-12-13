@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 export const AddPetForm: FC<{
   isOpen: boolean
+  onOpen: () => void
   onClose: () => void
 }> = ({ isOpen, onClose }) => {
   return (
