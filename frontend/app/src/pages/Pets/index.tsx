@@ -140,7 +140,11 @@ export const Pets: FC = () => {
           </Box>
         </Box>
       </Box>
-      <AddPetForm />
+      <AddPetForm
+        isOpen={addingPetForm.isOpen}
+        onOpen={addingPetForm.onOpen}
+        onClose={addingPetForm.onClose}
+      />
       {confirmDialog.isOpen && (
         <ConfirmDialog
           title={'Delete Confirmation'}
