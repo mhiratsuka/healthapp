@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { UseFormRegister, FieldErrors, useForm } from 'react-hook-form'
 
 import { petType } from './model'
 
@@ -15,12 +16,24 @@ export const usePets = (): {
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
+    register: UseFormRegister<petType>
+    errors: FieldErrors<petType>
+    onSubmit?: () => void
+    value: petType
   }
 } => {
   const [pets, setPets] = useState<petType[]>([])
   const [isConfirmOpen, setIsConfirmOpen] = useState<boolean>(false)
   const [petId, setPetId] = useState<number | undefined>(undefined)
   const [isAddFormOpen, setIsAddFormOpen] = useState<boolean>(false)
+
+  const {
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm<petType>({
+    mode: 'onChange',
+  })
 
   const getPetData = (): void => {
     axios
@@ -73,6 +86,12 @@ export const usePets = (): {
       onClose: () => {
         setIsAddFormOpen(false)
       },
+      register,
+      errors,
+      onSubmit: () => {
+        alert('submit')
+      },
+      value: getValues(),
     },
   }
 }
