@@ -144,6 +144,7 @@ export const Pets: FC = () => {
         isOpen={addingPetForm.isOpen}
         onOpen={addingPetForm.onOpen}
         onClose={addingPetForm.onClose}
+        register={addingPetForm.register}
       />
       {confirmDialog.isOpen && (
         <ConfirmDialog
