@@ -36,15 +36,28 @@ export const AddPetForm: FC<{
       <TextField
         autoFocus
         margin='dense'
-        id='from when'
+        id='birthday'
         type='date'
-        label='From when'
+        label='Birthday'
         fullWidth
         InputLabelProps={{
           shrink: true,
         }}
         required
         {...register('birthday', { required: REQUIRED_MESSAGE })}
+      />
+      <TextField
+        autoFocus
+        margin='dense'
+        id='Pet type'
+        type='text'
+        label='Pet type'
+        fullWidth
+        InputLabelProps={{
+          shrink: true,
+        }}
+        required
+        {...register('kind', { required: REQUIRED_MESSAGE })}
       />
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
