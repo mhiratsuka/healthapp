@@ -68,10 +68,11 @@ export const AddPetForm: FC<{
         select
         helperText='Please select your pet sex'
         {...register('sex_id', { required: REQUIRED_MESSAGE })}
+        defaultValue='1'
       >
         {Object.entries(petSex).map(([key, value]) => {
           return (
-            <MenuItem key={key} value={value}>
+            <MenuItem key={key} value={key}>
               {value}
             </MenuItem>
           )
