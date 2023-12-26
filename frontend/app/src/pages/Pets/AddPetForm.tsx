@@ -4,6 +4,7 @@ import {
   DialogContentText,
   TextField,
   MenuItem,
+  FormControl,
 } from '@mui/material'
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
@@ -22,66 +23,64 @@ export const AddPetForm: FC<{
   register: UseFormRegister<petType>
 }> = ({ isOpen, onOpen, onClose, register }) => {
   return (
-    <Dialog open={isOpen} onClose={onClose}>
-      <DialogTitle>New Pet</DialogTitle>
-      <DialogContentText>Please enter your new pet.</DialogContentText>
-      <TextField
-        autoFocus
-        margin='dense'
-        id='name'
-        label='Name'
-        type='text'
-        fullWidth
-        required
-        {...register('name', { required: REQUIRED_MESSAGE })}
-      />
-      <TextField
-        autoFocus
-        margin='dense'
-        id='birthday'
-        type='date'
-        label='Birthday'
-        fullWidth
-        InputLabelProps={{
-          shrink: true,
-        }}
-        required
-        {...register('birthday', { required: REQUIRED_MESSAGE })}
-      />
-      <TextField
-        autoFocus
-        margin='dense'
-        id='pet type'
-        type='text'
-        label='Pet Type'
-        fullWidth
-        required
-        {...register('kind', { required: REQUIRED_MESSAGE })}
-      />
-      <TextField
-        autoFocus
-        margin='dense'
-        id='pet sex'
-        label='Pet Sex'
-        fullWidth
-        required
-        select
-        helperText='Please select your pet sex'
-        {...register('sex_id', { required: REQUIRED_MESSAGE })}
-        defaultValue='1'
-      >
-        {Object.entries(petSex).map(([key, value]) => {
-          return (
-            <MenuItem key={key} value={key}>
-              {value}
-            </MenuItem>
-          )
-        })}
-      </TextField>
-      <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={onClose}>Save</Button>
-      </DialogActions>
-    </Dialog>
+    <FormControl>
+      <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
+        <DialogTitle>New Pet</DialogTitle>
+        <DialogContentText>Please enter your new pet.</DialogContentText>
+        <TextField
+          id='name'
+          label='Name'
+          type='text'
+          margin='dense'
+          required
+          {...register('name', { required: REQUIRED_MESSAGE })}
+        />
+        <TextField
+          margin='dense'
+          id='birthday'
+          type='date'
+          label='Birthday'
+          InputLabelProps={{
+            shrink: true,
+          }}
+          required
+          {...register('birthday', { required: REQUIRED_MESSAGE })}
+        />
+        <TextField
+          autoFocus
+          margin='dense'
+          id='pet type'
+          type='text'
+          label='Pet Type'
+          fullWidth
+          required
+          {...register('kind', { required: REQUIRED_MESSAGE })}
+        />
+        <TextField
+          autoFocus
+          margin='dense'
+          id='pet sex'
+          label='Pet Sex'
+          fullWidth
+          required
+          select
+          helperText='Please select your pet sex'
+          {...register('sex_id', { required: REQUIRED_MESSAGE })}
+          defaultValue='1'
+        >
+          {Object.entries(petSex).map(([key, value]) => {
+            return (
+              <MenuItem key={key} value={key}>
+                {value}
+              </MenuItem>
+            )
+          })}
+        </TextField>
+        <DialogActions>
+          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={onClose}>Save</Button>
+        </DialogActions>
+      </Dialog>
+    </FormControl>
   )
 }
