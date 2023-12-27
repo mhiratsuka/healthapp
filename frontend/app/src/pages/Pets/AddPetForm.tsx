@@ -77,8 +77,12 @@ export const AddPetForm: FC<{
           })}
         </TextField>
         <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onClose}>Save</Button>
+          <Button onClick={onClose} variant='outlined' color='success'>
+            Cancel
+          </Button>
+          <Button onClick={onClose} variant='contained' color='success'>
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
     </FormControl>
