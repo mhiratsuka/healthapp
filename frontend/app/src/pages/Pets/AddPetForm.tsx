@@ -9,7 +9,7 @@ import {
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import { FC } from 'react'
-import { UseFormRegister } from 'react-hook-form'
+import { UseFormRegister, FieldErrors } from 'react-hook-form'
 
 import { REQUIRED_MESSAGE } from '@/domain/error'
 import { petSex } from '@/domain/petSex'
@@ -21,7 +21,8 @@ export const AddPetForm: FC<{
   onOpen: () => void
   onClose: () => void
   register: UseFormRegister<petType>
-}> = ({ isOpen, onOpen, onClose, register }) => {
+  errors: FieldErrors<petType>
+}> = ({ isOpen, onOpen, onClose, register, errors }) => {
   return (
     <FormControl>
       <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
@@ -34,6 +35,8 @@ export const AddPetForm: FC<{
           margin='dense'
           required
           {...register('name', { required: REQUIRED_MESSAGE })}
+          error={'name' in errors}
+          helperText={errors.name?.message}
         />
         <TextField
           margin='dense'
