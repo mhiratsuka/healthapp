@@ -91,7 +91,7 @@ export const Pets: FC = () => {
                           <CakeIcon />
                         </IconButton>
                       </Tooltip>
-                      {birthdayFormat(birthday)}
+                      {birthdayFormat(birthday.toString())}
                     </Typography>
                     <Typography
                       variant='body1'
