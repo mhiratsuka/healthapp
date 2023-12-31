@@ -58,6 +58,8 @@ export const AddPetForm: FC<{
           fullWidth
           required
           {...register('kind', { required: REQUIRED_MESSAGE })}
+          error={'kind' in errors}
+          helperText={errors.kind?.message}
         />
         <TextField
           autoFocus
