@@ -48,6 +48,8 @@ export const AddPetForm: FC<{
           }}
           required
           {...register('birthday', { required: REQUIRED_MESSAGE })}
+          error={'birthday' in errors}
+          helperText={errors.birthday?.message}
         />
         <TextField
           autoFocus
