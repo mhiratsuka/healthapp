@@ -22,7 +22,8 @@ export const AddPetForm: FC<{
   onClose: () => void
   register: UseFormRegister<petType>
   errors: FieldErrors<petType>
-}> = ({ isOpen, onOpen, onClose, register, errors }) => {
+  disableSaveButton: boolean
+}> = ({ isOpen, onOpen, onClose, register, errors, disableSaveButton }) => {
   return (
     <FormControl>
       <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
@@ -87,7 +88,12 @@ export const AddPetForm: FC<{
           <Button onClick={onClose} variant='outlined' color='success'>
             Cancel
           </Button>
-          <Button onClick={onClose} variant='contained' color='success'>
+          <Button
+            onClick={onClose}
+            variant='contained'
+            color='success'
+            disabled={disableSaveButton}
+          >
             Save
           </Button>
         </DialogActions>
