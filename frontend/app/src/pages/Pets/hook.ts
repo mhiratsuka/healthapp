@@ -20,6 +20,7 @@ export const usePets = (): {
     errors: FieldErrors<petType>
     onSubmit?: () => void
     value: petType
+    disableSaveButton: boolean
   }
 } => {
   const [pets, setPets] = useState<petType[]>([])
@@ -30,7 +31,7 @@ export const usePets = (): {
   const {
     register,
     getValues,
-    formState: { errors },
+    formState: { errors, isValid, isDirty },
   } = useForm<petType>({
     mode: 'onChange',
   })
@@ -92,6 +93,7 @@ export const usePets = (): {
         alert('submit')
       },
       value: getValues(),
+      disableSaveButton: !isDirty || !isValid,
     },
   }
 }
