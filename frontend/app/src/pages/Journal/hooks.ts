@@ -15,7 +15,6 @@ export const UseJournal = (): {
     onSubmit?: () => void
     onOpen: (value?: journalType) => void
     onClose: () => void
-    disableCancelButton: boolean
     disableSubmitButton: boolean
     value: journalType
     isEdit: boolean
@@ -178,7 +177,6 @@ export const UseJournal = (): {
         setValue('from_date', formatTime(getValues('from_date')))
         setValue('to_date', formatTime(getValues('to_date')))
       },
-      disableCancelButton: !isDirty || !isValid,
       disableSubmitButton: !isDirty || !isValid,
       value: getValues(),
       isEdit: getValues('id') !== undefined,
