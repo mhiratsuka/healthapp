@@ -23,7 +23,6 @@ export const JournalForm: FC<{
   onClose: () => void
   onSubmit: () => void
   disableSubmitButton: boolean
-  disableCancelButton: boolean
   isEdit: boolean
 }> = ({
   isOpen,
@@ -32,7 +31,6 @@ export const JournalForm: FC<{
   onClose,
   onSubmit,
   disableSubmitButton,
-  disableCancelButton,
   isEdit,
 }) => {
   return (
@@ -151,12 +149,7 @@ export const JournalForm: FC<{
           />
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={onClose}
-            variant='outlined'
-            color='success'
-            disabled={disableCancelButton}
-          >
+          <Button onClick={onClose} variant='outlined' color='success'>
             Cancel
           </Button>
           <Button
