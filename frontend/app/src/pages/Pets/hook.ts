@@ -32,6 +32,7 @@ export const usePets = (): {
     register,
     getValues,
     formState: { errors, isValid, isDirty },
+    handleSubmit,
   } = useForm<petType>({
     mode: 'onChange',
   })
@@ -56,6 +57,19 @@ export const usePets = (): {
       .catch((e) => {
         console.log(e)
         setPetId(undefined)
+      })
+  }
+
+  const postPetData = (data: petType): void => {
+    axios
+      .post(`http://localhost:8000/api/users/1/pets`, {
+        ...data,
+      })
+      .then(() => {
+        setIsAddFormOpen(false)
+      })
+      .catch((e) => {
+        console.log(e)
       })
   }
 
@@ -89,9 +103,9 @@ export const usePets = (): {
       },
       register,
       errors,
-      onSubmit: () => {
-        alert('submit')
-      },
+      onSubmit: handleSubmit((data: petType) => {
+        postPetData(data)
+      }),
       value: getValues(),
       disableSaveButton: !isDirty || !isValid,
     },
