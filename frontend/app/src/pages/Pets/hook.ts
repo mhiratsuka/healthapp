@@ -33,6 +33,7 @@ export const usePets = (): {
     getValues,
     formState: { errors, isValid, isDirty },
     handleSubmit,
+    reset,
   } = useForm<petType>({
     mode: 'onChange',
   })
@@ -66,11 +67,21 @@ export const usePets = (): {
         ...data,
       })
       .then(() => {
-        setIsAddFormOpen(false)
+        handleFormClose()
       })
       .catch((e) => {
         console.log(e)
       })
+  }
+
+  const handleFormClose = (): void => {
+    setIsAddFormOpen(false)
+    reset({
+      name: '',
+      birthday: '',
+      kind: '',
+      sex_id: undefined,
+    })
   }
 
   useEffect(() => {
@@ -100,6 +111,7 @@ export const usePets = (): {
       },
       onClose: () => {
         setIsAddFormOpen(false)
+        handleFormClose()
       },
       register,
       errors,
