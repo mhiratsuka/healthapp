@@ -18,21 +18,12 @@ import { petType } from '../Journal/model'
 
 export const AddPetForm: FC<{
   isOpen: boolean
-  onOpen: () => void
   onClose: () => void
   register: UseFormRegister<petType>
   errors: FieldErrors<petType>
   disableSaveButton: boolean
   onSubmit: () => void
-}> = ({
-  isOpen,
-  onOpen,
-  onClose,
-  register,
-  errors,
-  disableSaveButton,
-  onSubmit,
-}) => {
+}> = ({ isOpen, onClose, register, errors, disableSaveButton, onSubmit }) => {
   return (
     <FormControl>
       <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
