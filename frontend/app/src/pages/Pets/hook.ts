@@ -14,13 +14,14 @@ export const usePets = (): {
   }
   addingPetForm: {
     isOpen: boolean
-    onOpen: () => void
+    onOpen: (value?: petType) => void
     onClose: () => void
     register: UseFormRegister<petType>
     errors: FieldErrors<petType>
     onSubmit?: () => void
     value: petType
     disableSaveButton: boolean
+    isEdit: boolean
   }
 } => {
   const [pets, setPets] = useState<petType[]>([])
@@ -106,8 +107,13 @@ export const usePets = (): {
     },
     addingPetForm: {
       isOpen: isAddFormOpen,
-      onOpen: () => {
+      onOpen: (value?: petType) => {
+        alert('open')
+        console.log(value)
         setIsAddFormOpen(true)
+        if (value?.id !== undefined) {
+          reset(value ?? {})
+        }
       },
       onClose: () => {
         setIsAddFormOpen(false)
@@ -120,6 +126,7 @@ export const usePets = (): {
       }),
       value: getValues(),
       disableSaveButton: !isDirty || !isValid,
+      isEdit: getValues('id') !== undefined,
     },
   }
 }
