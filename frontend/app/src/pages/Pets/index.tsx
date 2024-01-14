@@ -119,7 +119,19 @@ export const Pets: FC = () => {
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Tooltip title='edit'>
-                        <IconButton color='success' aria-label='edit pet info'>
+                        <IconButton
+                          color='success'
+                          aria-label='edit pet info'
+                          onClick={() =>
+                            addingPetForm.onOpen({
+                              id,
+                              name,
+                              birthday,
+                              kind,
+                              sex_id,
+                            })
+                          }
+                        >
                           <EditIcon />
                         </IconButton>
                       </Tooltip>
@@ -142,7 +154,6 @@ export const Pets: FC = () => {
       </Box>
       <AddPetForm
         isOpen={addingPetForm.isOpen}
-        onOpen={addingPetForm.onOpen}
         onClose={addingPetForm.onClose}
         register={addingPetForm.register}
         errors={addingPetForm.errors}
