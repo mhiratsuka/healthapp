@@ -23,11 +23,20 @@ export const AddPetForm: FC<{
   errors: FieldErrors<petType>
   disableSaveButton: boolean
   onSubmit: () => void
-}> = ({ isOpen, onClose, register, errors, disableSaveButton, onSubmit }) => {
+  isEdit: boolean
+}> = ({
+  isOpen,
+  onClose,
+  register,
+  errors,
+  disableSaveButton,
+  onSubmit,
+  isEdit,
+}) => {
   return (
     <FormControl>
       <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
-        <DialogTitle>New Pet</DialogTitle>
+        <DialogTitle>{isEdit ? 'Edit Pet' : 'New Pet'}</DialogTitle>
         <DialogContentText>Please enter your new pet.</DialogContentText>
         <TextField
           id='name'
