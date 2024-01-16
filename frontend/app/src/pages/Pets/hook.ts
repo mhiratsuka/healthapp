@@ -108,7 +108,6 @@ export const usePets = (): {
     addingPetForm: {
       isOpen: isAddFormOpen,
       onOpen: (value?: petType) => {
-        alert('open')
         console.log(value)
         setIsAddFormOpen(true)
         if (value?.id !== undefined) {
