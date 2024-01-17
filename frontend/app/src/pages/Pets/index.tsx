@@ -159,6 +159,7 @@ export const Pets: FC = () => {
         errors={addingPetForm.errors}
         disableSaveButton={addingPetForm.disableSaveButton}
         onSubmit={addingPetForm.onSubmit}
+        isEdit={addingPetForm.isEdit}
       />
       {confirmDialog.isOpen && (
         <ConfirmDialog
