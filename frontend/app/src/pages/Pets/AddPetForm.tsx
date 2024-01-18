@@ -37,7 +37,9 @@ export const AddPetForm: FC<{
     <FormControl>
       <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
         <DialogTitle>{isEdit ? 'Edit Pet' : 'New Pet'}</DialogTitle>
-        <DialogContentText>Please enter your new pet.</DialogContentText>
+        <DialogContentText>
+          Please {isEdit ? 'update your' : 'enter your new'} pet information
+        </DialogContentText>
         <TextField
           id='name'
           label='Name'
