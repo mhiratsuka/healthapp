@@ -12,3 +12,7 @@ export const formatTime = (time: string): string => {
 export const birthdayFormat = (time: string): string => {
   return dayjs(time).format('YYYY/MM/DD')
 }
+
+export const birthdayFormFormat = (time: string): string => {
+  return dayjs(time).format('YYYY-MM-DD')
+}
