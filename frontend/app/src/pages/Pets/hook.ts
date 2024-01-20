@@ -2,6 +2,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { UseFormRegister, FieldErrors, useForm } from 'react-hook-form'
 
+import { birthdayFormFormat } from '@/domain/time'
+
 import { petType } from './model'
 
 export const usePets = (): {
@@ -35,6 +37,7 @@ export const usePets = (): {
     formState: { errors, isValid, isDirty },
     handleSubmit,
     reset,
+    setValue,
   } = useForm<petType>({
     mode: 'onChange',
   })
@@ -113,6 +116,10 @@ export const usePets = (): {
         if (value?.id !== undefined) {
           reset(value ?? {})
         }
+
+        console.log(getValues('sex_id'))
+
+        setValue('birthday', birthdayFormFormat(getValues('birthday')))
       },
       onClose: () => {
         setIsAddFormOpen(false)
