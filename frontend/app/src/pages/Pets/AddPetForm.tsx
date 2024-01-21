@@ -4,7 +4,6 @@ import {
   DialogContentText,
   TextField,
   MenuItem,
-  FormControl,
 } from '@mui/material'
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
@@ -24,6 +23,7 @@ export const AddPetForm: FC<{
   disableSaveButton: boolean
   onSubmit: () => void
   isEdit: boolean
+  value: petType
 }> = ({
   isOpen,
   onClose,
@@ -32,83 +32,83 @@ export const AddPetForm: FC<{
   disableSaveButton,
   onSubmit,
   isEdit,
+  value,
 }) => {
   return (
-    <FormControl>
-      <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
-        <DialogTitle>{isEdit ? 'Edit Pet' : 'New Pet'}</DialogTitle>
-        <DialogContentText>
-          Please {isEdit ? 'update your' : 'enter your new'} pet information
-        </DialogContentText>
-        <TextField
-          id='name'
-          label='Name'
-          type='text'
-          margin='dense'
-          required
-          {...register('name', { required: REQUIRED_MESSAGE })}
-          error={'name' in errors}
-          helperText={errors.name?.message}
-        />
-        <TextField
-          margin='dense'
-          id='birthday'
-          type='date'
-          label='Birthday'
-          InputLabelProps={{
-            shrink: true,
-          }}
-          required
-          {...register('birthday', { required: REQUIRED_MESSAGE })}
-          error={'birthday' in errors}
-          helperText={errors.birthday?.message}
-        />
-        <TextField
-          autoFocus
-          margin='dense'
-          id='pet type'
-          type='text'
-          label='Pet Type'
-          fullWidth
-          required
-          {...register('kind', { required: REQUIRED_MESSAGE })}
-          error={'kind' in errors}
-          helperText={errors.kind?.message}
-        />
-        <TextField
-          autoFocus
-          margin='dense'
-          id='pet sex'
-          label='Pet Sex'
-          fullWidth
-          required
-          select
-          helperText='Please select your pet sex'
-          {...register('sex_id', { required: REQUIRED_MESSAGE })}
-          defaultValue='1'
+    <Dialog open={isOpen} onClose={onClose} sx={{ padding: '10px' }}>
+      <DialogTitle>{isEdit ? 'Edit Pet' : 'New Pet'}</DialogTitle>
+      <DialogContentText>
+        Please {isEdit ? 'update your' : 'enter your new'} pet information
+      </DialogContentText>
+      <TextField
+        id='name'
+        label='Name'
+        type='text'
+        margin='dense'
+        required
+        {...register('name', { required: REQUIRED_MESSAGE })}
+        error={'name' in errors}
+        helperText={errors.name?.message}
+      />
+      <TextField
+        margin='dense'
+        id='birthday'
+        type='date'
+        label='Birthday'
+        InputLabelProps={{
+          shrink: true,
+        }}
+        required
+        {...register('birthday', { required: REQUIRED_MESSAGE })}
+        error={'birthday' in errors}
+        helperText={errors.birthday?.message}
+      />
+      <TextField
+        autoFocus
+        margin='dense'
+        id='pet type'
+        type='text'
+        label='Pet Type'
+        fullWidth
+        required
+        {...register('kind', { required: REQUIRED_MESSAGE })}
+        error={'kind' in errors}
+        helperText={errors.kind?.message}
+      />
+      <TextField
+        autoFocus
+        margin='dense'
+        id='sex_id'
+        label='Pet Sex'
+        fullWidth
+        required
+        select
+        helperText='Please select your pet sex'
+        defaultValue={1}
+        {...register('sex_id', { required: REQUIRED_MESSAGE })}
+        value={value.sex_id}
+      >
+        {Object.entries(petSex).map(([key, value]) => {
+          return (
+            <MenuItem key={key} value={key}>
+              {value}
+            </MenuItem>
+          )
+        })}
+      </TextField>
+      <DialogActions>
+        <Button onClick={onClose} variant='outlined' color='success'>
+          Cancel
+        </Button>
+        <Button
+          onClick={onSubmit}
+          variant='contained'
+          color='success'
+          disabled={disableSaveButton}
         >
-          {Object.entries(petSex).map(([key, value]) => {
-            return (
-              <MenuItem key={key} value={key}>
-                {value}
-              </MenuItem>
-            )
-          })}
-        </TextField>
-        <DialogActions>
-          <Button onClick={onClose} variant='outlined' color='success'>
-            Cancel
-          </Button>
-          <Button
-            onClick={onSubmit}
-            variant='contained'
-            color='success'
-            disabled={disableSaveButton}
-          >
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </FormControl>
+          Save
+        </Button>
+      </DialogActions>
+    </Dialog>
   )
 }
