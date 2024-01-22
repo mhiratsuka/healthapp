@@ -117,8 +117,6 @@ export const usePets = (): {
           reset(value ?? {})
         }
 
-        console.log(getValues('sex_id'))
-
         setValue('birthday', birthdayFormFormat(getValues('birthday')))
       },
       onClose: () => {
