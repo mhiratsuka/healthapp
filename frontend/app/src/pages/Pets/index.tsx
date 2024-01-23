@@ -181,7 +181,7 @@ const ConfirmDialog: FC<{
   content: string
   onClose: () => void
   onSubmit: () => void
-}> = ({ title, content, onClose }) => {
+}> = ({ title, content, onClose, onSubmit }) => {
   return (
     <Dialog open onClose={onClose}>
       <DialogTitle>{title}</DialogTitle>
@@ -191,7 +191,7 @@ const ConfirmDialog: FC<{
         <Button variant='outlined' color='success' onClick={onClose}>
           Cancel
         </Button>
-        <Button variant='contained' color='success' onClick={onClose}>
+        <Button variant='contained' color='success' onClick={onSubmit}>
           Delete
         </Button>
       </DialogActions>
