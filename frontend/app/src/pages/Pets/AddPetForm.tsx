@@ -84,9 +84,8 @@ export const AddPetForm: FC<{
         required
         select
         helperText='Please select your pet sex'
-        defaultValue={1}
         {...register('sex_id', { required: REQUIRED_MESSAGE })}
-        value={value.sex_id}
+        defaultValue={isEdit ? value.sex_id : 1}
       >
         {Object.entries(petSex).map(([key, value]) => {
           return (
