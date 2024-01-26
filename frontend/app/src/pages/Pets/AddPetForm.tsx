@@ -105,7 +105,7 @@ export const AddPetForm: FC<{
           color='success'
           disabled={disableSaveButton}
         >
-          Save
+          {isEdit ? 'Save' : 'Register'}
         </Button>
       </DialogActions>
     </Dialog>
