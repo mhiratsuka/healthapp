@@ -78,6 +78,35 @@ export const usePets = (): {
       })
   }
 
+  const updatePetData = (data: petType): void => {
+    axios
+      .patch(`http://localhost:8000/api/pets/${data.id}`, {
+        ...data,
+      })
+      .then((res) => {
+        handleFormClose()
+        console.log(res)
+        const updatePet = pets.map((obj) => {
+          if (obj.id === data.id) {
+            return {
+              ...obj,
+              name: data.name,
+              birthday: data.birthday,
+              kind: data.kind,
+              sex_id: data.sex_id,
+            }
+          }
+
+          return obj
+        })
+
+        setPets(updatePet)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
   const handleFormClose = (): void => {
     setIsAddFormOpen(false)
     reset({
@@ -126,7 +155,11 @@ export const usePets = (): {
       register,
       errors,
       onSubmit: handleSubmit((data: petType) => {
-        postPetData(data)
+        if (data.id === undefined) {
+          postPetData(data)
+        } else {
+          updatePetData(data)
+        }
       }),
       value: getValues(),
       disableSaveButton: !isDirty || !isValid,
