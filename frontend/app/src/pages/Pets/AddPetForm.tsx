@@ -75,6 +75,7 @@ export const AddPetForm: FC<{
         error={'kind' in errors}
         helperText={errors.kind?.message}
       />
+      {/* FIXME: controlled vs uncontrolled */}
       <TextField
         autoFocus
         margin='dense'
