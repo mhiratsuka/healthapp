@@ -6,7 +6,6 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
-import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import { FC } from 'react'
 import { UseFormRegister, FieldErrors } from 'react-hook-form'
@@ -34,80 +33,79 @@ export const JournalForm: FC<{
   isEdit,
 }) => {
   return (
-    <FormControl onSubmit={onSubmit}>
-      <Dialog open={isOpen} onClose={onClose}>
-        <DialogTitle>{isEdit ? 'Edit Record' : 'New Record'}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Please {isEdit ? 'edit your' : 'enter your new'} record.
-          </DialogContentText>
+    <Dialog open={isOpen} onClose={onClose}>
+      <DialogTitle>{isEdit ? 'Edit Record' : 'New Record'}</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          Please {isEdit ? 'edit your' : 'enter your new'} record.
+        </DialogContentText>
+        <TextField
+          autoFocus
+          margin='dense'
+          id='title'
+          label='Title'
+          type='text'
+          fullWidth
+          required
+          {...register('title', { required: REQUIRED_MESSAGE })}
+          error={'title' in errors}
+          helperText={errors.title?.message}
+        />
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
           <TextField
             autoFocus
             margin='dense'
-            id='title'
-            label='Title'
-            type='text'
+            id='from when'
+            type='datetime-local'
+            label='From when'
             fullWidth
-            required
-            {...register('title', { required: REQUIRED_MESSAGE })}
-            error={'title' in errors}
-            helperText={errors.title?.message}
-          />
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'column',
+            InputLabelProps={{
+              shrink: true,
             }}
-          >
-            <TextField
-              autoFocus
-              margin='dense'
-              id='from when'
-              type='datetime-local'
-              label='From when'
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              required
-              defaultValue={currentTime()}
-              {...register('from_date', { required: REQUIRED_MESSAGE })}
-              error={'from_date' in errors}
-              helperText={errors.from_date?.message}
-            />
-            <ArrowForwardIosIcon />
-            <TextField
-              autoFocus
-              margin='dense'
-              id='to when'
-              type='datetime-local'
-              label='To when'
-              fullWidth
-              InputLabelProps={{
-                shrink: true,
-              }}
-              defaultValue={currentTime()}
-              required
-              {...register('to_date', { required: REQUIRED_MESSAGE })}
-              error={'to_date' in errors}
-              helperText={errors.to_date?.message}
-            />
-          </Box>
+            required
+            defaultValue={currentTime()}
+            {...register('from_date', { required: REQUIRED_MESSAGE })}
+            error={'from_date' in errors}
+            helperText={errors.from_date?.message}
+          />
+          <ArrowForwardIosIcon />
           <TextField
             autoFocus
             margin='dense'
-            id='category'
-            label='Category'
-            type='text'
+            id='to when'
+            type='datetime-local'
+            label='To when'
             fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+            defaultValue={currentTime()}
             required
-            {...register('category', { required: REQUIRED_MESSAGE })}
-            error={'category' in errors}
-            helperText={errors.category?.message}
+            {...register('to_date', { required: REQUIRED_MESSAGE })}
+            error={'to_date' in errors}
+            helperText={errors.to_date?.message}
           />
-          {/* <FormLabel>Health Checks</FormLabel> */}
-          {/* <RadioGroup
+        </Box>
+        <TextField
+          autoFocus
+          margin='dense'
+          id='category'
+          label='Category'
+          type='text'
+          fullWidth
+          required
+          {...register('category', { required: REQUIRED_MESSAGE })}
+          error={'category' in errors}
+          helperText={errors.category?.message}
+        />
+        {/* <FormLabel>Health Checks</FormLabel> */}
+        {/* <RadioGroup
             aria-labelledby='demo-radio-buttons-group-label'
             defaultValue='verygood'
             name='radio-buttons-group'
@@ -133,35 +131,34 @@ export const JournalForm: FC<{
               label='Not bad'
             />
           </RadioGroup> */}
-          <TextField
-            autoFocus
-            margin='dense'
-            id='note'
-            label='Note'
-            type='text'
-            multiline
-            minRows={2}
-            fullWidth
-            required
-            {...register('note', { required: REQUIRED_MESSAGE })}
-            error={'note' in errors}
-            helperText={errors.note?.message}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose} variant='outlined' color='success'>
-            Cancel
-          </Button>
-          <Button
-            onClick={onSubmit}
-            variant='contained'
-            color='success'
-            disabled={disableSubmitButton}
-          >
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </FormControl>
+        <TextField
+          autoFocus
+          margin='dense'
+          id='note'
+          label='Note'
+          type='text'
+          multiline
+          minRows={2}
+          fullWidth
+          required
+          {...register('note', { required: REQUIRED_MESSAGE })}
+          error={'note' in errors}
+          helperText={errors.note?.message}
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose} variant='outlined' color='success'>
+          Cancel
+        </Button>
+        <Button
+          onClick={onSubmit}
+          variant='contained'
+          color='success'
+          disabled={disableSubmitButton}
+        >
+          Save
+        </Button>
+      </DialogActions>
+    </Dialog>
   )
 }
