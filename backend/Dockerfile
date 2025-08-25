@@ -1,5 +1,11 @@
 FROM ruby:3.0
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends \
+    nodejs \
+    postgresql-client \
+    libpq-dev \
+    build-essential && \
+    rm -rf /var/lib/apt/lists/*
 RUN mkdir /healthapp
 WORKDIR /healthapp
 RUN git clone https://github.com/vishnubob/wait-for-it.git /tmp/wait-for-it \
@@ -16,3 +22,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
+ENV DISABLE_SPRING=1
